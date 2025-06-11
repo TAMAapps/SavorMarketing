@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor - Remember Every Meal You've Ever Loved</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35; /* Orange for CTA only */
+            --secondary: #2D3047;
+            --accent: #4CAF50;
+            --background: #F7F3EC; /* Warm, neutral off-white */
+            --text: #23272F;
+            --light-text: #666;
+            --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--background);
+            padding-top: 120px;
+            padding-bottom: 40px;
+        }
+        .hero-content {
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        .hero-left, .hero-right {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-center {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 320px;
+        }
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+        .hero-subheadline {
+            font-size: 1.15rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 420px;
+        }
+        .hero-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 1.2rem auto;
+        }
+        .form-input {
+            width: 100%;
+            padding: 1.1rem 1.2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            box-shadow: var(--shadow-md);
+            transition: border 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border: 1.5px solid var(--primary);
+        }
+        .cta-button {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            padding: 1.1rem 0;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background: #e85a2a;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .cta-subtext {
+            font-size: 0.98rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-align: center;
+        }
+        /* Phone mockup */
+        .phone-mockup {
+            width: 220px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+        .hero-app-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 1.2rem;
+        }
+        .hero-app-row img {
+            width: 120px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            background: #fff;
+        }
+        .hero-app-row .phone-mockup {
+            width: 160px;
+            margin: 0;
+        }
+        /* Food images */
+        .hero-food-left, .hero-food-right {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+        .hero-food-left {
+            left: -120px;
+            top: 40px;
+            width: 340px;
+            height: auto;
+        }
+        .hero-food-right {
+            right: -120px;
+            top: 80px;
+            width: 340px;
+            height: auto;
+        }
+        @media (max-width: 1100px) {
+            .hero-content { flex-direction: column; gap: 0; }
+            .hero-left, .hero-right, .hero-center { min-width: 0; }
+            .hero-food-left, .hero-food-right { display: none; }
+        }
+        @media (max-width: 600px) {
+            .hero-headline { font-size: 2rem; }
+            .hero-app-row img, .hero-app-row .phone-mockup { width: 90px; }
+            .hero-app-row .phone-mockup { width: 110px; }
+        }
+        /* Hide orange from icons and text */
+        .step-icon, .benefit-icon { color: var(--secondary) !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Savor</div>
+        </div>
+    </header>
+    <section class="hero">
+        <img class="hero-food-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Food bowl left">
+        <img class="hero-food-right" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80" alt="Food bowl right">
+        <div class="container hero-content">
+            <div class="hero-left"></div>
+            <div class="hero-center">
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.2rem;">
+                    <img src="https://placehold.co/120x40/23272F/FFF?text=SAVOR" alt="Savor logo" style="border-radius:12px; margin-bottom: 0.5rem;">
+                    <span style="color: var(--light-text); font-size: 1rem; margin-bottom: 0.2rem;">Download on <i class="fab fa-apple"></i></span>
+                </div>
+                <div class="hero-headline"><strong>Remember Every Meal You've Ever Loved</strong></div>
+                <div class="hero-subheadline">Track, rate, and relive every dish—by city, restaurant, or flavor. Savor makes your food memories unforgettable.</div>
+                <form class="hero-form" id="waitlistForm">
+                    <input type="email" class="form-input" placeholder="Enter your email" required>
+                    <button type="submit" class="cta-button">Join the Savor Waitlist!</button>
+                    <div class="cta-subtext">First 100 signups receive 3 months premium access for FREE!</div>
+                </form>
+                <div class="hero-app-row">
+                    <img src="https://placehold.co/120x240/FFF/23272F?text=App+Screen+1" alt="App screen 1">
+                    <img class="phone-mockup" src="https://pngimg.com/d/iphone_14_PNG20.png" alt="Phone mockup" style="background: none;">
+                    <img src="https://placehold.co/120x240/FFF/23272F?text=App+Screen+2" alt="App screen 2">
+                </div>
+            </div>
+            <div class="hero-right"></div>
+        </div>
+    </section>
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>Snap or Search</h3>
+                    <p>Instantly add a dish with a photo or quick entry</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>Score & Note</h3>
+                    <p>Rate, review, and capture every nuance-taste, texture, and memories</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>Organize & Relive</h3>
+                    <p>Filter by city, restaurant, or year. Your food journey, always at your fingertips</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Food Lovers Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LC</div>
+                        <div>
+                            <div class="testimonial-name">Lila Chang</div>
+                            <div class="testimonial-title">Food Blogger & Global Food Explorer</div>
+                        </div>
+                    </div>
+                    <p>"I've been documenting my food experiences for years, but I always felt like something was missing — a way to actually remember what I loved and why. The Savor app is exactly what I've been craving. Now, I can finally look back and see how that seared foie gras in Paris compares to the one I had in Tokyo last year. It's like a time capsule for my taste buds, and I can't wait to start snapping and savoring every meal."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RC</div>
+                        <div>
+                            <div class="testimonial-name">Ryan Cole</div>
+                            <div class="testimonial-title">Food Blogger & Global Food Explorer</div>
+                        </div>
+                    </div>
+                    <p>"As a food critic, I'm constantly rating dishes, but over time, those notes get lost in endless spreadsheets and scribbled notebooks. Savor is a game changer. It's the ultimate food database that not only stores my ratings but also organizes them so I can track the evolution of my palate over the years. Finally, I have a way to see how that Michelin-starred duck confit in Lyon actually stacks up against my all-time favorites."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">IR</div>
+                        <div>
+                            <div class="testimonial-name">Isabel Reyes</div>
+                            <div class="testimonial-title">Food Photographer & Social Media Influencer</div>
+                        </div>
+                    </div>
+                    <p>"Some meals are too extraordinary to forget, but let's face it — photos and videos get buried in our camera rolls. Savor turns every bite into a lasting memory that's not just captured but also catalogued. It's like having a visual food diary that keeps my best meals organized and accessible. I'm so ready to use this app to relive every spectacular tasting menu and street food find."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Key Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Relive Memories</h3>
+                    <p>Turn your eating habits into a data-driven superpower</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Smart Recall</h3>
+                    <p>Instantly surfaces your highest-rated dishes</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3>Personal Food Lists</h3>
+                    <p>Rank dishes by city, cuisine, or restaurant in real time</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Coming Soon</h3>
+                    <p>Follow other foodies with similar taste profiles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="waitlist" id="waitlist" style="display:none;"></section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Savor. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Form submission handling
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thanks for joining the waitlist! We\'ll be in touch soon.');
+            this.reset();
+        });
+        // Add scroll-based animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('section').forEach(section => {
+            if(section.classList.contains('hero')) return;
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
