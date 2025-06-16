@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Savor Professional - The premier food documentation platform for critics, chefs, and industry professionals. Advanced AI, detailed organization, efficient workflows.">
+    <meta name="keywords" content="food critic app, professional food documentation, restaurant review tool, culinary professional, food industry software, chef app">
+    <meta name="author" content="Savor">
+    <meta property="og:title" content="Savor Professional - The Food Critic's Essential Tool">
+    <meta property="og:description" content="Advanced food documentation platform designed for critics, chefs, and industry professionals. AI-powered scanning, detailed organization, and professional workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://savor.app/og-image-pro.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Savor Professional - The Food Critic's Essential Tool">
+    <meta name="twitter:description" content="Advanced food documentation platform designed for critics, chefs, and industry professionals.">
+    <title>Savor Professional - The Food Critic's Essential Tool | Professional Food Documentation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .highlight {
+            color: #D4A574;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #D4A574;
+            text-decoration: none;
+        }
+        
+        .logo-pro {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #F8F9FA;
+            margin-left: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #F8F9FA;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #D4A574;
+        }
+        
+        .cta-nav {
+            background: #D4A574;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .cta-nav:hover {
+            background: #C19660;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(212, 165, 116, 0.9) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f9fa" width="1200" height="800"/><rect fill="%23e9ecef" x="0" y="0" width="400" height="800"/><rect fill="%23dee2e6" x="400" y="0" width="400" height="800"/><rect fill="%23ced4da" x="800" y="0" width="400" height="800"/><g opacity="0.3"><circle fill="%23d4a574" cx="200" cy="200" r="100"/><circle fill="%23c19660" cx="600" cy="300" r="80"/><circle fill="%23d4a574" cx="1000" cy="150" r="60"/><rect fill="%23c19660" x="50" y="500" width="150" height="100" rx="10"/><rect fill="%23d4a574" x="500" y="600" width="200" height="80" rx="40"/><rect fill="%23c19660" x="850" y="550" width="180" height="120" rx="20"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1.5" fill="rgba(248,249,250,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(248,249,250,0.1)"/><circle cx="40" cy="80" r="0.8" fill="rgba(248,249,250,0.1)"/></svg>');
+            animation: float 25s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #2C3E50;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2C3E50;
+            transform: translateY(-3px);
+        }
+        
+        .professional-badge {
+            display: inline-block;
+            background: rgba(248, 249, 250, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(248, 249, 250, 0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: #F8F9FA;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #2C3E50;
+            opacity: 0.8;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #E9ECEF;
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(44, 62, 80, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4A574, #C19660);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+        
+        .feature-card p {
+            color: #2C3E50;
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-highlight {
+            color: #D4A574;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Workflow Section */
+        .workflow {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .workflow-step {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #D4A574, #C19660);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .workflow-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 120px 0;
+            background: #2C3E50;
+            color: white;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #D4A574;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial {
+            background: rgba(248, 249, 250, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            border: 1px solid rgba(248, 249, 250, 0.2);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #D4A574;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4A574, #C19660);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .author-info p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #D4A574 0%, #C19660 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #D4A574;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #D4A574;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 2rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .workflow-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .features,
+            .workflow,
+            .social-proof,
+            .final-cta {
+                padding: 80px 0;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Savor Professional",
+        "applicationCategory": "FoodAndDrink",
+        "operatingSystem": "iOS, Android",
+        "description": "Professional food documentation platform for critics, chefs, and industry professionals. Advanced AI scanning, detailed organization, and efficient workflows.",
+        "url": "https://savor.app/professional",
+        "targetAudience": {
+            "@type": "Audience",
+            "audienceType": "Food Critics, Culinary Professionals, Restaurant Industry"
+        },
+        "featureList": [
+            "AI-powered dish recognition",
+            "Advanced organization system",
+            "Professional note-taking",
+            "Detailed establishment tracking",
+            "Workflow optimization tools"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1200"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Savor<span class="logo-pro">Professional</span></a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <a href="#download" class="cta-nav">Request Access</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="professional-badge">✨ For Food Critics & Industry Professionals</div>
+                    <h1>The Professional's <span class="highlight">Essential Tool</span></h1>
+                    <p>Advanced food documentation platform designed for critics, chefs, and industry professionals. Track establishments, organize detailed reviews, and streamline your culinary workflow with AI-powered precision.</p>
+                    <div class="cta-buttons">
+                        <a href="#download" class="btn-primary">Request Professional Access</a>
+                        <a href="#workflow" class="btn-secondary">See Professional Features</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">5,000+</span>
+                            <span>Professional Users</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">50,000+</span>
+                            <span>Reviews Documented</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">500+</span>
+                            <span>Michelin Establishments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Built for Professional Excellence</h2>
+                <p class="section-subtitle">Every feature designed to meet the sophisticated needs of food industry professionals. From detailed establishment tracking to advanced organizational systems.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Advanced Establishment Tracking</h3>
+                        <p>Comprehensive database for restaurants, cafes, and food venues. Track Michelin stars, chef changes, menu updates, and detailed establishment profiles with professional-grade precision.</p>
+                        <div class="feature-highlight">• Michelin Integration • Chef Tracking • Menu History</div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Sophisticated Organization System</h3>
+                        <p>Multi-dimensional categorization by cuisine, location, price point, rating scale, and custom professional criteria. Advanced search and filtering for instant access to any review.</p>
+                        <div class="feature-highlight">• Custom Rating Scales • Advanced Filters • Bulk Organization</div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">✍️</div>
+                        <h3>Professional Note-Taking</h3>
+                        <p>Detailed review templates, voice-to-text transcription, and structured note organization. Export to professional formats for publications and detailed reporting.</p>
+                        <div class="feature-highlight">• Voice Transcription • Export Options • Review Templates</div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Workflow Optimization</h3>
+                        <p>Streamlined processes for professional reviewers. Batch operations, automated categorization, and intelligent suggestions to maximize efficiency during busy review periods.</p>
+                        <div class="feature-highlight">• Batch Processing • Auto-Categorization • Smart Suggestions</div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Enterprise Security & Privacy</h3>
+                        <p>Professional-grade security for sensitive reviews and industry information. Private workspaces, team collaboration tools, and secure data handling for confidential assessments.</p>
+                        <div class="feature-highlight">• Private Workspaces • Team Collaboration • Secure Export</div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Analytics & Insights</h3>
+                        <p>Professional reporting tools with trend analysis, rating distributions, and performance metrics. Generate insights for publications, consulting, and industry analysis.</p>
+                        <div class="feature-highlight">• Trend Analysis • Custom Reports • Performance Metrics</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="workflow">
+            <div class="container">
+                <h2 class="section-title">Professional Workflow</h2>
+                <p class="section-subtitle">Streamlined process designed for efficiency and thoroughness in professional food documentation</p>
+                
+                <div class="workflow-grid">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h3>Rapid Documentation</h3>
+                        <p>AI-powered scanning identifies dishes instantly. Add professional notes, ratings, and establishment details with voice-to-text capabilities.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h3>Advanced Organization</h3>
+                        <p>Automatic categorization with custom professional criteria. Sort by establishment type, chef, cuisine complexity, or any custom parameters.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h3>Professional Export</h3>
+                        <p>Generate detailed reports, export to publishing formats, or create comprehensive establishment profiles for professional use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="social-proof">
+            <div class="container">
+                <h2 class="section-title">Trusted by Industry Professionals</h2>
+                <p class="section-subtitle">Food critics, renowned chefs, and industry experts rely on Savor Professional for their documentation needs.</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Professional Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Reviews Documented</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Michelin Establishments</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9★</span>
+                        <span class="stat-label">Professional Rating</span>
+                    </div>
+                </div>
+                
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <p class="testimonial-text">Savor Professional has transformed my review process. I've documented over 800 establishments with incredible detail and organization. The AI recognition is remarkably accurate, even for complex dishes.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JR</div>
+                            <div class="author-info">
+                                <h4>James Rodriguez</h4>
+                                <p>Michelin Guide Inspector</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p class="testimonial-text">As a food critic for three major publications, I need sophisticated organization tools. Savor Professional's advanced categorization and export features have streamlined my entire workflow.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EC</div>
+                            <div class="author-info">
+                                <h4>Elena Chen</h4>
+                                <p>Senior Food Critic, Gourmet Magazine</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p class="testimonial-text">The level of detail and professional features is exceptional. I can track every aspect of my culinary experiences - from ingredient sourcing to preparation techniques. Essential for serious food professionals.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MS</div>
+                            <div class="author-info">
+                                <h4>Marcus Stevenson</h4>
+                                <p>Executive Chef & Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="final-cta">
+            <div class="container">
+                <h2>Elevate Your Professional Practice</h2>
+                <p>Join the elite community of food professionals who rely on Savor for their most important documentation needs. Request professional access today.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">Request Professional Access</a>
+                    <a href="#" class="btn-secondary">Schedule Demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Savor Professional</h3>
+                    <p>Advanced food documentation platform designed for critics, chefs, and industry professionals.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Professional Features</h3>
+                    <ul>
+                        <li><a href="#features">Advanced Organization</a></li>
+                        <li><a href="#workflow">Professional Workflow</a></li>
+                        <li><a href="#security">Enterprise Security</a></li>
+                        <li><a href="#analytics">Analytics & Reports</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#help">Professional Support</a></li>
+                        <li><a href="#training">Training Resources</a></li>
+                        <li><a href="#api">API Documentation</a></li>
+                        <li><a href="#integration">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#industry-news">Industry News</a></li>
+                        <li><a href="#professional-network">Professional Network</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Savor Professional. All rights reserved. • Designed for culinary excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.98)';
+            } else {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+            }
+        });
+
+        // Professional feature highlights
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderColor = '#D4A574';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderColor = '#E9ECEF';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
