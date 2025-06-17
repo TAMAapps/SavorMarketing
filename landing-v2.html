@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Savor - Your personal food memory vault. Capture, organize, and rediscover your culinary journey with AI-powered intelligence.">
+  <meta name="keywords" content="food memory, AI recognition, culinary experiences, food journal, dish scanner">
+  <title>Savor - Your Personal Food Memory Vault</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Sans+Pro:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['Playfair Display', 'Georgia', 'serif'],
+            'sans': ['Source Sans Pro', 'system-ui', 'sans-serif'],
+            'display': ['Montserrat', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            'savor-primary': '#2C3E50',
+            'savor-primary-light': '#34495E',
+            'savor-primary-dark': '#1A252F',
+            'savor-secondary': '#6B7280',
+            'savor-secondary-light': '#9CA3AF',
+            'savor-secondary-dark': '#4B5563',
+            'savor-cta': '#FF6B35',
+            'savor-cta-light': '#FF8355',
+            'savor-cta-dark': '#E55A2B'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out infinite 2s',
+            'shimmer': 'shimmer 2s linear infinite',
+            'gradient': 'gradient 15s ease infinite',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    /* Premium animations and effects */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .animate-gradient {
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    
+    /* Glass morphism effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Smooth scroll behavior */
+    html { scroll-behavior: smooth; }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #E55A2B; }
+  </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass backdrop-blur-md border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div class="mr-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-savor-primary to-savor-primary-light shadow-lg">
+            <span class="text-xl font-bold text-white">S</span>
+          </div>
+          <span class="font-serif text-2xl font-bold text-slate-800">Savor</span>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Features</a>
+          <a href="#testimonials" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Reviews</a>
+          <a href="#pricing" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Pricing</a>
+          <a href="#about" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">About</a>
+        </div>
+        
+        <!-- CTA Button -->
+        <div class="flex items-center space-x-4">
+          <button class="hidden sm:block text-slate-600 hover:text-savor-primary transition-colors font-medium">Sign In</button>
+          <button class="rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-6 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 pt-24 pb-20 lg:pt-32 lg:pb-28">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-savor-secondary-light to-savor-secondary rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+      <div class="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-savor-secondary to-savor-secondary-light rounded-full mix-blend-multiply filter blur-xl animate-float-delayed"></div>
+      <div class="absolute bottom-20 left-40 w-72 h-72 bg-gradient-to-r from-savor-secondary-light to-savor-secondary rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <!-- Professional Badge -->
+        <div class="mb-8 inline-flex items-center rounded-full bg-gradient-to-r from-slate-100 to-slate-200 px-6 py-3 text-sm font-medium text-savor-primary ring-1 ring-slate-300 shadow-sm">
+          <span class="mr-2">✨</span>
+          For Food Enthusiasts & Professionals
+          <span class="ml-2 rounded-full bg-savor-primary px-2 py-1 text-xs text-white">NEW</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="mb-8 font-serif text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl lg:text-7xl">
+          Your Personal 
+          <span class="relative inline-block">
+            <span class="bg-gradient-to-r from-savor-primary via-savor-primary-light to-savor-primary bg-clip-text text-transparent animate-gradient">Food Memory Vault</span>
+            <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-savor-cta to-savor-cta-light rounded-full"></div>
+          </span>
+        </h1>
+
+        <!-- Hero Description -->
+        <p class="mb-12 mx-auto max-w-2xl text-xl leading-relaxed text-slate-600 sm:text-2xl">
+          Scan, score, and organize your culinary experiences with AI. From street food to Michelin stars - never forget another amazing dish.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mb-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
+          <button class="group relative overflow-hidden rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <span class="relative z-10 flex items-center">
+              <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Start Building Your Food Memory Vault
+            </span>
+            <!-- Shimmer Effect -->
+            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
+          </button>
+
+          <button class="group rounded-full border-2 border-savor-primary px-10 py-5 text-lg font-semibold text-savor-primary transition-all duration-300 hover:bg-savor-primary hover:text-white hover:scale-105 hover:shadow-xl">
+            <span class="flex items-center">
+              <svg class="mr-3 h-6 w-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 4h.01M15 4h.01M7 8h.01M3 12h.01M7 16h.01"/>
+              </svg>
+              Watch Demo Video
+            </span>
+          </button>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="mb-16 flex justify-center">
+          <div class="group rounded-2xl bg-white p-8 shadow-2xl ring-1 ring-slate-200 transition-all duration-300 hover:shadow-2xl hover:scale-105">
+            <div class="flex items-center gap-6">
+              <div class="flex h-32 w-32 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl transition-transform duration-300 group-hover:scale-105">
+                <div class="text-center">
+                  <div class="text-4xl mb-2">📱</div>
+                  <div class="text-xs font-semibold text-slate-600">Scan to Download</div>
+                </div>
+              </div>
+              <div class="text-left">
+                <h3 class="font-bold text-slate-800 text-lg mb-2">Quick Mobile Access</h3>
+                <p class="text-sm text-slate-600 mb-4">Scan with your phone camera to download instantly</p>
+                <div class="flex gap-3">
+                  <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">📱 App Store</div>
+                  <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">🤖 Google Play</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div class="group text-center transform transition-all duration-300 hover:scale-105">
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">2.4M+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Dishes Scanned</div>
+          </div>
+          <div class="group text-center transform transition-all duration-300 hover:scale-105">
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">850K+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Food Memories</div>
+          </div>
+          <div class="group text-center transform transition-all duration-300 hover:scale-105">
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">195+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Countries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Animation Elements -->
+    <div class="absolute top-32 left-16 animate-float">
+      <div class="h-4 w-4 rounded-full bg-savor-secondary-light opacity-60 shadow-lg"></div>
+    </div>
+    <div class="absolute top-48 right-24 animate-float-delayed">
+      <div class="h-6 w-6 rounded-full bg-savor-secondary opacity-40 shadow-lg"></div>
+    </div>
+    <div class="absolute bottom-32 left-32 animate-float" style="animation-delay: 1s;">
+      <div class="h-3 w-3 rounded-full bg-savor-secondary opacity-50 shadow-lg"></div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="relative py-20 bg-gradient-to-r from-slate-50 via-slate-100 to-slate-50">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="h-full w-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <pattern id="stats-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <circle cx="10" cy="10" r="1" fill="currentColor" class="text-savor-primary"/>
+        </pattern>
+        <rect width="100" height="100" fill="url(#stats-pattern)"/>
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mx-auto mb-20 max-w-3xl text-center">
+        <h2 class="font-serif text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl">
+          Trusted by Food Lovers
+          <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Worldwide</span>
+        </h2>
+        <p class="mt-6 text-xl leading-relaxed text-slate-600">
+          Join millions who are building their personal food memory collections with Savor's AI-powered platform
+        </p>
+      </div>
+
+      <!-- Statistics Grid -->
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        
+        <!-- Stat 1: Dishes Scanned -->
+        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
+          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
+          <div class="relative">
+            <div class="mb-4 flex items-center">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
+                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">2.4M+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Dishes Scanned</div>
+            <div class="mt-3 text-xs text-slate-500">Using AI recognition technology</div>
+          </div>
+        </div>
+
+        <!-- Stat 2: Food Memories -->
+        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
+          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
+          <div class="relative">
+            <div class="mb-4 flex items-center">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
+                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">850K+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Food Memories Created</div>
+            <div class="mt-3 text-xs text-slate-500">Stories and experiences saved</div>
+          </div>
+        </div>
+
+        <!-- Stat 3: Countries -->
+        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
+          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
+          <div class="relative">
+            <div class="mb-4 flex items-center">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
+                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">195+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Countries</div>
+            <div class="mt-3 text-xs text-slate-500">Global culinary diversity</div>
+          </div>
+        </div>
+
+        <!-- Stat 4: Active Users -->
+        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
+          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
+          <div class="relative">
+            <div class="mb-4 flex items-center">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
+                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">320K+</div>
+            <div class="mt-2 text-sm font-medium text-slate-600">Active Food Enthusiasts</div>
+            <div class="mt-3 text-xs text-slate-500">Growing community daily</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-20 text-center">
+        <p class="text-sm text-slate-500 mb-8">Trusted by food enthusiasts at</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">
+          <div class="font-medium text-slate-600 text-lg">Michelin Guide</div>
+          <div class="font-medium text-slate-600 text-lg">James Beard Foundation</div>
+          <div class="font-medium text-slate-600 text-lg">Zagat</div>
+          <div class="font-medium text-slate-600 text-lg">OpenTable</div>
+          <div class="font-medium text-slate-600 text-lg">Food & Wine</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="relative py-24 bg-white">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-slate-100 to-slate-200 opacity-30 blur-3xl"></div>
+      <div class="absolute bottom-20 right-1/4 h-48 w-48 rounded-full bg-gradient-to-r from-slate-200 to-slate-300 opacity-20 blur-2xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mx-auto mb-24 max-w-4xl text-center">
+        <div class="mb-6 inline-flex items-center rounded-full bg-slate-100 px-6 py-3 text-sm font-medium text-savor-primary">
+          <span class="mr-2">🍽️</span>
+          Powered by Advanced AI
+        </div>
+        <h2 class="font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl lg:text-7xl">
+          Turn Every Meal Into a
+          <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Lasting Memory</span>
+        </h2>
+        <p class="mt-8 text-2xl leading-relaxed text-slate-600">
+          Our intelligent platform helps you capture, organize, and rediscover your culinary journey with cutting-edge AI recognition and intuitive memory-keeping tools.
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
+        
+        <!-- Feature 1: AI Scanning -->
+        <div class="group relative">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Feature Icon -->
+            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-2xl">
+              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            
+            <!-- Feature Content -->
+            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800">Instant AI Recognition</h3>
+            <p class="mb-8 text-slate-600 leading-relaxed text-lg">
+              Simply point your camera at any dish. Our advanced AI instantly identifies ingredients, cuisine type, and suggests flavor profiles with 95% accuracy.
+            </p>
+            
+            <!-- Feature Details -->
+            <ul class="space-y-3 text-sm text-slate-500">
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Real-time ingredient detection</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Cuisine classification</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Nutritional insights</span>
+              </li>
+            </ul>
+
+            <!-- Floating Animation Element -->
+            <div class="absolute top-6 right-6 h-4 w-4 rounded-full bg-savor-secondary-light opacity-60 animate-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Smart Organization -->
+        <div class="group relative">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Feature Icon -->
+            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 text-white shadow-2xl">
+              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            
+            <!-- Feature Content -->
+            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800">Smart Memory Vault</h3>
+            <p class="mb-8 text-slate-600 leading-relaxed text-lg">
+              Automatically organize your food memories by cuisine, location, rating, or custom tags. Our smart categorization learns your preferences over time.
+            </p>
+            
+            <!-- Feature Details -->
+            <ul class="space-y-3 text-sm text-slate-500">
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Auto-categorization by cuisine</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Location-based grouping</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Personal rating system</span>
+              </li>
+            </ul>
+
+            <!-- Floating Animation Element -->
+            <div class="absolute top-6 right-6 h-4 w-4 rounded-full bg-slate-400 opacity-60 animate-bounce"></div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Discovery Engine -->
+        <div class="group relative">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 to-green-50 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Feature Icon -->
+            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-2xl">
+              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            
+            <!-- Feature Content -->
+            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800">Intelligent Discovery</h3>
+            <p class="mb-8 text-slate-600 leading-relaxed text-lg">
+              Rediscover forgotten favorites and get personalized recommendations based on your taste profile, dietary preferences, and dining history.
+            </p>
+            
+            <!-- Feature Details -->
+            <ul class="space-y-3 text-sm text-slate-500">
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Personalized recommendations</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Mood-based search</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">Dietary filtering</span>
+              </li>
+            </ul>
+
+            <!-- Floating Animation Element -->
+            <div class="absolute top-6 right-6 h-4 w-4 rounded-full bg-emerald-300 opacity-60 animate-ping"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Secondary Features Row -->
+      <div class="mt-24 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        
+        <!-- Feature: Social Sharing -->
+        <div class="text-center group">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+            </svg>
+          </div>
+          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Social Sharing</h4>
+          <p class="text-slate-600 leading-relaxed">Share your food memories with friends and build your culinary reputation</p>
+        </div>
+
+        <!-- Feature: Professional Tools -->
+        <div class="text-center group">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Pro Analytics</h4>
+          <p class="text-slate-600 leading-relaxed">Advanced insights for food critics, chefs, and industry professionals</p>
+        </div>
+
+        <!-- Feature: Offline Access -->
+        <div class="text-center group">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Offline Ready</h4>
+          <p class="text-slate-600 leading-relaxed">Access your memories anywhere, even without internet connection</p>
+        </div>
+
+        <!-- Feature: Export Options -->
+        <div class="text-center group">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Export & Backup</h4>
+          <p class="text-slate-600 leading-relaxed">Export your food journal to PDF, Excel, or cloud storage</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="relative py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <svg class="h-full w-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="testimonial-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1" fill="currentColor" class="text-savor-primary"/>
+            <circle cx="18" cy="18" r="0.5" fill="currentColor" class="text-savor-primary"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#testimonial-pattern)"/>
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mx-auto mb-24 max-w-4xl text-center">
+        <div class="mb-6 inline-flex items-center rounded-full bg-slate-100 px-6 py-3 text-sm font-medium text-savor-primary">
+          <span class="mr-2">⭐</span>
+          Loved by Food Enthusiasts Worldwide
+        </div>
+        <h2 class="font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl">
+          What Our Community
+          <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Says About Us</span>
+        </h2>
+        <p class="mt-8 text-2xl leading-relaxed text-slate-600">
+          From home cooks to Michelin-starred chefs, discover how Savor is transforming the way people connect with their food memories.
+        </p>
+      </div>
+
+      <!-- Featured Testimonial -->
+      <div class="mb-24">
+        <div class="mx-auto max-w-5xl">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-savor-cta to-savor-cta-light p-16 text-white shadow-2xl">
+            <!-- Quote Icon -->
+            <div class="absolute top-12 left-12 text-8xl opacity-20">"</div>
+            
+            <div class="relative">
+              <blockquote class="text-3xl font-medium leading-relaxed sm:text-4xl">
+                "Savor has completely revolutionized how I document my culinary adventures. As a food critic, being able to instantly recognize dishes and organize my tasting notes has elevated my work to a whole new level."
+              </blockquote>
+              
+              <div class="mt-12 flex items-center">
+                <div class="h-20 w-20 overflow-hidden rounded-full bg-white/20 flex items-center justify-center text-3xl">
+                  👨‍🍳
+                </div>
+                <div class="ml-6">
+                  <div class="text-2xl font-semibold">Marcus Chen</div>
+                  <div class="text-amber-100 text-lg">James Beard Award Winner & Food Critic</div>
+                  <div class="mt-2 flex items-center text-amber-200">
+                    <span class="text-lg">★★★★★</span>
+                    <span class="ml-3 text-lg">Michelin Guide Contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Floating Elements -->
+            <div class="absolute bottom-8 right-12 text-6xl opacity-30 animate-pulse">🌟</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        
+        <!-- Testimonial 1: Home Cook -->
+        <div class="group relative">
+          <div class="h-full overflow-hidden rounded-3xl bg-white p-10 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Rating Stars -->
+            <div class="mb-6 flex items-center">
+              <div class="flex text-yellow-400 text-xl">
+                <span>★★★★★</span>
+              </div>
+              <span class="ml-3 text-slate-500">5.0</span>
+            </div>
+            
+            <!-- Quote -->
+            <blockquote class="mb-8 text-slate-700 leading-relaxed text-lg">
+              "I love trying new restaurants with my family, and Savor helps me remember every special meal. The AI scanning is so accurate - it even recognized my grandmother's traditional dumplings!"
+            </blockquote>
+            
+            <!-- Author -->
+            <div class="flex items-center">
+              <div class="h-16 w-16 overflow-hidden rounded-full bg-gradient-to-r from-pink-400 to-purple-400 flex items-center justify-center text-white text-2xl">
+                👩
+              </div>
+              <div class="ml-4">
+                <div class="font-semibold text-slate-800 text-lg">Sarah Kim</div>
+                <div class="text-slate-500">Home Cook & Food Blogger</div>
+              </div>
+            </div>
+            
+            <!-- Hover Effect -->
+            <div class="absolute top-6 right-6 h-3 w-3 rounded-full bg-savor-secondary-light opacity-0 transition-opacity duration-300 group-hover:opacity-60"></div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Professional Chef -->
+        <div class="group relative">
+          <div class="h-full overflow-hidden rounded-3xl bg-white p-10 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Rating Stars -->
+            <div class="mb-6 flex items-center">
+              <div class="flex text-yellow-400 text-xl">
+                <span>★★★★★</span>
+              </div>
+              <span class="ml-3 text-slate-500">5.0</span>
+            </div>
+            
+            <!-- Quote -->
+            <blockquote class="mb-8 text-slate-700 leading-relaxed text-lg">
+              "As an executive chef, I need to stay on top of food trends globally. Savor's intelligent categorization and discovery features keep me inspired with new ideas from around the world."
+            </blockquote>
+            
+            <!-- Author -->
+            <div class="flex items-center">
+              <div class="h-16 w-16 overflow-hidden rounded-full bg-gradient-to-r from-blue-400 to-teal-400 flex items-center justify-center text-white text-2xl">
+                👨‍🍳
+              </div>
+              <div class="ml-4">
+                <div class="font-semibold text-slate-800 text-lg">Diego Rodriguez</div>
+                <div class="text-slate-500">Executive Chef, Tierra Restaurant</div>
+              </div>
+            </div>
+            
+            <!-- Hover Effect -->
+            <div class="absolute top-6 right-6 h-3 w-3 rounded-full bg-savor-secondary-light opacity-0 transition-opacity duration-300 group-hover:opacity-60"></div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Food Influencer -->
+        <div class="group relative">
+          <div class="h-full overflow-hidden rounded-3xl bg-white p-10 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- Rating Stars -->
+            <div class="mb-6 flex items-center">
+              <div class="flex text-yellow-400 text-xl">
+                <span>★★★★★</span>
+              </div>
+              <span class="ml-3 text-slate-500">5.0</span>
+            </div>
+            
+            <!-- Quote -->
+            <blockquote class="mb-8 text-slate-700 leading-relaxed text-lg">
+              "My followers love seeing my food adventures, and Savor makes it so easy to create beautiful, organized content. The export features are perfect for my social media planning."
+            </blockquote>
+            
+            <!-- Author -->
+            <div class="flex items-center">
+              <div class="h-16 w-16 overflow-hidden rounded-full bg-gradient-to-r from-green-400 to-emerald-400 flex items-center justify-center text-white text-2xl">
+                👩‍🍳
+              </div>
+              <div class="ml-4">
+                <div class="font-semibold text-slate-800 text-lg">Emma Thompson</div>
+                <div class="text-slate-500">Food Influencer (2.3M followers)</div>
+              </div>
+            </div>
+            
+            <!-- Hover Effect -->
+            <div class="absolute top-6 right-6 h-3 w-3 rounded-full bg-savor-secondary-light opacity-0 transition-opacity duration-300 group-hover:opacity-60"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- App Store Reviews Section -->
+      <div class="mt-24">
+        <div class="mx-auto max-w-5xl">
+          <div class="rounded-3xl bg-slate-800 p-16 text-white">
+            <div class="text-center">
+              <h3 class="mb-8 font-serif text-4xl font-bold">Consistently 5-Star Rated</h3>
+              <div class="mb-12 flex items-center justify-center gap-16">
+                <!-- App Store -->
+                <div class="text-center">
+                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.9</div>
+                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
+                    <span>★★★★★</span>
+                  </div>
+                  <div class="text-slate-300 text-lg">App Store</div>
+                  <div class="text-slate-400">12K+ reviews</div>
+                </div>
+                
+                <!-- Google Play -->
+                <div class="text-center">
+                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.8</div>
+                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
+                    <span>★★★★★</span>
+                  </div>
+                  <div class="text-slate-300 text-lg">Google Play</div>
+                  <div class="text-slate-400">8K+ reviews</div>
+                </div>
+                
+                <!-- Product Hunt -->
+                <div class="text-center">
+                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.9</div>
+                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
+                    <span>★★★★★</span>
+                  </div>
+                  <div class="text-slate-300 text-lg">Product Hunt</div>
+                  <div class="text-slate-400">2K+ votes</div>
+                </div>
+              </div>
+              
+              <!-- Recent Review Quote -->
+              <blockquote class="text-2xl italic text-slate-200 leading-relaxed">
+                "This app has changed the way I think about food. It's not just about eating anymore - it's about building a personal culinary history."
+              </blockquote>
+              <div class="mt-6 text-slate-400">- Recent App Store Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-savor-cta via-savor-cta-light to-savor-cta py-24">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="h-full w-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="cta-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+            <circle cx="15" cy="5" r="2" fill="currentColor" class="text-white"/>
+            <circle cx="5" cy="15" r="1.5" fill="currentColor" class="text-white"/>
+            <circle cx="25" cy="25" r="1" fill="currentColor" class="text-white"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#cta-pattern)"/>
+      </svg>
+    </div>
+
+    <!-- Floating Animation Elements -->
+    <div class="absolute top-16 left-16 h-24 w-24 rounded-full bg-white/10 animate-float"></div>
+    <div class="absolute top-1/3 right-24 h-16 w-16 rounded-full bg-white/5 animate-float-delayed"></div>
+    <div class="absolute bottom-24 left-1/4 h-20 w-20 rounded-full bg-white/10 animate-float" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-16 right-16 h-12 w-12 rounded-full bg-white/15 animate-float-delayed" style="animation-delay: 0.5s;"></div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-5xl text-center">
+        
+        <!-- Urgency Badge -->
+        <div class="mb-12 inline-flex items-center rounded-full bg-white/20 px-8 py-4 text-white backdrop-blur-sm shadow-2xl">
+          <span class="mr-3 h-3 w-3 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="mr-3 text-2xl">🔥</span>
+          <span class="font-medium text-lg">Limited Time: Premium Features Free for First 1000 Users</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h2 class="mb-8 font-serif text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+          Start Building Your
+          <span class="relative">
+            <span class="relative z-10">Food Memory Vault</span>
+            <span class="absolute inset-0 bg-white/20 transform -skew-x-12"></span>
+          </span>
+          Today
+        </h2>
+
+        <!-- Supporting Text -->
+        <p class="mb-16 mx-auto max-w-3xl text-2xl leading-relaxed text-amber-100">
+          Join over 320,000 food enthusiasts who have already captured 2.4M+ dishes and created lasting memories with our AI-powered platform.
+        </p>
+
+        <!-- Primary CTA Buttons -->
+        <div class="mb-16 flex flex-col items-center justify-center gap-8 sm:flex-row">
+          
+          <!-- Primary CTA Button -->
+          <button class="group relative overflow-hidden rounded-full bg-white px-12 py-6 text-xl font-bold text-savor-primary shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-50">
+            <span class="relative z-10 flex items-center">
+              <svg class="mr-4 h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Download Savor - It's Free
+              <span class="ml-3 rounded-full bg-savor-primary px-3 py-1 text-sm text-white">FREE</span>
+            </span>
+            <!-- Shimmer Effect -->
+            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
+          </button>
+
+          <!-- Secondary CTA Button -->
+          <button class="group rounded-full border-2 border-white px-12 py-6 text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-savor-primary hover:scale-105 hover:shadow-2xl">
+            <span class="flex items-center">
+              <svg class="mr-4 h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 4h.01M15 4h.01M7 8h.01M3 12h.01M7 16h.01"/>
+              </svg>
+              Watch Demo Video
+            </span>
+          </button>
+
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="mb-16 flex justify-center">
+          <div class="rounded-3xl bg-white p-12 shadow-2xl">
+            <div class="flex items-center gap-8">
+              <!-- QR Code Placeholder -->
+              <div class="flex h-40 w-40 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl">
+                <div class="text-center">
+                  <div class="text-5xl mb-3">📱</div>
+                  <div class="text-sm font-semibold text-slate-600">Scan to Download</div>
+                </div>
+              </div>
+              
+              <!-- QR Code Info -->
+              <div class="text-left">
+                <h3 class="font-bold text-slate-800 text-2xl mb-3">Quick Mobile Access</h3>
+                <p class="text-slate-600 mb-6 text-lg">Scan with your phone's camera to download instantly</p>
+                
+                <!-- App Store Badges -->
+                <div class="flex gap-4">
+                  <div class="rounded-xl bg-slate-800 px-6 py-3 text-white font-medium">
+                    📱 App Store
+                  </div>
+                  <div class="rounded-xl bg-slate-800 px-6 py-3 text-white font-medium">
+                    🤖 Google Play
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="mb-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+          
+          <div class="text-center">
+            <div class="mb-3 text-4xl font-bold text-white">320K+</div>
+            <div class="text-amber-100 text-lg">Active Users</div>
+          </div>
+          
+          <div class="text-center">
+            <div class="mb-3 text-4xl font-bold text-white">4.9★</div>
+            <div class="text-amber-100 text-lg">App Store Rating</div>
+          </div>
+          
+          <div class="text-center">
+            <div class="mb-3 text-4xl font-bold text-white">195+</div>
+            <div class="text-amber-100 text-lg">Countries</div>
+          </div>
+          
+        </div>
+
+        <!-- Feature Highlights -->
+        <div class="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          
+          <div class="flex items-center justify-center text-amber-100">
+            <svg class="mr-3 h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="font-medium text-lg">AI-Powered Recognition</span>
+          </div>
+          
+          <div class="flex items-center justify-center text-amber-100">
+            <svg class="mr-3 h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="font-medium text-lg">Smart Organization</span>
+          </div>
+          
+          <div class="flex items-center justify-center text-amber-100">
+            <svg class="mr-3 h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="font-medium text-lg">Instant Memory Search</span>
+          </div>
+          
+        </div>
+
+        <!-- Security & Privacy -->
+        <div class="text-center">
+          <p class="text-amber-100 mb-6 text-lg">
+            ✨ Free to download • 🔒 Your data stays private • 📱 Works offline
+          </p>
+          <p class="text-amber-200">
+            No credit card required • Cancel anytime • 30-day money-back guarantee
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Wave -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="h-16 w-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative bg-slate-900 text-white">
+    <!-- Main Footer Content -->
+    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-4">
+        
+        <!-- Brand Column -->
+        <div class="lg:col-span-1">
+          <!-- Logo -->
+          <div class="mb-8">
+            <div class="flex items-center">
+              <div class="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-savor-primary to-savor-primary-light">
+                <span class="text-2xl font-bold">S</span>
+              </div>
+              <span class="font-serif text-3xl font-bold">Savor</span>
+            </div>
+          </div>
+          
+          <!-- Brand Description -->
+          <p class="mb-8 text-slate-300 leading-relaxed text-lg">
+            Your personal food memory vault. Capture, organize, and rediscover your culinary journey with AI-powered intelligence.
+          </p>
+          
+          <!-- Social Media Links -->
+          <div class="flex space-x-6">
+            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+              <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+              </svg>
+            </a>
+            
+            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+              <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.001 12.017.001z"/>
+              </svg>
+            </a>
+            
+            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+              <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product Column -->
+        <div>
+          <h3 class="mb-8 font-semibold text-xl text-white">Product</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Features</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">AI Recognition</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Memory Vault</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Smart Discovery</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Mobile App</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Web Platform</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions Column -->
+        <div>
+          <h3 class="mb-8 font-semibold text-xl text-white">Solutions</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">For Food Enthusiasts</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">For Professional Chefs</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">For Food Critics</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">For Restaurants</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Enterprise</a></li>
+          </ul>
+        </div>
+
+        <!-- Support & Company Column -->
+        <div>
+          <h3 class="mb-8 font-semibold text-xl text-white">Support & Company</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Help Center</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Contact Us</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">About Savor</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Careers</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Press Kit</a></li>
+            <li><a href="#" class="text-slate-300 transition-colors hover:text-yellow-400 text-lg">Blog</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Newsletter Signup Section -->
+      <div class="mt-20 rounded-3xl bg-gradient-to-r from-savor-primary/10 to-savor-primary-light/10 p-12 backdrop-blur-sm border border-savor-primary/20">
+        <div class="mx-auto max-w-3xl text-center">
+          <h3 class="mb-6 font-serif text-3xl font-bold text-white">Stay Updated</h3>
+          <p class="mb-8 text-slate-300 text-xl">Get the latest features, food trends, and culinary insights delivered to your inbox.</p>
+          
+          <div class="flex flex-col gap-6 sm:flex-row">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              class="flex-1 rounded-full border border-slate-600 bg-slate-800 px-8 py-4 text-white placeholder-slate-400 focus:border-savor-primary focus:outline-none focus:ring-2 focus:ring-savor-primary/20 text-lg"
+            />
+            <button class="rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-10 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
+              Subscribe
+            </button>
+          </div>
+          
+          <p class="mt-4 text-slate-400">
+            No spam, unsubscribe at any time. Read our <a href="#" class="text-yellow-400 hover:underline">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Download Section -->
+      <div class="mt-20 text-center">
+        <h3 class="mb-8 font-serif text-3xl font-bold text-white">Download Savor</h3>
+        <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
+          
+          <!-- App Store Button -->
+          <a href="#" class="group flex items-center rounded-2xl bg-slate-800 px-8 py-4 transition-all duration-300 hover:bg-slate-700 hover:scale-105 hover:shadow-lg">
+            <div class="mr-4 text-3xl">📱</div>
+            <div class="text-left">
+              <div class="text-slate-400">Download on the</div>
+              <div class="font-semibold text-white text-lg">App Store</div>
+            </div>
+          </a>
+          
+          <!-- Google Play Button -->
+          <a href="#" class="group flex items-center rounded-2xl bg-slate-800 px-8 py-4 transition-all duration-300 hover:bg-slate-700 hover:scale-105 hover:shadow-lg">
+            <div class="mr-4 text-3xl">🤖</div>
+            <div class="text-left">
+              <div class="text-slate-400">Get it on</div>
+              <div class="font-semibold text-white text-lg">Google Play</div>
+            </div>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-slate-800">
+      <div class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+          
+          <!-- Copyright -->
+          <div class="text-slate-400">
+            © 2024 Savor Technologies, Inc. All rights reserved.
+          </div>
+
+          <!-- Legal Links -->
+          <div class="flex items-center space-x-8">
+            <a href="#" class="text-slate-400 transition-colors hover:text-yellow-400">Privacy Policy</a>
+            <a href="#" class="text-slate-400 transition-colors hover:text-yellow-400">Terms of Service</a>
+            <a href="#" class="text-slate-400 transition-colors hover:text-yellow-400">Cookies</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button 
+    id="scrollToTop" 
+    class="fixed bottom-8 right-8 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-2xl"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+  >
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll to top button visibility
+    window.addEventListener('scroll', function() {
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.remove('hidden');
+        scrollToTopBtn.classList.add('flex');
+      } else {
+        scrollToTopBtn.classList.add('hidden');
+        scrollToTopBtn.classList.remove('flex');
+      }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

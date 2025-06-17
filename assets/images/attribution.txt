@@ -1,0 +1,156 @@
+# Savor App - Image Attribution
+
+All images are used under the Unsplash License (https://unsplash.com/license)
+Downloaded from Unsplash.com with proper attribution to photographers.
+
+## Image Credits:
+
+### Hero Images
+
+Photo: hero-gourmet-plating.jpg
+Photographer: Brooke Lark
+Unsplash Profile: https://unsplash.com/@brookelark
+Description: Elegant gourmet dish with artistic plating - perfect for hero section
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: hero-dining-experience.jpg
+Photographer: Jay Wennington
+Unsplash Profile: https://unsplash.com/@jaywennington
+Description: Fine dining restaurant atmosphere with warm lighting
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: hero-food-memories.jpg
+Photographer: Maarten van den Heuvel
+Unsplash Profile: https://unsplash.com/@mvdheuvel
+Description: Hands capturing food with phone - memory creation concept
+License: Unsplash License (https://unsplash.com/license)
+---
+
+### Feature Images
+
+Photo: ai-recognition-sushi.jpg
+Photographer: Jakub Dziubak
+Unsplash Profile: https://unsplash.com/@jakubdziubak
+Description: Beautiful sushi arrangement for AI recognition feature
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: smart-vault-spices.jpg
+Photographer: Pratiksha Mohanty
+Unsplash Profile: https://unsplash.com/@pratiksha_mohanty
+Description: Organized spice collection representing smart organization
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: discovery-market.jpg
+Photographer: Peter Dawn
+Unsplash Profile: https://unsplash.com/@peterdawn
+Description: Vibrant food market for discovery engine feature
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: global-cuisine-pasta.jpg
+Photographer: Eiliv Aceron
+Unsplash Profile: https://unsplash.com/@shootdelicious
+Description: Fresh pasta making - global cuisine representation
+License: Unsplash License (https://unsplash.com/license)
+---
+
+### Testimonial Images
+
+Photo: chef-professional.jpg
+Photographer: Scott Warman
+Unsplash Profile: https://unsplash.com/@scottiewarman
+Description: Professional chef in kitchen - testimonial avatar
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: food-critic-tasting.jpg
+Photographer: Joseph Gonzalez
+Unsplash Profile: https://unsplash.com/@miracletwentyone
+Description: Person thoughtfully tasting food - critic testimonial
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: food-enthusiast.jpg
+Photographer: Michael Dam
+Unsplash Profile: https://unsplash.com/@michaeldam
+Description: Happy food enthusiast - consumer testimonial
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: restaurant-owner.jpg
+Photographer: Ayo Ogunseinde
+Unsplash Profile: https://unsplash.com/@armedshutter
+Description: Restaurant owner portrait - business testimonial
+License: Unsplash License (https://unsplash.com/license)
+---
+
+### Background Images
+
+Photo: warm-restaurant-ambiance.jpg
+Photographer: Jay Wennington
+Unsplash Profile: https://unsplash.com/@jaywennington
+Description: Warm restaurant interior for section backgrounds
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: cooking-action-blur.jpg
+Photographer: Maarten van den Heuvel
+Unsplash Profile: https://unsplash.com/@mvdheuvel
+Description: Blurred cooking action for dynamic backgrounds
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: ingredients-texture.jpg
+Photographer: Monika Grabkowska
+Unsplash Profile: https://unsplash.com/@moniagrab
+Description: Natural ingredients texture for subtle backgrounds
+License: Unsplash License (https://unsplash.com/license)
+---
+
+Photo: food-preparation-overhead.jpg
+Photographer: Brooke Lark
+Unsplash Profile: https://unsplash.com/@brookelark
+Description: Overhead food preparation scene for feature backgrounds
+License: Unsplash License (https://unsplash.com/license)
+---
+
+## Unsplash License Summary
+
+The Unsplash License allows you to:
+✅ Use photos for free
+✅ Use photos for commercial and personal projects
+✅ Edit and modify photos
+✅ Use photos without attribution (though we provide it)
+
+You cannot:
+❌ Sell unedited photos
+❌ Use photos to create competing stock photo services
+❌ Upload photos to other stock photo platforms
+
+Full license details: https://unsplash.com/license
+
+## Photographer Appreciation
+
+We extend our gratitude to these talented photographers who make their work freely available:
+- Brooke Lark (@brookelark) - 3 photos
+- Jay Wennington (@jaywennington) - 2 photos  
+- Maarten van den Heuvel (@mvdheuvel) - 2 photos
+- Jakub Dziubak (@jakubdziubak) - 1 photo
+- Pratiksha Mohanty (@pratiksha_mohanty) - 1 photo
+- Peter Dawn (@peterdawn) - 1 photo
+- Eiliv Aceron (@shootdelicious) - 1 photo
+- Scott Warman (@scottiewarman) - 1 photo
+- Joseph Gonzalez (@miracletwentyone) - 1 photo
+- Michael Dam (@michaeldam) - 1 photo
+- Ayo Ogunseinde (@armedshutter) - 1 photo
+- Monika Grabkowska (@moniagrab) - 1 photo
+
+Consider following these photographers on Unsplash and supporting their work!
+
+---
+Generated by Savor App Image Management System
+Last Updated: June 2024
