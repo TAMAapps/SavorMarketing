@@ -106,7 +106,6 @@
         <div class="hidden md:flex items-center space-x-8">
           <a href="#features" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Features</a>
           <a href="#testimonials" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Reviews</a>
-          <a href="#pricing" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">Pricing</a>
           <a href="#about" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">About</a>
         </div>
         
@@ -133,84 +132,170 @@
 
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
-        <!-- Professional Badge -->
-        <div class="mb-8 inline-flex items-center rounded-full bg-gradient-to-r from-slate-100 to-slate-200 px-6 py-3 text-sm font-medium text-savor-primary ring-1 ring-slate-300 shadow-sm">
-          <span class="mr-2">✨</span>
-          For Food Enthusiasts & Professionals
-          <span class="ml-2 rounded-full bg-savor-primary px-2 py-1 text-xs text-white">NEW</span>
-        </div>
 
         <!-- Hero Headline -->
-        <h1 class="mb-8 font-serif text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl lg:text-7xl">
+        <h1 class="mb-12 font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl lg:text-8xl leading-tight">
           Your Personal 
           <span class="relative inline-block">
             <span class="bg-gradient-to-r from-savor-primary via-savor-primary-light to-savor-primary bg-clip-text text-transparent animate-gradient">Food Memory Vault</span>
             <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-savor-cta to-savor-cta-light rounded-full"></div>
           </span>
+          <span class="block text-4xl sm:text-5xl lg:text-6xl mt-4 text-slate-600">is Coming Soon</span>
         </h1>
 
         <!-- Hero Description -->
-        <p class="mb-12 mx-auto max-w-2xl text-xl leading-relaxed text-slate-600 sm:text-2xl">
-          Scan, score, and organize your culinary experiences with AI. From street food to Michelin stars - never forget another amazing dish.
+        <p class="mb-12 mx-auto max-w-3xl text-xl leading-relaxed text-slate-600 sm:text-2xl lg:text-3xl">
+          The revolutionary AI-powered app that will help you scan, score, and organize every culinary experience. From street food to Michelin stars - never forget another amazing dish.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="mb-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
-          <button class="group relative overflow-hidden rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-            <span class="relative z-10 flex items-center">
-              <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-              </svg>
-              Start Building Your Food Memory Vault
-            </span>
-            <!-- Shimmer Effect -->
-            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
-          </button>
-
-          <button class="group rounded-full border-2 border-savor-primary px-10 py-5 text-lg font-semibold text-savor-primary transition-all duration-300 hover:bg-savor-primary hover:text-white hover:scale-105 hover:shadow-xl">
-            <span class="flex items-center">
-              <svg class="mr-3 h-6 w-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 4h.01M15 4h.01M7 8h.01M3 12h.01M7 16h.01"/>
-              </svg>
-              Watch Demo Video
-            </span>
-          </button>
+        <!-- Pre-launch CTA -->
+        <div class="mb-16 text-center">
+          <div class="mb-6 inline-flex items-center rounded-full bg-savor-cta/10 px-6 py-3 text-base font-medium text-savor-primary border border-savor-cta/20">
+            <span class="mr-3">🎯</span>
+            Be among the first 1,000 users to experience Savor
+          </div>
+          <h2 class="text-2xl font-bold text-slate-800 sm:text-3xl lg:text-4xl">
+            Join the Waitlist for Early Access
+          </h2>
         </div>
 
-        <!-- App Preview Section -->
+        <!-- Waitlist Form -->
         <div class="mb-16 flex justify-center">
-          <div class="group rounded-2xl bg-white p-8 shadow-2xl ring-1 ring-slate-200 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <div class="flex items-center gap-8">
-              <div class="relative">
-                <img src="assets/images/app-screenshots/SplashScreen.jpg" alt="Savor App" class="w-32 h-auto rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full max-w-4xl">
+            <!-- Form Container with Enhanced Styling -->
+            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50">
+              <form action="https://formspree.io/f/meokzqyq" method="POST" class="space-y-6" id="waitlist-form">
+                <div class="flex flex-col sm:flex-row gap-6">
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Enter your email to join the waitlist" 
+                    required
+                    class="flex-1 rounded-full border-2 border-slate-300 bg-white px-12 py-8 text-2xl font-medium text-slate-700 placeholder-slate-400 transition-all duration-300 focus:border-savor-cta focus:outline-none focus:ring-4 focus:ring-savor-cta/20 shadow-lg hover:shadow-xl"
+                  />
+                <button 
+                  type="submit"
+                  class="group relative overflow-hidden rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-12 py-8 text-2xl font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl whitespace-nowrap"
+                >
+                  <span class="relative z-10 flex items-center justify-center">
+                    <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    Join Waitlist Now
+                  </span>
+                  <!-- Shimmer Effect -->
+                  <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
+                </button>
               </div>
-              <div class="text-left">
-                <h3 class="font-bold text-slate-800 text-lg mb-2">Download Now</h3>
-                <p class="text-sm text-slate-600 mb-4">Start building your personal food memory vault today</p>
-                <div class="flex gap-3">
-                  <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">📱 App Store</div>
-                  <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">🤖 Google Play</div>
+                <p class="text-center text-lg text-slate-500">
+                  Be the first to know when Savor launches. No spam, ever.
+                </p>
+                <!-- Success Message -->
+                <div id="form-success" class="hidden text-center p-6 bg-green-50 border border-green-200 rounded-xl">
+                  <div class="text-green-800 font-semibold text-lg">🎉 You're on the waitlist!</div>
+                  <p class="text-green-600 mt-2">Thank you for joining. We'll be in touch soon with exclusive early access.</p>
+                </div>
+                <!-- Error Message -->
+                <div id="form-error" class="hidden text-center p-6 bg-red-50 border border-red-200 rounded-xl">
+                  <div class="text-red-800 font-semibold text-lg">Oops! Something went wrong.</div>
+                  <p class="text-red-600 mt-2">Please try again or contact us directly.</p>
+                </div>
+              </form>
+              
+              <!-- Social Proof / Urgency -->
+              <div class="mt-6 text-center">
+                <div class="flex items-center justify-center space-x-8 text-sm text-slate-500">
+                  <div class="flex items-center">
+                    <span class="mr-2 h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span>🔥 Limited spots available</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="mr-2">⚡</span>
+                    <span>Early access benefits</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="mr-2">🎁</span>
+                    <span>Free lifetime features</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Hero Stats -->
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div class="group text-center transform transition-all duration-300 hover:scale-105">
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">2.4M+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Dishes Scanned</div>
-          </div>
-          <div class="group text-center transform transition-all duration-300 hover:scale-105">
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">850K+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Food Memories</div>
-          </div>
-          <div class="group text-center transform transition-all duration-300 hover:scale-105">
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl group-hover:text-savor-cta transition-colors">195+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Countries</div>
+        <!-- Hero Visual Section -->
+        <div class="mb-20 flex justify-center">
+          <div class="relative">
+            <!-- Coming Soon Badge -->
+            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
+              <div class="inline-flex items-center rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-6 py-2 text-white font-semibold shadow-lg">
+                <span class="mr-2 h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                Coming Soon
+              </div>
+            </div>
+            
+            <!-- Hero Illustration -->
+            <div class="relative mx-auto max-w-2xl">
+              <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-12 shadow-2xl border border-slate-200">
+                <!-- Food Memory Vault Concept Visual -->
+                <div class="grid grid-cols-3 gap-6">
+                  <!-- Food Images in Memory Vault Style -->
+                  <div class="space-y-4">
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform rotate-3 hover:rotate-6 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🍝</div>
+                      <div class="text-xs text-slate-600 font-medium">Pasta • 9.2★</div>
+                      <div class="text-xs text-slate-400">Rome, Italy</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform -rotate-2 hover:-rotate-4 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🍣</div>
+                      <div class="text-xs text-slate-600 font-medium">Sushi • 9.8★</div>
+                      <div class="text-xs text-slate-400">Tokyo, Japan</div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-4 mt-8">
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform rotate-1 hover:rotate-3 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🌮</div>
+                      <div class="text-xs text-slate-600 font-medium">Tacos • 8.7★</div>
+                      <div class="text-xs text-slate-400">Mexico City</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform -rotate-3 hover:-rotate-6 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🍜</div>
+                      <div class="text-xs text-slate-600 font-medium">Ramen • 9.1★</div>
+                      <div class="text-xs text-slate-400">Osaka, Japan</div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-4 mt-4">
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform rotate-2 hover:rotate-4 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🥘</div>
+                      <div class="text-xs text-slate-600 font-medium">Paella • 8.9★</div>
+                      <div class="text-xs text-slate-400">Valencia, Spain</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-lg transform -rotate-1 hover:-rotate-2 transition-transform duration-300">
+                      <div class="text-4xl mb-2">🍕</div>
+                      <div class="text-xs text-slate-600 font-medium">Pizza • 9.5★</div>
+                      <div class="text-xs text-slate-400">Naples, Italy</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- AI Scanning Indicator -->
+                <div class="mt-8 text-center">
+                  <div class="inline-flex items-center bg-savor-primary/10 rounded-full px-6 py-2">
+                    <div class="mr-3 h-3 w-3 rounded-full bg-savor-cta animate-pulse"></div>
+                    <span class="text-sm font-medium text-savor-primary">AI-Powered Recognition & Memory Storage</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Floating Elements -->
+            <div class="absolute -top-4 -right-4 text-3xl animate-bounce">✨</div>
+            <div class="absolute -bottom-4 -left-4 text-3xl animate-pulse">🧠</div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -226,116 +311,6 @@
     </div>
   </section>
 
-  <!-- Statistics Section -->
-  <section class="relative py-20 bg-gradient-to-r from-slate-50 via-slate-100 to-slate-50">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <svg class="h-full w-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="stats-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="10" cy="10" r="1" fill="currentColor" class="text-savor-primary"/>
-        </pattern>
-        <rect width="100" height="100" fill="url(#stats-pattern)"/>
-      </svg>
-    </div>
-
-    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="mx-auto mb-20 max-w-3xl text-center">
-        <h2 class="font-serif text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl">
-          Trusted by Food Lovers
-          <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Worldwide</span>
-        </h2>
-        <p class="mt-6 text-xl leading-relaxed text-slate-600">
-          Join millions who are building their personal food memory collections with Savor's AI-powered platform
-        </p>
-      </div>
-
-      <!-- Statistics Grid -->
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        
-        <!-- Stat 1: Dishes Scanned -->
-        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
-          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
-          <div class="relative">
-            <div class="mb-4 flex items-center">
-              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
-                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">2.4M+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Dishes Scanned</div>
-            <div class="mt-3 text-xs text-slate-500">Using AI recognition technology</div>
-          </div>
-        </div>
-
-        <!-- Stat 2: Food Memories -->
-        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
-          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
-          <div class="relative">
-            <div class="mb-4 flex items-center">
-              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
-                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">850K+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Food Memories Created</div>
-            <div class="mt-3 text-xs text-slate-500">Stories and experiences saved</div>
-          </div>
-        </div>
-
-        <!-- Stat 3: Countries -->
-        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
-          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
-          <div class="relative">
-            <div class="mb-4 flex items-center">
-              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
-                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-                </svg>
-              </div>
-            </div>
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">195+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Countries</div>
-            <div class="mt-3 text-xs text-slate-500">Global culinary diversity</div>
-          </div>
-        </div>
-
-        <!-- Stat 4: Active Users -->
-        <div class="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200 transition-all duration-500 hover:shadow-2xl hover:ring-slate-300 hover:scale-105">
-          <div class="absolute top-0 right-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 opacity-70"></div>
-          <div class="relative">
-            <div class="mb-4 flex items-center">
-              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-lg">
-                <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="text-4xl font-bold text-savor-primary sm:text-5xl">320K+</div>
-            <div class="mt-2 text-sm font-medium text-slate-600">Active Food Enthusiasts</div>
-            <div class="mt-3 text-xs text-slate-500">Growing community daily</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Trust Indicators -->
-      <div class="mt-20 text-center">
-        <p class="text-sm text-slate-500 mb-8">Trusted by food enthusiasts at</p>
-        <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">
-          <div class="font-medium text-slate-600 text-lg">Michelin Guide</div>
-          <div class="font-medium text-slate-600 text-lg">James Beard Foundation</div>
-          <div class="font-medium text-slate-600 text-lg">Zagat</div>
-          <div class="font-medium text-slate-600 text-lg">OpenTable</div>
-          <div class="font-medium text-slate-600 text-lg">Food & Wine</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Features Section -->
   <section id="features" class="relative py-24 bg-white">
@@ -347,22 +322,22 @@
 
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
       <!-- Section Header -->
-      <div class="mx-auto mb-24 max-w-4xl text-center">
-        <div class="mb-6 inline-flex items-center rounded-full bg-slate-100 px-6 py-3 text-sm font-medium text-savor-primary">
-          <span class="mr-2">🍽️</span>
+      <div class="mx-auto mb-32 max-w-5xl text-center">
+        <div class="mb-8 inline-flex items-center rounded-full bg-slate-100 px-8 py-4 text-base font-medium text-savor-primary">
+          <span class="mr-3">🍽️</span>
           Powered by Advanced AI
         </div>
-        <h2 class="font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl lg:text-7xl">
+        <h2 class="font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl lg:text-7xl leading-tight">
           Turn Every Meal Into a
           <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Lasting Memory</span>
         </h2>
-        <p class="mt-8 text-2xl leading-relaxed text-slate-600">
+        <p class="mt-12 text-2xl leading-relaxed text-slate-600 max-w-4xl mx-auto">
           Our intelligent platform helps you capture, organize, and rediscover your culinary journey with cutting-edge AI recognition and intuitive memory-keeping tools.
         </p>
       </div>
 
       <!-- Features Grid -->
-      <div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-20 lg:grid-cols-3 lg:gap-16">
         
         <!-- Feature 1: AI Scanning -->
         <div class="group relative">
@@ -405,11 +380,9 @@
         <!-- Feature 2: Smart Organization -->
         <div class="group relative">
           <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
-            <!-- Feature Icon -->
-            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 text-white shadow-2xl">
-              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-              </svg>
+            <!-- App Screenshot -->
+            <div class="mb-8 flex justify-center">
+              <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Smart Memory Vault" class="w-48 h-auto rounded-2xl shadow-2xl">
             </div>
             
             <!-- Feature Content -->
@@ -450,7 +423,7 @@
           <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
             <!-- App Screenshot -->
             <div class="mb-8 flex justify-center">
-              <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Intelligent Discovery" class="w-48 h-auto rounded-2xl shadow-2xl">
+              <img src="assets/images/app-screenshots/Intelligentdiscovery.jpg" alt="Intelligent Discovery" class="w-48 h-auto rounded-2xl shadow-2xl">
             </div>
             
             <!-- Feature Content -->
@@ -486,13 +459,14 @@
       </div>
 
       <!-- Secondary Features Row -->
-      <div class="mt-24 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-24 flex flex-wrap justify-center gap-12 lg:gap-16">
         
         <!-- Feature: Social Sharing -->
-        <div class="text-center group">
-          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+        <div class="text-center group w-72">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl">
             <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2h4a1 1 0 110 2h-1v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6H3a1 1 0 010-2h4zM9 3v1h6V3H9zm2 5a1 1 0 011 1v8a1 1 0 11-2 0V9a1 1 0 011-1zm4 0a1 1 0 011 1v8a1 1 0 11-2 0V9a1 1 0 011-1z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3a2 2 0 01-2 2h-1m-2 3l-3-3 3-3m-3 3h9"/>
             </svg>
           </div>
           <h4 class="mb-4 font-semibold text-slate-800 text-xl">Social Sharing</h4>
@@ -501,10 +475,11 @@
 
 
         <!-- Feature: Offline Access -->
-        <div class="text-center group">
-          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+        <div class="text-center group w-72">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-savor-secondary to-savor-secondary-dark text-white shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl">
             <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
             </svg>
           </div>
           <h4 class="mb-4 font-semibold text-slate-800 text-xl">Offline Ready</h4>
@@ -512,10 +487,10 @@
         </div>
 
         <!-- Feature: Export Options -->
-        <div class="text-center group">
-          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+        <div class="text-center group w-72">
+          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light text-white shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl">
             <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
             </svg>
           </div>
           <h4 class="mb-4 font-semibold text-slate-800 text-xl">Export & Backup <span class="text-sm text-savor-cta font-normal">(Coming Soon)</span></h4>
@@ -578,7 +553,7 @@
                   <div class="text-amber-100 text-lg">James Beard Award Winner & Food Critic</div>
                   <div class="mt-2 flex items-center text-amber-200">
                     <span class="text-lg">★★★★★</span>
-                    <span class="ml-3 text-lg">Michelin Guide Contributor</span>
+                    <span class="ml-3 text-lg">Food Contributor</span>
                   </div>
                 </div>
               </div>
@@ -670,7 +645,7 @@
             
             <!-- Quote -->
             <blockquote class="mb-8 text-slate-700 leading-relaxed text-lg">
-              "My followers love seeing my food adventures, and Savor makes it so easy to create beautiful, organized content. The export features are perfect for my social media planning."
+              "My followers love seeing my food adventures, and Savor makes it so easy to create beautiful, organized content."
             </blockquote>
             
             <!-- Author -->
@@ -680,7 +655,7 @@
               </div>
               <div class="ml-4">
                 <div class="font-semibold text-slate-800 text-lg">Emma Thompson</div>
-                <div class="text-slate-500">Food Influencer (2.3M followers)</div>
+                <div class="text-slate-500">Soon to be food influencer</div>
               </div>
             </div>
             
@@ -727,7 +702,7 @@
         </div>
 
         <!-- Main Headline -->
-        <h2 class="mb-8 font-serif text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+        <h2 class="mb-12 font-serif text-5xl font-bold text-white sm:text-6xl lg:text-7xl leading-tight">
           Start Building Your
           <span class="relative">
             <span class="relative z-10">Food Memory Vault</span>
@@ -737,36 +712,33 @@
         </h2>
 
         <!-- Supporting Text -->
-        <p class="mb-16 mx-auto max-w-3xl text-2xl leading-relaxed text-amber-100">
-          Join over 320,000 food enthusiasts who have already captured 2.4M+ dishes and created lasting memories with our AI-powered platform.
-        </p>
 
-        <!-- Primary CTA Buttons -->
-        <div class="mb-16 flex flex-col items-center justify-center gap-8 sm:flex-row">
-          
-          <!-- Primary CTA Button -->
-          <button class="group relative overflow-hidden rounded-full bg-white px-12 py-6 text-xl font-bold text-savor-primary shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-50">
-            <span class="relative z-10 flex items-center">
-              <svg class="mr-4 h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-              </svg>
-              Download Savor - It's Free
-              <span class="ml-3 rounded-full bg-savor-primary px-3 py-1 text-sm text-white">FREE</span>
-            </span>
-            <!-- Shimmer Effect -->
-            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
-          </button>
-
-          <!-- Secondary CTA Button -->
-          <button class="group rounded-full border-2 border-white px-12 py-6 text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-savor-primary hover:scale-105 hover:shadow-2xl">
-            <span class="flex items-center">
-              <svg class="mr-4 h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 4h.01M15 4h.01M7 8h.01M3 12h.01M7 16h.01"/>
-              </svg>
-              Watch Demo Video
-            </span>
-          </button>
-
+        <!-- Primary CTA Form -->
+        <div class="mb-16 flex justify-center">
+          <form action="https://formspree.io/f/meokzqyq" method="POST" class="w-full max-w-2xl">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Enter your email to join the waitlist" 
+                required
+                class="flex-1 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-6 text-xl font-medium text-white placeholder-white/70 transition-all duration-300 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20"
+              />
+              <button 
+                type="submit"
+                class="group relative overflow-hidden rounded-full bg-white px-12 py-6 text-xl font-bold text-savor-primary shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-50 whitespace-nowrap"
+              >
+                <span class="relative z-10 flex items-center">
+                  <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                  </svg>
+                  Join Waitlist Now
+                </span>
+                <!-- Shimmer Effect -->
+                <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
+              </button>
+            </div>
+          </form>
         </div>
 
         <!-- App Screenshots Section -->
@@ -779,44 +751,34 @@
                 <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Savor Dish List" class="w-24 h-auto rounded-2xl shadow-lg">
               </div>
               
-              <!-- Download Info -->
+              <!-- Waitlist Form -->
               <div class="text-left">
-                <h3 class="font-bold text-slate-800 text-2xl mb-3">Download Now</h3>
-                <p class="text-slate-600 mb-6 text-lg">Experience the future of food memory with our AI-powered app</p>
+                <h3 class="font-bold text-slate-800 text-2xl mb-3">Join the Waitlist</h3>
+                <p class="text-slate-600 mb-6 text-lg">Be the first to experience the future of food memory</p>
                 
-                <!-- App Store Badges -->
-                <div class="flex gap-4">
-                  <div class="rounded-xl bg-slate-800 px-6 py-3 text-white font-medium">
-                    📱 App Store
+                <!-- Email Capture Form -->
+                <form action="https://formspree.io/f/meokzqyq" method="POST" class="space-y-4">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <input 
+                      type="email" 
+                      name="email" 
+                      placeholder="Enter your email" 
+                      required
+                      class="flex-1 rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-slate-700 placeholder-slate-400 transition-all duration-300 focus:border-savor-cta focus:outline-none focus:ring-2 focus:ring-savor-cta/20"
+                    />
+                    <button 
+                      type="submit"
+                      class="rounded-xl bg-gradient-to-r from-savor-cta to-savor-cta-light px-6 py-3 font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg whitespace-nowrap"
+                    >
+                      Join Waitlist Now
+                    </button>
                   </div>
-                  <div class="rounded-xl bg-slate-800 px-6 py-3 text-white font-medium">
-                    🤖 Google Play
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Trust Indicators -->
-        <div class="mb-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          
-          <div class="text-center">
-            <div class="mb-3 text-4xl font-bold text-white">320K+</div>
-            <div class="text-amber-100 text-lg">Active Users</div>
-          </div>
-          
-          <div class="text-center">
-            <div class="mb-3 text-4xl font-bold text-white">4.9★</div>
-            <div class="text-amber-100 text-lg">App Store Rating</div>
-          </div>
-          
-          <div class="text-center">
-            <div class="mb-3 text-4xl font-bold text-white">195+</div>
-            <div class="text-amber-100 text-lg">Countries</div>
-          </div>
-          
-        </div>
 
         <!-- Feature Highlights -->
         <div class="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -847,10 +809,10 @@
         <!-- Security & Privacy -->
         <div class="text-center">
           <p class="text-amber-100 mb-6 text-lg">
-            ✨ Free to download • 🔒 Your data stays private • 📱 Works offline
+            ✨ Free when launched • 🔒 Your data stays private • 📱 Works offline
           </p>
           <p class="text-amber-200">
-            No credit card required • Cancel anytime • 30-day money-back guarantee
+            No credit card required • Join the waitlist for early access
           </p>
         </div>
 
@@ -862,6 +824,54 @@
       <svg class="h-16 w-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="white"/>
       </svg>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="relative py-24 bg-gradient-to-br from-slate-50 to-white">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 right-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-savor-primary/10 to-savor-primary-light/10 blur-3xl"></div>
+      <div class="absolute bottom-20 left-1/4 h-48 w-48 rounded-full bg-gradient-to-r from-savor-cta/10 to-savor-cta-light/10 blur-2xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mx-auto mb-16 max-w-4xl text-center">
+        <div class="mb-6 inline-flex items-center rounded-full bg-savor-primary/10 px-6 py-3 text-sm font-medium text-savor-primary">
+          <span class="mr-2">👨‍🍳</span>
+          Our Story
+        </div>
+        <h2 class="font-serif text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl">
+          About
+          <span class="bg-gradient-to-r from-savor-cta to-savor-cta-light bg-clip-text text-transparent">Savor</span>
+        </h2>
+      </div>
+
+      <!-- Story Content -->
+      <div class="mx-auto max-w-4xl">
+        <div class="prose prose-xl prose-slate mx-auto text-center">
+          <p class="text-2xl leading-relaxed text-slate-600 mb-8">
+            Born from a simple frustration: forgetting incredible dishes and where we found them. As passionate food lovers and frequent travelers, we realized we were losing precious culinary memories faster than we could create them.
+          </p>
+          
+          <p class="text-xl leading-relaxed text-slate-600 mb-8">
+            That late-night conversation in a small trattoria in Rome became the spark for Savor. We envisioned a world where every amazing meal could be captured, organized, and rediscovered years later with the same excitement as the first bite.
+          </p>
+          
+          <p class="text-xl leading-relaxed text-slate-600 mb-12">
+            Today, Savor combines cutting-edge AI with intuitive design to help food enthusiasts around the world build their personal culinary legacy. Because every dish tells a story, and every story deserves to be remembered.
+          </p>
+
+          <!-- Mission Statement -->
+          <div class="bg-white rounded-3xl p-12 shadow-xl border border-slate-100">
+            <h3 class="font-serif text-3xl font-bold text-slate-800 mb-6">Our Mission</h3>
+            <p class="text-xl text-slate-600 leading-relaxed">
+              To transform how people connect with their culinary experiences, ensuring that no amazing dish is ever forgotten and every food memory becomes part of a lasting, searchable, and shareable journey.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -953,54 +963,7 @@
 
       </div>
 
-      <!-- Newsletter Signup Section -->
-      <div class="mt-20 rounded-3xl bg-gradient-to-r from-savor-primary/10 to-savor-primary-light/10 p-12 backdrop-blur-sm border border-savor-primary/20">
-        <div class="mx-auto max-w-3xl text-center">
-          <h3 class="mb-6 font-serif text-3xl font-bold text-white">Stay Updated</h3>
-          <p class="mb-8 text-slate-300 text-xl">Get the latest features, food trends, and culinary insights delivered to your inbox.</p>
-          
-          <div class="flex flex-col gap-6 sm:flex-row">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              class="flex-1 rounded-full border border-slate-600 bg-slate-800 px-8 py-4 text-white placeholder-slate-400 focus:border-savor-primary focus:outline-none focus:ring-2 focus:ring-savor-primary/20 text-lg"
-            />
-            <button class="rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-10 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
-              Subscribe
-            </button>
-          </div>
-          
-          <p class="mt-4 text-slate-400">
-            No spam, unsubscribe at any time. Read our <a href="#" class="text-yellow-400 hover:underline">Privacy Policy</a>.
-          </p>
-        </div>
-      </div>
 
-      <!-- Download Section -->
-      <div class="mt-20 text-center">
-        <h3 class="mb-8 font-serif text-3xl font-bold text-white">Download Savor</h3>
-        <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
-          
-          <!-- App Store Button -->
-          <a href="#" class="group flex items-center rounded-2xl bg-slate-800 px-8 py-4 transition-all duration-300 hover:bg-slate-700 hover:scale-105 hover:shadow-lg">
-            <div class="mr-4 text-3xl">📱</div>
-            <div class="text-left">
-              <div class="text-slate-400">Download on the</div>
-              <div class="font-semibold text-white text-lg">App Store</div>
-            </div>
-          </a>
-          
-          <!-- Google Play Button -->
-          <a href="#" class="group flex items-center rounded-2xl bg-slate-800 px-8 py-4 transition-all duration-300 hover:bg-slate-700 hover:scale-105 hover:shadow-lg">
-            <div class="mr-4 text-3xl">🤖</div>
-            <div class="text-left">
-              <div class="text-slate-400">Get it on</div>
-              <div class="font-semibold text-white text-lg">Google Play</div>
-            </div>
-          </a>
-          
-        </div>
-      </div>
     </div>
 
     <!-- Bottom Section -->
@@ -1081,6 +1044,37 @@
     // Observe all sections for animations
     document.querySelectorAll('section').forEach(section => {
       observer.observe(section);
+    });
+
+    // Formspree form handling
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const successDiv = document.getElementById('form-success');
+      const errorDiv = document.getElementById('form-error');
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          successDiv.classList.remove('hidden');
+          errorDiv.classList.add('hidden');
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        errorDiv.classList.remove('hidden');
+        successDiv.classList.add('hidden');
+      });
     });
   </script>
 
