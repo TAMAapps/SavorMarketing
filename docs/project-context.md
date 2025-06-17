@@ -68,13 +68,15 @@ We conducted comprehensive analysis of 12 premium websites across various indust
 
 #### Principle 2: Premium Aesthetic Standards
 - **Typography**: Editorial-quality serif headlines (Playfair Display)
-- **Colors**: Warm, appetizing golds with sophisticated navy accents
+- **Colors**: Sophisticated navy primary with strategic orange CTAs for conversion
 - **Spacing**: Generous whitespace, premium feel through proper breathing room
 - **Imagery**: Food-focused visuals, lifestyle photography, professional quality
 
-#### Principle 3: Dual-Audience Design
-- **Consumer Variant**: Warm colors, emotional messaging, lifestyle focus
-- **Professional Variant**: Navy primary, analytical features, workflow optimization
+#### Principle 3: Unified Professional Design
+- **Primary Approach**: Navy-first sophisticated design appeals to both audiences
+- **Consumer Appeal**: Maintained through warm orange CTAs and food-focused content
+- **Professional Credibility**: Enhanced through trustworthy navy brand presence
+- **Conversion Optimization**: Strategic orange placement drives action without overwhelming
 
 #### Principle 4: Conversion-Driven Layout
 - **Multiple CTAs**: Strategically placed throughout user journey
@@ -171,29 +173,35 @@ We conducted comprehensive analysis of 12 premium websites across various indust
 
 #### Primary Brand Colors
 ```css
-/* Warm Gold - Primary Brand */
---savor-primary: #D4A574;
---savor-primary-light: #E2B888;
---savor-primary-dark: #C19660;
+/* Deep Navy - Primary Brand */
+--savor-primary: #2C3E50;
+--savor-primary-light: #34495E;
+--savor-primary-dark: #1A252F;
 
-/* Deep Navy - Secondary Brand */
---savor-secondary: #2C3E50;
---savor-secondary-light: #34495E;
---savor-secondary-dark: #1A252F;
+/* Warm Gray - Secondary Brand */
+--savor-secondary: #6B7280;
+--savor-secondary-light: #9CA3AF;
+--savor-secondary-dark: #4B5563;
+
+/* Orange - CTA/Conversion Color */
+--savor-cta: #FF6B35;
+--savor-cta-light: #FF8355;
+--savor-cta-dark: #E55A2B;
 ```
 
 **Usage Guidelines**:
-- **Primary Gold**: CTAs, brand elements, food ratings, memory highlights
-- **Secondary Navy**: Headers, navigation, professional text, backgrounds
-- **Psychology**: Gold = premium, appetizing, warm; Navy = trustworthy, professional
+- **Primary Navy**: Headers, navigation, professional text, backgrounds, brand elements
+- **Secondary Gray**: Supporting text, subtle elements, secondary navigation
+- **CTA Orange**: Primary CTAs, download buttons, conversion actions only
+- **Psychology**: Navy = trustworthy, professional, premium; Orange = action-oriented, appetite stimulation
 
 #### Functional Colors
 ```css
 /* Success - Fresh Green */
 --savor-success: #27AE60;
 
-/* Warning - Warm Orange */  
---savor-warning: #FF6B35;
+/* Warning - System Alert */  
+--savor-warning: #F59E0B;
 
 /* Error - Refined Red */
 --savor-error: #E74C3C;
@@ -553,6 +561,24 @@ padding: 22px;
 
 *This document is the single source of truth for Savor's design system. All future design work should reference and extend from this foundation while maintaining the sophisticated yet approachable brand essence that differentiates Savor in the food memory market.*
 
-**Last Updated**: June 16, 2024  
-**Version**: 1.0  
+**Last Updated**: June 17, 2024  
+**Version**: 1.1 - Updated Color Scheme (Navy Primary)  
+**Latest Deployment**: Commit `9f8d9b4` - Sophisticated navy color scheme deployed to production  
 **Next Review**: When adding major new features or expanding to new markets
+
+## Recent Updates (v1.1)
+
+### Color Scheme Modernization (June 17, 2024)
+- **Replaced** warm gold primary with sophisticated deep navy (#2C3E50)
+- **Repositioned** orange as CTA-exclusive color for conversion optimization
+- **Added** warm gray secondary palette for elegant hierarchy
+- **Maintained** sophisticated yet approachable brand essence
+- **Updated** all 86+ color classes in production landing page
+- **Deployed** to Vercel via GitHub auto-deployment
+
+### Technical Implementation
+- **Repository**: `TAMAapps/SavorMarketing` 
+- **Production File**: `landing-v2.html`
+- **Design System**: Complete documentation in `/docs/design-system.md`
+- **Color Update Script**: Automated maintenance via `update-colors.py`
+- **Component Library**: Reusable UI components in `/components/ui/`
