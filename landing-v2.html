@@ -110,11 +110,12 @@
           <a href="#about" class="text-slate-600 hover:text-savor-primary transition-colors font-medium">About</a>
         </div>
         
-        <!-- CTA Button -->
-        <div class="flex items-center space-x-4">
-          <button class="hidden sm:block text-slate-600 hover:text-savor-primary transition-colors font-medium">Sign In</button>
-          <button class="rounded-full bg-gradient-to-r from-savor-cta to-savor-cta-light px-6 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            Get Started
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button class="text-slate-600 hover:text-savor-primary transition-colors">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
           </button>
         </div>
       </div>
@@ -176,19 +177,16 @@
           </button>
         </div>
 
-        <!-- QR Code Section -->
+        <!-- App Preview Section -->
         <div class="mb-16 flex justify-center">
           <div class="group rounded-2xl bg-white p-8 shadow-2xl ring-1 ring-slate-200 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <div class="flex items-center gap-6">
-              <div class="flex h-32 w-32 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl transition-transform duration-300 group-hover:scale-105">
-                <div class="text-center">
-                  <div class="text-4xl mb-2">📱</div>
-                  <div class="text-xs font-semibold text-slate-600">Scan to Download</div>
-                </div>
+            <div class="flex items-center gap-8">
+              <div class="relative">
+                <img src="assets/images/app-screenshots/SplashScreen.jpg" alt="Savor App" class="w-32 h-auto rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-105">
               </div>
               <div class="text-left">
-                <h3 class="font-bold text-slate-800 text-lg mb-2">Quick Mobile Access</h3>
-                <p class="text-sm text-slate-600 mb-4">Scan with your phone camera to download instantly</p>
+                <h3 class="font-bold text-slate-800 text-lg mb-2">Download Now</h3>
+                <p class="text-sm text-slate-600 mb-4">Start building your personal food memory vault today</p>
                 <div class="flex gap-3">
                   <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">📱 App Store</div>
                   <div class="rounded-lg bg-slate-800 px-4 py-2 text-white text-xs font-medium">🤖 Google Play</div>
@@ -369,16 +367,14 @@
         <!-- Feature 1: AI Scanning -->
         <div class="group relative">
           <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
-            <!-- Feature Icon -->
-            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-savor-primary to-savor-primary-light text-white shadow-2xl">
-              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
+            <!-- App Screenshot -->
+            <div class="mb-8 flex justify-center">
+              <img src="assets/images/app-screenshots/SnapDishScreen.jpg" alt="AI Dish Recognition" class="w-48 h-auto rounded-2xl shadow-2xl">
             </div>
             
             <!-- Feature Content -->
-            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800">Instant AI Recognition</h3>
-            <p class="mb-8 text-slate-600 leading-relaxed text-lg">
+            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800 text-center">Instant AI Recognition</h3>
+            <p class="mb-8 text-slate-600 leading-relaxed text-lg text-center">
               Simply point your camera at any dish. Our advanced AI instantly identifies ingredients, cuisine type, and suggests flavor profiles with 95% accuracy.
             </p>
             
@@ -403,9 +399,6 @@
                 <span class="font-medium">Nutritional insights</span>
               </li>
             </ul>
-
-            <!-- Floating Animation Element -->
-            <div class="absolute top-6 right-6 h-4 w-4 rounded-full bg-savor-secondary-light opacity-60 animate-pulse"></div>
           </div>
         </div>
 
@@ -454,44 +447,39 @@
 
         <!-- Feature 3: Discovery Engine -->
         <div class="group relative">
-          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 to-green-50 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
-            <!-- Feature Icon -->
-            <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-2xl">
-              <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+            <!-- App Screenshot -->
+            <div class="mb-8 flex justify-center">
+              <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Intelligent Discovery" class="w-48 h-auto rounded-2xl shadow-2xl">
             </div>
             
             <!-- Feature Content -->
-            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800">Intelligent Discovery</h3>
-            <p class="mb-8 text-slate-600 leading-relaxed text-lg">
+            <h3 class="mb-6 font-serif text-3xl font-bold text-slate-800 text-center">Intelligent Discovery</h3>
+            <p class="mb-8 text-slate-600 leading-relaxed text-lg text-center">
               Rediscover forgotten favorites and get personalized recommendations based on your taste profile, dietary preferences, and dining history.
             </p>
             
             <!-- Feature Details -->
             <ul class="space-y-3 text-sm text-slate-500">
               <li class="flex items-center">
-                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
                 <span class="font-medium">Personalized recommendations</span>
               </li>
               <li class="flex items-center">
-                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
                 <span class="font-medium">Mood-based search</span>
               </li>
               <li class="flex items-center">
-                <svg class="mr-3 h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="mr-3 h-5 w-5 text-savor-cta" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
                 <span class="font-medium">Dietary filtering</span>
               </li>
             </ul>
-
-            <!-- Floating Animation Element -->
-            <div class="absolute top-6 right-6 h-4 w-4 rounded-full bg-emerald-300 opacity-60 animate-ping"></div>
           </div>
         </div>
 
@@ -511,16 +499,6 @@
           <p class="text-slate-600 leading-relaxed">Share your food memories with friends and build your culinary reputation</p>
         </div>
 
-        <!-- Feature: Professional Tools -->
-        <div class="text-center group">
-          <div class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
-            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
-          </div>
-          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Pro Analytics</h4>
-          <p class="text-slate-600 leading-relaxed">Advanced insights for food critics, chefs, and industry professionals</p>
-        </div>
 
         <!-- Feature: Offline Access -->
         <div class="text-center group">
@@ -540,7 +518,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
           </div>
-          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Export & Backup</h4>
+          <h4 class="mb-4 font-semibold text-slate-800 text-xl">Export & Backup <span class="text-sm text-savor-cta font-normal">(Coming Soon)</span></h4>
           <p class="text-slate-600 leading-relaxed">Export your food journal to PDF, Excel, or cloud storage</p>
         </div>
 
@@ -713,53 +691,6 @@
 
       </div>
 
-      <!-- App Store Reviews Section -->
-      <div class="mt-24">
-        <div class="mx-auto max-w-5xl">
-          <div class="rounded-3xl bg-slate-800 p-16 text-white">
-            <div class="text-center">
-              <h3 class="mb-8 font-serif text-4xl font-bold">Consistently 5-Star Rated</h3>
-              <div class="mb-12 flex items-center justify-center gap-16">
-                <!-- App Store -->
-                <div class="text-center">
-                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.9</div>
-                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
-                    <span>★★★★★</span>
-                  </div>
-                  <div class="text-slate-300 text-lg">App Store</div>
-                  <div class="text-slate-400">12K+ reviews</div>
-                </div>
-                
-                <!-- Google Play -->
-                <div class="text-center">
-                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.8</div>
-                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
-                    <span>★★★★★</span>
-                  </div>
-                  <div class="text-slate-300 text-lg">Google Play</div>
-                  <div class="text-slate-400">8K+ reviews</div>
-                </div>
-                
-                <!-- Product Hunt -->
-                <div class="text-center">
-                  <div class="mb-3 text-5xl font-bold text-yellow-400">4.9</div>
-                  <div class="mb-3 flex justify-center text-yellow-400 text-2xl">
-                    <span>★★★★★</span>
-                  </div>
-                  <div class="text-slate-300 text-lg">Product Hunt</div>
-                  <div class="text-slate-400">2K+ votes</div>
-                </div>
-              </div>
-              
-              <!-- Recent Review Quote -->
-              <blockquote class="text-2xl italic text-slate-200 leading-relaxed">
-                "This app has changed the way I think about food. It's not just about eating anymore - it's about building a personal culinary history."
-              </blockquote>
-              <div class="mt-6 text-slate-400">- Recent App Store Review</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -838,22 +769,20 @@
 
         </div>
 
-        <!-- QR Code Section -->
+        <!-- App Screenshots Section -->
         <div class="mb-16 flex justify-center">
           <div class="rounded-3xl bg-white p-12 shadow-2xl">
             <div class="flex items-center gap-8">
-              <!-- QR Code Placeholder -->
-              <div class="flex h-40 w-40 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl">
-                <div class="text-center">
-                  <div class="text-5xl mb-3">📱</div>
-                  <div class="text-sm font-semibold text-slate-600">Scan to Download</div>
-                </div>
+              <!-- App Screenshots -->
+              <div class="flex gap-4">
+                <img src="assets/images/app-screenshots/homeScreen.jpg" alt="Savor Home Screen" class="w-24 h-auto rounded-2xl shadow-lg">
+                <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Savor Dish List" class="w-24 h-auto rounded-2xl shadow-lg">
               </div>
               
-              <!-- QR Code Info -->
+              <!-- Download Info -->
               <div class="text-left">
-                <h3 class="font-bold text-slate-800 text-2xl mb-3">Quick Mobile Access</h3>
-                <p class="text-slate-600 mb-6 text-lg">Scan with your phone's camera to download instantly</p>
+                <h3 class="font-bold text-slate-800 text-2xl mb-3">Download Now</h3>
+                <p class="text-slate-600 mb-6 text-lg">Experience the future of food memory with our AI-powered app</p>
                 
                 <!-- App Store Badges -->
                 <div class="flex gap-4">
@@ -961,21 +890,24 @@
           
           <!-- Social Media Links -->
           <div class="flex space-x-6">
-            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+            <!-- Twitter -->
+            <a href="https://twitter.com/savortheapp" target="_blank" rel="noopener noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
               <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
               </svg>
             </a>
             
-            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@savortheapp" target="_blank" rel="noopener noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
               <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.001 12.017.001z"/>
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
               </svg>
             </a>
             
-            <a href="#" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
+            <!-- Instagram -->
+            <a href="https://instagram.com/savortheapp" target="_blank" rel="noopener noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-all duration-300 hover:bg-savor-primary hover:scale-110">
               <svg class="h-6 w-6 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
               </svg>
             </a>
           </div>
