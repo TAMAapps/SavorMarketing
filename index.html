@@ -50,6 +50,12 @@
     }
   </script>
   
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  
   <!-- Custom Styles -->
   <style>
     /* Premium animations and effects */
@@ -727,7 +733,7 @@
 
         <!-- Primary CTA Form -->
         <div class="mb-16 flex justify-center">
-          <form action="https://formspree.io/f/meokzqyq" method="POST" class="w-full max-w-2xl">
+          <form action="https://formspree.io/f/meokzqyg" method="POST" class="w-full max-w-2xl cta-waitlist-form">
             <div class="flex flex-col sm:flex-row gap-4">
               <input 
                 type="email" 
@@ -769,7 +775,7 @@
                 <p class="text-slate-600 mb-6 text-lg">Be the first to experience the future of food memory</p>
                 
                 <!-- Email Capture Form -->
-                <form action="https://formspree.io/f/meokzqyq" method="POST" class="space-y-4">
+                <form action="https://formspree.io/f/meokzqyg" method="POST" class="space-y-4 app-screenshots-form">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <input 
                       type="email" 
@@ -1058,30 +1064,86 @@
       observer.observe(section);
     });
 
+    // Capture UTM parameters from URL
+    function getUTMParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || '',
+        utm_term: params.get('utm_term') || ''
+      };
+    }
+
     // Simple form submission tracking (allows natural Formspree POST)
     document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('waitlist-form');
+      // Get UTM parameters on page load
+      const utmParams = getUTMParams();
       
-      if (form) {
+      // Track page view with UTM parameters if they exist
+      if (window.va && utmParams.utm_source) {
+        window.va('event', { 
+          name: 'page_view_with_utm',
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign
+        });
+      }
+      
+      // Track all form submissions
+      const forms = document.querySelectorAll('form[action*="formspree"]');
+      
+      forms.forEach(form => {
         form.addEventListener('submit', function(e) {
           const submitButton = form.querySelector('button[type="submit"]');
           
-          // Show loading state
-          submitButton.disabled = true;
-          submitButton.innerHTML = '<span class="relative z-10">Joining...</span>';
+          // Determine form source
+          let source = 'unknown';
+          if (form.id === 'waitlist-form') {
+            source = 'hero_form';
+          } else if (form.classList.contains('cta-waitlist-form')) {
+            source = 'cta_form';
+          } else if (form.classList.contains('app-screenshots-form')) {
+            source = 'app_screenshots_form';
+          }
           
-          // Track form submission
+          // Show loading state
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="relative z-10">Joining...</span>';
+          }
+          
+          // Track form submission with Vercel Analytics
+          if (window.va) {
+            const eventData = { 
+              name: 'waitlist_signup', 
+              source: source,
+              referrer: document.referrer || 'direct'
+            };
+            
+            // Include UTM parameters if available
+            if (utmParams.utm_source) {
+              eventData.utm_source = utmParams.utm_source;
+              eventData.utm_medium = utmParams.utm_medium;
+              eventData.utm_campaign = utmParams.utm_campaign;
+            }
+            
+            window.va('event', eventData);
+          }
+          
+          // Track form submission with Google Analytics (if available)
           if (typeof gtag !== 'undefined') {
             gtag('event', 'waitlist_signup_attempt', {
               event_category: 'engagement',
-              event_label: 'email_signup'
+              event_label: 'email_signup_' + source
             });
           }
           
           // Allow natural form submission to Formspree
           // Form will redirect to Formspree thank you page
         });
-      }
+      });
     });
   </script>
 
