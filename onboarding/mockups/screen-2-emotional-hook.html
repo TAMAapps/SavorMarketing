@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2C3E50 0%, #D4A574 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 400"><defs><radialGradient id="bg" cx="50%" cy="30%"><stop offset="0%" stop-color="%23D4A574" stop-opacity="0.3"/><stop offset="100%" stop-color="%23000" stop-opacity="0.8"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23bg)"/><circle cx="100" cy="120" r="40" fill="%23D4A574" opacity="0.1"/><circle cx="280" cy="200" r="60" fill="%23D4A574" opacity="0.08"/><circle cx="200" cy="80" r="25" fill="%23D4A574" opacity="0.12"/></svg>') center/cover;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 80px 40px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        
+        .top-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .food-memory {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #D4A574, #f4d03f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+        
+        .food-memory::before {
+            content: '🍜';
+            font-size: 50px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .food-memory::after {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 2px solid #D4A574;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: ripple 3s ease-out infinite;
+        }
+        
+        .headline {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtext {
+            font-size: 18px;
+            color: #B0B0B0;
+            line-height: 1.4;
+            margin-bottom: 60px;
+            max-width: 280px;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(135deg, #D4A574, #f4d03f);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+        }
+        
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D4A574;
+        }
+        
+        .dot.inactive {
+            background: #555;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .floating-food {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-food:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
+        .floating-food:nth-child(2) { top: 25%; right: 15%; animation-delay: 2s; }
+        .floating-food:nth-child(3) { bottom: 30%; left: 15%; animation-delay: 4s; }
+        .floating-food:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 1s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="screen">
+            <div class="background-image"></div>
+            <div class="floating-elements">
+                <div class="floating-food">🍕</div>
+                <div class="floating-food">🍣</div>
+                <div class="floating-food">🥘</div>
+                <div class="floating-food">🍰</div>
+            </div>
+            <div class="content">
+                <div class="top-section">
+                    <div class="food-memory"></div>
+                    <h1 class="headline">Remember that amazing dish from last month?</h1>
+                    <p class="subtext">The one you can't stop thinking about? The one that made you close your eyes and smile?</p>
+                </div>
+                <div class="bottom-section">
+                    <button class="continue-btn">I remember ✨</button>
+                    <div class="progress-dots">
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

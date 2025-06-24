@@ -1,0 +1,35 @@
+{
+  "name": "savor-programmatic-seo",
+  "version": "1.0.0",
+  "description": "Scalable programmatic SEO system for Savor restaurant discovery pages",
+  "main": "build.js",
+  "scripts": {
+    "build": "eleventy",
+    "build:clean": "rm -rf dist && eleventy",
+    "build:production": "NODE_ENV=production eleventy --quiet",
+    "serve": "eleventy --serve --port=8080",
+    "serve:debug": "DEBUG=Eleventy* eleventy --serve --port=8080",
+    "watch": "eleventy --watch",
+    "generate": "node generate.js",
+    "generate:city": "node generate.js --city",
+    "deploy": "npm run build:production && node scripts/deploy.js",
+    "deploy:staging": "NODE_ENV=staging npm run build && node scripts/deploy.js --staging",
+    "validate": "node scripts/validate-content.js",
+    "validate:yaml": "node scripts/validate-yaml.js",
+    "audit": "node scripts/audit.js",
+    "clean": "rm -rf dist",
+    "dev": "npm run clean && npm run serve",
+    "test": "echo \"No tests specified yet\" && exit 0"
+  },
+  "keywords": ["seo", "programmatic", "eleventy", "static-site-generator", "restaurant", "food"],
+  "author": "Savor Team",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "fs-extra": "^11.2.0",
+    "yaml": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
