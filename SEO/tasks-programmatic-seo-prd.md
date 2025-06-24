@@ -4,7 +4,7 @@ Based on: `programmatic-seo-prd.md`
 
 ## Relevant Files
 
-- `_config.yml` - Global configuration file containing site-wide variables (brand name, CTA text, footer, etc.)
+- `_config.yml` - Global configuration file containing site-wide variables (brand name, CTA text, footer, etc.) (✅ Created)
 - `.eleventy.js` - Eleventy configuration file with custom filters and data processing (✅ Created)
 - `build.js` - Main build script that processes all content files and generates static HTML pages
 - `generate.js` - Content generation script that creates page.md files from API data and keyword permutations
@@ -39,12 +39,12 @@ Based on: `programmatic-seo-prd.md`
   - [x] 1.6 Test basic Eleventy functionality with a simple test page
 
 - [ ] 2.0 Create Global Configuration System
-  - [ ] 2.1 Create _config.yml with all global variables (brand_name, app_store_link, global_cta_text, footer_text)
-  - [ ] 2.2 Set up YAML parsing in build script to read global config
-  - [ ] 2.3 Create data cascade system where global config is available to all templates
-  - [ ] 2.4 Add validation script to check required global config fields
-  - [ ] 2.5 Document all available global variables and their purposes
-  - [ ] 2.6 Test global variable inheritance across different page types
+  - [x] 2.1 Create _config.yml with all global variables (brand_name, app_store_link, global_cta_text, footer_text)
+  - [x] 2.2 Set up YAML parsing in build script to read global config
+  - [x] 2.3 Create data cascade system where global config is available to all templates
+  - [x] 2.4 Add validation script to check required global config fields
+  - [x] 2.5 Document all available global variables and their purposes
+- [x] 2.6 Test global variable inheritance across different page types
 
 - [ ] 3.0 Build Content Generation Engine
   - [ ] 3.1 Create generate.js script with command-line argument parsing (city, count, cuisine type)

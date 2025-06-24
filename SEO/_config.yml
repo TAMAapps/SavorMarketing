@@ -1,0 +1,63 @@
+# Global Configuration for Savor Programmatic SEO System
+# This file contains all site-wide variables that apply to every page
+
+# Brand & App Information
+brand_name: "Savor"
+app_store_link: "https://savortheapp.com/download"
+global_cta_text: "Download the Savor app to start tracking your meals!"
+footer_text: "© 2024 Savor. All rights reserved."
+base_url: "https://savortheapp.com"
+
+# SEO Defaults
+default_meta_description: "Discover the best restaurants and dishes with Savor's community-driven ratings and reviews."
+default_title_suffix: " | Savor"
+default_og_image: "/images/savor-og-default.jpg"
+
+# Navigation & Links
+privacy_policy_link: "/privacy"
+terms_link: "/terms"
+contact_link: "/contact"
+about_link: "/about"
+
+# Social Media
+twitter_handle: "@SavorTheApp"
+instagram_handle: "@savortheapp"
+facebook_page: "https://facebook.com/savortheapp"
+
+# Analytics & Tracking
+google_analytics_id: "GA-XXXXXXXXX"
+facebook_pixel_id: "XXXXXXXXX"
+hotjar_site_id: "XXXXXXXXX"
+
+# Content Settings
+pagination_size: 20
+excerpt_length: 150
+related_posts_count: 3
+
+# API & External Services
+google_maps_api_key: "YOUR_GOOGLE_MAPS_API_KEY"
+places_api_endpoint: "https://api.savortheapp.com/places"
+
+# Feature Flags
+enable_user_reviews: true
+enable_photo_uploads: true
+enable_social_sharing: true
+enable_email_capture: true
+
+# Email & Newsletter
+mailchimp_list_id: "XXXXXXXXX"
+newsletter_signup_text: "Get the latest restaurant discoveries in your inbox"
+
+# Schema.org Structured Data
+organization_name: "Savor Technologies Inc."
+organization_logo: "/images/savor-logo-structured-data.png"
+organization_url: "https://savortheapp.com"
+organization_social_profiles:
+  - "https://twitter.com/SavorTheApp"
+  - "https://instagram.com/savortheapp"
+  - "https://facebook.com/savortheapp"
+
+# Performance & Optimization
+image_optimization: true
+lazy_loading: true
+critical_css_inline: true 
