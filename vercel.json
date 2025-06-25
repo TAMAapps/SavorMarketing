@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "src": "/unbound",
+      "dest": "/unboundpay-analysis/index.html",
+      "headers": {
+        "WWW-Authenticate": "Basic realm=\"UnboundPay Preview\"",
+        "Authorization": "Basic dW5ib3VuZDpwcmV2aWV3MTIz"
+      }
+    },
+    {
+      "src": "/unbound/(.*)",
+      "dest": "/unboundpay-analysis/$1",
+      "headers": {
+        "WWW-Authenticate": "Basic realm=\"UnboundPay Preview\"",
+        "Authorization": "Basic dW5ib3VuZDpwcmV2aWV3MTIz"
+      }
+    }
+  ]
+}

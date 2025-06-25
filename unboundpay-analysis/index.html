@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UnboundPay - Free consultation with CC processing expert. 8+ years experience helping high-risk businesses get approved.">
+  <meta name="keywords" content="payment processing, high-risk merchant, zero fees, secure payments, instant approval">
+  <title>UnboundPay - Zero-Fee Payment Processing | Expert Consultation</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+            'display': ['Space Grotesk', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            'finance-blue': '#1e40af',
+            'finance-dark': '#0f172a',
+            'finance-gold': '#f59e0b',
+            'finance-green': '#10b981',
+            'finance-red': '#ef4444'
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulseSlow {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .gradient-mesh {
+      background: radial-gradient(circle at 25% 25%, #1e40af20 0%, transparent 50%),
+                  radial-gradient(circle at 75% 75%, #f59e0b20 0%, transparent 50%),
+                  radial-gradient(circle at 50% 50%, #10b98120 0%, transparent 50%);
+    }
+    
+    .trust-badge {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Header -->
+  <header class="relative">
+    <nav class="flex items-center justify-between p-6 lg:px-8 max-w-7xl mx-auto" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5 flex items-center">
+          <div class="h-10 w-10 bg-gradient-to-br from-finance-blue to-finance-gold rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <span class="ml-3 text-xl font-bold text-finance-dark font-display">UnboundPay</span>
+        </a>
+      </div>
+      
+      <div class="hidden lg:flex lg:gap-x-8">
+        <a href="#features" class="text-sm font-semibold leading-6 text-gray-700 hover:text-finance-blue transition-colors">Services</a>
+        <a href="#testimonials" class="text-sm font-semibold leading-6 text-gray-700 hover:text-finance-blue transition-colors">Success Stories</a>
+        <a href="#consultation" class="text-sm font-semibold leading-6 text-gray-700 hover:text-finance-blue transition-colors">Free Consultation</a>
+      </div>
+      
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-700 hover:text-finance-blue transition-colors">Sign in</a>
+        <a href="#consultation" class="rounded-lg bg-finance-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors">Free Consultation</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative isolate overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-14">
+      <div class="gradient-mesh absolute inset-0"></div>
+      
+      
+      <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+          <!-- Trust indicator -->
+          <div class="mb-8 inline-flex items-center rounded-full bg-finance-blue/10 px-6 py-2 text-sm font-medium text-finance-blue ring-1 ring-finance-blue/20 animate-fade-in">
+            🏆 8+ Years Credit Card Processing Expert
+          </div>
+          
+          <h1 class="text-4xl font-bold tracking-tight text-finance-dark sm:text-6xl lg:text-7xl font-display animate-slide-up">
+            Get Expert Help with
+            <span class="block text-finance-blue">Payment Processing</span>
+          </h1>
+          
+          <p class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+            Book a free consultation with a leading credit card processing expert. 8+ years helping high-risk businesses get approved and reduce fees.
+          </p>
+          
+          <!-- Key benefits -->
+          <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm font-semibold animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="flex items-center text-finance-green">
+              <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Free Consultation
+            </div>
+            <div class="flex items-center text-finance-green">
+              <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              8+ Years Experience
+            </div>
+            <div class="flex items-center text-finance-green">
+              <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              High-Risk Specialist
+            </div>
+          </div>
+          
+          <!-- CTA Section -->
+          <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+            <a href="#consultation" class="group relative rounded-lg bg-finance-blue px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300">
+              <span class="relative z-10">Book Free Consultation</span>
+              <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-finance-blue to-finance-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            <a href="#testimonials" class="rounded-lg border-2 border-finance-blue px-8 py-4 text-lg font-semibold text-finance-blue hover:bg-finance-blue hover:text-white transition-all duration-300">
+              See Success Stories
+            </a>
+          </div>
+          
+          <!-- Urgency indicator -->
+          <p class="mt-6 text-sm text-gray-500 animate-pulse-slow">
+            ⚡ Limited consultation slots available this week • Completely free
+          </p>
+        </div>
+      </div>
+      
+      <!-- Background decorative elements -->
+      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-finance-blue to-finance-gold opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
+      </div>
+    </section>
+
+    <!-- Logo Cloud -->
+    <section class="py-16 bg-white">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <p class="text-center text-sm font-semibold text-gray-600 mb-8">Trusted by leading high-risk businesses</p>
+        <div class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5 opacity-60">
+          <!-- Placeholder logos - in real implementation, use actual client logos -->
+          <div class="col-span-2 max-h-12 w-full flex items-center justify-center lg:col-span-1">
+            <div class="h-8 w-20 bg-gray-200 rounded"></div>
+          </div>
+          <div class="col-span-2 max-h-12 w-full flex items-center justify-center lg:col-span-1">
+            <div class="h-8 w-20 bg-gray-200 rounded"></div>
+          </div>
+          <div class="col-span-2 max-h-12 w-full flex items-center justify-center lg:col-span-1">
+            <div class="h-8 w-20 bg-gray-200 rounded"></div>
+          </div>
+          <div class="col-span-2 max-h-12 w-full flex items-center justify-center sm:col-start-2 lg:col-span-1">
+            <div class="h-8 w-20 bg-gray-200 rounded"></div>
+          </div>
+          <div class="col-span-2 col-start-2 max-h-12 w-full flex items-center justify-center sm:col-start-auto lg:col-span-1">
+            <div class="h-8 w-20 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-base font-semibold leading-7 text-finance-blue">Expert Services</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-display">
+            Get personalized help from a CC processing expert
+          </p>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            8+ years of experience helping high-risk businesses navigate the complex world of payment processing and get approved.
+          </p>
+        </div>
+        
+        <!-- Feature Grid -->
+        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-blue p-2 ring-1 ring-finance-blue/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">Free Consultation</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Get expert advice on your payment processing needs. No cost, no obligation consultation calls.</dd>
+            </div>
+            
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-gold p-2 ring-1 ring-finance-gold/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">High-Risk Specialist</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Expert in high-risk industries including CBD, forex, gaming, adult, and other challenging verticals.</dd>
+            </div>
+            
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-green p-2 ring-1 ring-finance-green/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">8+ Years Experience</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Proven track record helping businesses navigate complex payment processing requirements and get approved.</dd>
+            </div>
+            
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-blue p-2 ring-1 ring-finance-blue/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">Mobile Optimized</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Accept payments anywhere with our mobile-first platform. Works seamlessly on all devices.</dd>
+            </div>
+            
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-gold p-2 ring-1 ring-finance-gold/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H4.5m2.25 0v3m0 0h3m-3 0h-.375a1.125 1.125 0 00-1.125 1.125v9.75c0 .621.504 1.125 1.125 1.125h7.5c.621 0 1.125-.504 1.125-1.125V8.25a1.125 1.125 0 00-1.125-1.125H12m-8.25 0h8.25" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">Real-Time Analytics</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Track every transaction with detailed reporting and analytics. Know your numbers in real-time.</dd>
+            </div>
+            
+            <div class="flex flex-col items-start">
+              <div class="rounded-lg bg-finance-green p-2 ring-1 ring-finance-green/10">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              </div>
+              <dt class="mt-4 font-semibold text-gray-900">24/7 Support</dt>
+              <dd class="mt-2 leading-7 text-gray-600">Get help when you need it. Our expert support team is available around the clock.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-finance-dark py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-xl text-center">
+          <h2 class="text-lg font-semibold leading-8 tracking-tight text-finance-gold">Customer Success</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl font-display">
+            Real results from real businesses
+          </p>
+        </div>
+        <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Testimonial 1 -->
+            <div class="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+              <div class="flex items-center gap-x-4">
+                <div class="h-12 w-12 rounded-full bg-gradient-to-r from-finance-blue to-finance-gold flex items-center justify-center text-white font-bold text-lg">
+                  M
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-white">Marcus Chen</h3>
+                  <p class="text-sm text-gray-400">CBD Retailer</p>
+                </div>
+              </div>
+              <blockquote class="mt-6 text-white">
+                <p>"After 3 account shutdowns, SecurePay finally gave us stability. Zero fees means we keep every dollar we earn."</p>
+              </blockquote>
+              <div class="mt-4 flex text-finance-gold">
+                ★★★★★
+              </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+              <div class="flex items-center gap-x-4">
+                <div class="h-12 w-12 rounded-full bg-gradient-to-r from-finance-green to-finance-blue flex items-center justify-center text-white font-bold text-lg">
+                  S
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-white">Sarah Rodriguez</h3>
+                  <p class="text-sm text-gray-400">Gaming Platform</p>
+                </div>
+              </div>
+              <blockquote class="mt-6 text-white">
+                <p>"Got approved in 18 hours when everyone else rejected us. Processing $50K monthly with zero issues."</p>
+              </blockquote>
+              <div class="mt-4 flex text-finance-gold">
+                ★★★★★
+              </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+              <div class="flex items-center gap-x-4">
+                <div class="h-12 w-12 rounded-full bg-gradient-to-r from-finance-gold to-finance-green flex items-center justify-center text-white font-bold text-lg">
+                  D
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-white">David Kim</h3>
+                  <p class="text-sm text-gray-400">Forex Trading</p>
+                </div>
+              </div>
+              <blockquote class="mt-6 text-white">
+                <p>"The account protection is real. 6 months running with zero downtime. Finally found a processor that works."</p>
+              </blockquote>
+              <div class="mt-4 flex text-finance-gold">
+                ★★★★★
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Final CTA Section -->
+    <section id="consultation" class="bg-gradient-to-r from-finance-blue to-finance-dark py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display">
+            Ready to get expert help?
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-300">
+            Book your free consultation with a leading CC processing expert. No cost, no obligation.
+          </p>
+          
+          <!-- Consultation Form -->
+          <div class="mt-10 flex flex-col items-center">
+            <div class="w-full max-w-md">
+              <form class="space-y-4">
+                <input type="text" placeholder="Your Name" required class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-finance-gold outline-none">
+                <input type="email" placeholder="Business Email" required class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-finance-gold outline-none">
+                <input type="tel" placeholder="Phone Number" required class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-finance-gold outline-none">
+                <select required class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 focus:ring-2 focus:ring-finance-gold outline-none">
+                  <option value="">Monthly Processing Volume</option>
+                  <option value="0-10k">$0 - $10K</option>
+                  <option value="10k-50k">$10K - $50K</option>
+                  <option value="50k-100k">$50K - $100K</option>
+                  <option value="100k+">$100K+</option>
+                </select>
+                <button type="submit" class="w-full rounded-lg bg-finance-gold px-6 py-3 text-lg font-semibold text-black hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300">
+                  Book Free Consultation
+                </button>
+              </form>
+            </div>
+            
+            <div class="mt-6 flex items-center justify-center gap-8 text-sm text-gray-300">
+              <div class="flex items-center">
+                <svg class="mr-2 h-4 w-4 text-finance-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                No spam
+              </div>
+              <div class="flex items-center">
+                <svg class="mr-2 h-4 w-4 text-finance-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Free consultation
+              </div>
+              <div class="flex items-center">
+                <svg class="mr-2 h-4 w-4 text-finance-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                24hr response
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-finance-dark">
+    <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+      <div class="flex justify-center space-x-6 md:order-2">
+        <a href="#" class="text-gray-400 hover:text-gray-300">Privacy</a>
+        <a href="#" class="text-gray-400 hover:text-gray-300">Terms</a>
+        <a href="#" class="text-gray-400 hover:text-gray-300">Contact</a>
+      </div>
+      <div class="mt-8 md:order-1 md:mt-0">
+        <div class="flex items-center justify-center md:justify-start">
+          <div class="h-8 w-8 bg-gradient-to-br from-finance-blue to-finance-gold rounded-lg flex items-center justify-center mr-3">
+            <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <span class="text-lg font-bold text-white font-display">UnboundPay</span>
+        </div>
+        <p class="text-center text-xs leading-5 text-gray-400 md:text-left mt-2">
+          &copy; 2024 UnboundPay. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for smooth scrolling and animations -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission handler
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // In a real implementation, this would submit to your backend
+      alert('Thank you! We\'ll contact you within 24 hours to schedule your consultation.');
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
