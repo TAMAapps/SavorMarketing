@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savor Onboarding - Complete Flow</title>
+    <title>Savor Onboarding Flow - Developer Review</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,272 +14,324 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #2C3E50 0%, #D4A574 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 40px 20px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
+            padding: 40px 20px;
         }
         
         .header {
+            text-align: center;
             margin-bottom: 50px;
         }
         
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+        
         .title {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 20px;
+            color: #ffffff;
+            margin-bottom: 10px;
             letter-spacing: -1px;
         }
         
         .subtitle {
-            font-size: 20px;
-            color: #B0B0B0;
-            margin-bottom: 30px;
+            font-size: 18px;
+            color: #D4A574;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
         
         .description {
             font-size: 16px;
-            color: #D4D4D4;
+            color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
+            margin: 0 auto;
+        }
+        
+        .flow-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #D4A574;
+            margin-bottom: 30px;
+            text-align: center;
         }
         
         .screens-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
-        .screen-preview {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s ease;
+        .screen-card {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
             border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
             backdrop-filter: blur(10px);
         }
         
-        .screen-preview:hover {
+        .screen-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.2);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.3);
             border-color: rgba(212, 165, 116, 0.4);
         }
         
         .screen-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #D4A574, #f4d03f);
-            color: #000;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 18px;
-            line-height: 40px;
-            margin-bottom: 20px;
+            font-size: 14px;
+            color: #D4A574;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .screen-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            color: #fff;
-            margin-bottom: 15px;
+            color: #ffffff;
+            margin-bottom: 10px;
         }
         
         .screen-description {
-            font-size: 16px;
-            color: #B0B0B0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
             line-height: 1.5;
-            margin-bottom: 25px;
         }
         
-        .view-btn {
-            background: linear-gradient(135deg, #D4A574, #f4d03f);
+        .screen-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .view-button {
+            background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
             border: none;
-            border-radius: 20px;
-            padding: 12px 30px;
-            font-size: 16px;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 14px;
             font-weight: 600;
-            color: #000;
+            color: #000000;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            width: 100%;
+            text-align: center;
         }
         
-        .view-btn:hover {
+        .view-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
         }
         
-        .insights {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(212, 165, 116, 0.2);
-        }
-        
-        .insights-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #D4A574;
-            margin-bottom: 30px;
-        }
-        
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-        
-        .insight {
-            background: rgba(212, 165, 116, 0.1);
+        .flow-info {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(212, 165, 116, 0.2);
+            padding: 30px;
+            margin: 40px 0;
         }
         
-        .insight-title {
-            font-size: 18px;
+        .info-title {
+            font-size: 20px;
             font-weight: 600;
             color: #D4A574;
+            margin-bottom: 15px;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .info-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .info-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #D4A574;
+            font-weight: bold;
+        }
+        
+        .removed-screens {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .removed-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff6b6b;
             margin-bottom: 10px;
         }
         
-        .insight-text {
+        .removed-text {
             font-size: 14px;
-            color: #D4D4D4;
-            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .footer {
-            border-top: 1px solid rgba(212, 165, 116, 0.2);
-            padding-top: 30px;
-            color: #B0B0B0;
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
             font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .screens-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title">Savor App Onboarding Flow</h1>
-            <p class="subtitle">Personal Founder Story + Premium App Insights</p>
+            <div class="logo">🍽️</div>
+            <h1 class="title">Savor Onboarding Flow</h1>
+            <p class="subtitle">Developer Review - Production Ready Mockups</p>
             <p class="description">
-                This 8-screen onboarding flow starts with Alex's personal story, creating genuine connection before showcasing features. 
-                Designed using insights from top-performing apps like Arc Search, mymind, Shelf, and pillowtalk to maximize emotional engagement.
+                Complete visual mockups for the optimized onboarding flow. Each screen has been designed with minimal text, luxury aesthetics, and behavioral psychology principles to maximize conversion and user engagement.
             </p>
         </div>
         
-        <div class="screens-grid">
-            <div class="screen-preview">
-                <div class="screen-number">0</div>
-                <h3 class="screen-title">Founder's Personal Story</h3>
-                <p class="screen-description">
-                    Alex shares her Tokyo ramen story and why she built Savor. Creates authentic, personal connection with users from the very first moment.
-                </p>
-                <a href="screen-0-founder-story.html" class="view-btn">View Screen</a>
-            </div>
+        <div class="flow-section">
+            <h2 class="section-title">Final Onboarding Flow (6 Screens)</h2>
             
-            <div class="screen-preview">
-                <div class="screen-number">1</div>
-                <h3 class="screen-title">The Breaking Point</h3>
-                <p class="screen-description">
-                    Compound the pain with social embarrassment - the moment that motivated building Savor. Shows messy map with scattered pins.
-                </p>
-                <a href="screen-1-breaking-point.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">2</div>
-                <h3 class="screen-title">Community Mission</h3>
-                <p class="screen-description">
-                    Show user they're supporting a fellow foodie and joining a community, not just using a corporate app.
-                </p>
-                <a href="screen-2-community-mission.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">3</div>
-                <h3 class="screen-title">Universal Problem</h3>
-                <p class="screen-description">
-                    Make the pain universal - everyone has lost precious food memories. Shows fading food emojis with question marks.
-                </p>
-                <a href="screen-3-universal-problem.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">4</div>
-                <h3 class="screen-title">The Magic Solution</h3>
-                <p class="screen-description">
-                    Demonstrate the core AI functionality with quantified benefits and visual proof. Shows 3-second scanning demo.
-                </p>
-                <a href="screen-4-magic-solution.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">5</div>
-                <h3 class="screen-title">Personal Vault</h3>
-                <p class="screen-description">
-                    Show the organizational power and search functionality that makes memories useful. Pinterest-like layout.
-                </p>
-                <a href="screen-5-personal-vault.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">6</div>
-                <h3 class="screen-title">The Invitation</h3>
-                <p class="screen-description">
-                    Create urgency and belonging with social proof, focus on "tonight" as starting point. Shows growing counter.
-                </p>
-                <a href="screen-6-ai-demo.html" class="view-btn">View Screen</a>
-            </div>
-            
-            <div class="screen-preview">
-                <div class="screen-number">7</div>
-                <h3 class="screen-title">Permission to Begin</h3>
-                <p class="screen-description">
-                    Remove perfectionism barriers - permission to start imperfectly. Shows Alex's mediocre airport sandwich.
-                </p>
-                <a href="screen-7-conclusion.html" class="view-btn">View Screen</a>
-            </div>
-        </div>
-        
-        <div class="insights">
-            <h2 class="insights-title">Design Insights from Premium Apps</h2>
-            <div class="insights-grid">
-                <div class="insight">
-                    <h3 class="insight-title">Arc Search Approach</h3>
-                    <p class="insight-text">Personal founder narrative creates immediate emotional connection before feature demonstrations.</p>
+            <div class="screens-grid">
+                <div class="screen-card">
+                    <div class="screen-number">Screen 1</div>
+                    <h3 class="screen-title">Alex's Introduction</h3>
+                    <p class="screen-description">Personal founder story with dish comparison demo. Establishes trust and showcases key USP of comparing dishes across time.</p>
+                    <div class="screen-preview">👩‍🍳</div>
+                    <a href="screen-1-alex-introduction-clean.html" class="view-button" target="_blank">View Screen</a>
                 </div>
-                <div class="insight">
-                    <h3 class="insight-title">mymind Strategy</h3>
-                    <p class="insight-text">Problem-solution flow that validates user pain points before revealing the solution.</p>
+                
+                <div class="screen-card">
+                    <div class="screen-number">Screen 2</div>
+                    <h3 class="screen-title">Universal Problem</h3>
+                    <p class="screen-description">92% forgetting statistic with visual dish grid. Creates urgency and emotional connection to the problem.</p>
+                    <div class="screen-preview">📊</div>
+                    <a href="screen-2-universal-problem-clean.html" class="view-button" target="_blank">View Screen</a>
                 </div>
-                <div class="insight">
-                    <h3 class="insight-title">Shelf Technique</h3>
-                    <p class="insight-text">Visual storytelling with clear progression from problem to personal transformation.</p>
+                
+                <div class="screen-card">
+                    <div class="screen-number">Screen 3</div>
+                    <h3 class="screen-title">Personal Calculator</h3>
+                    <p class="screen-description">247 dishes lost with breakdown by category. Personalizes the problem and quantifies the user's specific loss.</p>
+                    <div class="screen-preview">🔢</div>
+                    <a href="screen-3-personal-calculator-clean.html" class="view-button" target="_blank">View Screen</a>
                 </div>
-                <div class="insight">
-                    <h3 class="insight-title">pillowtalk Method</h3>
-                    <p class="insight-text">Interactive elements that let users experience the product's magic before committing.</p>
+                
+                <div class="screen-card">
+                    <div class="screen-number">Screen 4</div>
+                    <h3 class="screen-title">Solution Introduction</h3>
+                    <p class="screen-description">Savor's 4 key features with animated phone demo. Shows how the app solves the identified problem.</p>
+                    <div class="screen-preview">📱</div>
+                    <a href="screen-4-solution-intro-clean.html" class="view-button" target="_blank">View Screen</a>
                 </div>
+                
+                <div class="screen-card">
+                    <div class="screen-number">Screen 5</div>
+                    <h3 class="screen-title">Transformation</h3>
+                    <p class="screen-description">Before/after transformation with community invitation. Shows the aspirational outcome of using Savor.</p>
+                    <div class="screen-preview">⭐</div>
+                    <a href="screen-6-transformation.html" class="view-button" target="_blank">View Screen</a>
+                </div>
+                
+                <div class="screen-card">
+                    <div class="screen-number">Screen 6</div>
+                    <h3 class="screen-title">Alex's Thank You</h3>
+                    <p class="screen-description">Personal thank you with social channels. Creates connection and encourages feedback/community engagement.</p>
+                    <div class="screen-preview">💝</div>
+                    <a href="screen-9-alex-thank-you-clean.html" class="view-button" target="_blank">View Screen</a>
+                </div>
+            </div>
+            
+            <div class="flow-info">
+                <h3 class="info-title">Key Design Principles</h3>
+                <ul class="info-list">
+                    <li>Minimal text per screen for mobile-first experience</li>
+                    <li>Luxury aesthetic with premium gradients and gold accents</li>
+                    <li>Behavioral psychology triggers (loss aversion, social proof)</li>
+                    <li>Personal connection through founder story</li>
+                    <li>Clear value proposition highlighting dish-specific rating USP</li>
+                    <li>Emotional journey from problem identification to solution</li>
+                    <li>Community-focused messaging for food critics and enthusiasts</li>
+                </ul>
+            </div>
+            
+            <div class="removed-screens">
+                <h3 class="removed-title">Removed Screens</h3>
+                <p class="removed-text">
+                    Screens 5 (Unique Value), 7 (Community), and 8 (Final CTA) have been removed from the final flow to streamline the user experience and reduce cognitive load. The remaining 6 screens provide a complete conversion journey without overwhelming users.
+                </p>
             </div>
         </div>
         
         <div class="footer">
-            <p>Designed for maximum emotional engagement and conversion optimization</p>
+            <p class="footer-text">
+                Created for Savor • All screens optimized for iPhone 14 Pro (375x812px) • Ready for development implementation
+            </p>
         </div>
     </div>
 </body>
-</html> 
+</html>
