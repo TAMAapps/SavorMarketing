@@ -1,0 +1,133 @@
+{
+  "hero": [
+    {
+      "id": "hero-01",
+      "filename": "hero-gourmet-plating.jpg",
+      "url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&q=80",
+      "photographer": "Brooke Lark",
+      "unsplash_url": "https://unsplash.com/@brookelark",
+      "description": "Elegant gourmet dish with artistic plating - perfect for hero section"
+    },
+    {
+      "id": "hero-02", 
+      "filename": "hero-dining-experience.jpg",
+      "url": "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=1920&q=80",
+      "photographer": "Jay Wennington",
+      "unsplash_url": "https://unsplash.com/@jaywennington",
+      "description": "Fine dining restaurant atmosphere with warm lighting"
+    },
+    {
+      "id": "hero-03",
+      "filename": "hero-food-memories.jpg", 
+      "url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=80",
+      "photographer": "Maarten van den Heuvel",
+      "unsplash_url": "https://unsplash.com/@mvdheuvel",
+      "description": "Hands capturing food with phone - memory creation concept"
+    }
+  ],
+  
+  "features": [
+    {
+      "id": "feature-01",
+      "filename": "ai-recognition-sushi.jpg",
+      "url": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&q=80",
+      "photographer": "Jakub Dziubak",
+      "unsplash_url": "https://unsplash.com/@jakubdziubak",
+      "description": "Beautiful sushi arrangement for AI recognition feature"
+    },
+    {
+      "id": "feature-02",
+      "filename": "smart-vault-spices.jpg",
+      "url": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80",
+      "photographer": "Pratiksha Mohanty",
+      "unsplash_url": "https://unsplash.com/@pratiksha_mohanty",
+      "description": "Organized spice collection representing smart organization"
+    },
+    {
+      "id": "feature-03",
+      "filename": "discovery-market.jpg",
+      "url": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&q=80",
+      "photographer": "Peter Dawn",
+      "unsplash_url": "https://unsplash.com/@peterdawn",
+      "description": "Vibrant food market for discovery engine feature"
+    },
+    {
+      "id": "feature-04",
+      "filename": "global-cuisine-pasta.jpg",
+      "url": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=800&q=80",
+      "photographer": "Eiliv Aceron",
+      "unsplash_url": "https://unsplash.com/@shootdelicious",
+      "description": "Fresh pasta making - global cuisine representation"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "id": "testimonial-01",
+      "filename": "chef-professional.jpg",
+      "url": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80",
+      "photographer": "Scott Warman",
+      "unsplash_url": "https://unsplash.com/@scottiewarman",
+      "description": "Professional chef in kitchen - testimonial avatar"
+    },
+    {
+      "id": "testimonial-02",
+      "filename": "food-critic-tasting.jpg",
+      "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+      "photographer": "Joseph Gonzalez",
+      "unsplash_url": "https://unsplash.com/@miracletwentyone",
+      "description": "Person thoughtfully tasting food - critic testimonial"
+    },
+    {
+      "id": "testimonial-03",
+      "filename": "food-enthusiast.jpg",
+      "url": "https://images.unsplash.com/photo-1494790108755-2616c78746ae?w=400&q=80",
+      "photographer": "Michael Dam",
+      "unsplash_url": "https://unsplash.com/@michaeldam",
+      "description": "Happy food enthusiast - consumer testimonial"
+    },
+    {
+      "id": "testimonial-04",
+      "filename": "restaurant-owner.jpg",
+      "url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+      "photographer": "Ayo Ogunseinde",
+      "unsplash_url": "https://unsplash.com/@armedshutter",
+      "description": "Restaurant owner portrait - business testimonial"
+    }
+  ],
+
+  "backgrounds": [
+    {
+      "id": "bg-01",
+      "filename": "warm-restaurant-ambiance.jpg",
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80",
+      "photographer": "Jay Wennington",
+      "unsplash_url": "https://unsplash.com/@jaywennington",
+      "description": "Warm restaurant interior for section backgrounds"
+    },
+    {
+      "id": "bg-02",
+      "filename": "cooking-action-blur.jpg",
+      "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80",
+      "photographer": "Maarten van den Heuvel",
+      "unsplash_url": "https://unsplash.com/@mvdheuvel",
+      "description": "Blurred cooking action for dynamic backgrounds"
+    },
+    {
+      "id": "bg-03",
+      "filename": "ingredients-texture.jpg",
+      "url": "https://images.unsplash.com/photo-1505935428862-770b6f24f629?w=1920&q=80",
+      "photographer": "Monika Grabkowska",
+      "unsplash_url": "https://unsplash.com/@moniagrab",
+      "description": "Natural ingredients texture for subtle backgrounds"
+    },
+    {
+      "id": "bg-04",
+      "filename": "food-preparation-overhead.jpg",
+      "url": "https://images.unsplash.com/photo-1556909114-4f6e7ad7d3136?w=1920&q=80",
+      "photographer": "Brooke Lark",
+      "unsplash_url": "https://unsplash.com/@brookelark",
+      "description": "Overhead food preparation scene for feature backgrounds"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Community Mission</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2C3E50 0%, #D4A574 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            padding: 50px 25px 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        
+        .mission-text {
+            font-size: 24px;
+            color: #D4A574;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            font-size: 16px;
+            color: #D4D4D4;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(135deg, #D4A574, #f4d03f);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+        }
+        
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #555;
+        }
+        
+        .dot.active {
+            background: #D4A574;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="screen">
+            <div class="content">
+                <div class="top-section">
+                    <div class="mission-text">
+                        "That moment sparked an idea: What if foodies could easily share their best discoveries?"
+                    </div>
+                    
+                    <div class="description">
+                        Building a community where every dish recommendation comes with context, photos, and genuine passion.
+                    </div>
+                </div>
+                
+                <div class="bottom-section">
+                    <button class="continue-btn" onclick="window.location.href='screen-3-universal-problem.html'">
+                        Continue
+                    </button>
+                    <div class="progress-dots">
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Foodie Survey - Private Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --savor-primary: #D97706;
+            --savor-secondary: #92400E;
+            --savor-gray-50: #F9FAFB;
+            --savor-gray-100: #F3F4F6;
+            --savor-gray-200: #E5E7EB;
+            --savor-gray-300: #D1D5DB;
+            --savor-gray-600: #4B5563;
+            --savor-gray-700: #374151;
+            --savor-gray-800: #1F2937;
+            --savor-white: #FFFFFF;
+            --savor-success: #10B981;
+            --savor-error: #EF4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--savor-gray-800);
+            background: linear-gradient(135deg, var(--savor-gray-50) 0%, var(--savor-gray-100) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .login-screen, .survey-screen, .admin-screen {
+            background: var(--savor-white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        h1, h2 {
+            color: var(--savor-gray-800);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--savor-primary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .survey-intro {
+            background: linear-gradient(135deg, var(--savor-primary), var(--savor-secondary));
+            color: var(--savor-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .survey-intro h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--savor-gray-700);
+        }
+
+        .question-label {
+            background: var(--savor-gray-50);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--savor-primary);
+            font-weight: 600;
+            color: var(--savor-gray-800);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        input[type="password"],
+        input[type="email"],
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--savor-gray-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--savor-white);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--savor-primary);
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+            transform: translateY(-1px);
+        }
+
+        input:hover,
+        select:hover,
+        textarea:hover {
+            border-color: var(--savor-gray-300);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--savor-white);
+            border: 2px solid var(--savor-gray-200);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .radio-option:hover,
+        .checkbox-option:hover {
+            background: var(--savor-gray-50);
+            border-color: var(--savor-gray-300);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .radio-option input:checked + label,
+        .checkbox-option input:checked + label,
+        .radio-option:has(input:checked),
+        .checkbox-option:has(input:checked) {
+            background: linear-gradient(135deg, var(--savor-primary), var(--savor-secondary));
+            color: var(--savor-white);
+            border-color: var(--savor-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .radio-option input:checked + label,
+        .checkbox-option input:checked + label {
+            color: var(--savor-white);
+        }
+
+        .radio-option input,
+        .checkbox-option input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: var(--savor-primary);
+        }
+
+        .radio-option label,
+        .checkbox-option label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: var(--savor-primary);
+            color: var(--savor-white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--savor-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--savor-gray-600);
+        }
+
+        .btn-secondary:hover {
+            background: var(--savor-gray-700);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--savor-gray-200);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--savor-primary), var(--savor-secondary));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .section-header {
+            background: var(--savor-gray-50);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid var(--savor-primary);
+        }
+
+        .section-header h3 {
+            color: var(--savor-gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--savor-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--savor-gray-50);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--savor-gray-200);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--savor-primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--savor-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .response-item {
+            background: var(--savor-white);
+            border: 1px solid var(--savor-gray-200);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--savor-gray-600);
+        }
+
+        .response-data {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .error-message {
+            color: var(--savor-error);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .success-message {
+            background: var(--savor-success);
+            color: var(--savor-white);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .login-screen,
+            .survey-screen,
+            .admin-screen {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="login-screen">
+            <h1>🍽️ Savor Foodie Survey</h1>
+            <div class="survey-intro">
+                <p>5-minute survey for food lovers: Do you remember your best meals?</p>
+                <p><strong>Private access only</strong> - Enter password to continue</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Survey Password:</label>
+                <input type="password" id="password" placeholder="Enter survey password">
+                <div id="passwordError" class="error-message hidden">Incorrect password. Please try again.</div>
+            </div>
+            
+            <button class="btn" onclick="checkPassword()">Access Survey</button>
+            
+            <div style="margin-top: 2rem; text-align: center; color: var(--savor-gray-600);">
+                <small>Admin access? <a href="#" onclick="showAdminLogin()" style="color: var(--savor-primary);">Click here</a></small>
+            </div>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="adminLogin" class="login-screen hidden">
+            <h1>🔐 Admin Access</h1>
+            <div class="form-group">
+                <label for="adminPassword">Admin Password:</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password">
+                <div id="adminPasswordError" class="error-message hidden">Incorrect admin password.</div>
+            </div>
+            <button class="btn" onclick="checkAdminPassword()">Access Dashboard</button>
+            <button class="btn btn-secondary" onclick="showLogin()" style="margin-left: 1rem;">Back to Survey</button>
+        </div>
+
+        <!-- Survey Introduction Screen -->
+        <div id="surveyIntroScreen" class="survey-screen hidden">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+            
+            <div class="survey-intro">
+                <h3>🍽️ Survey for Foodies</h3>
+                <p>This quick survey will take you through some eye-opening questions about your food memories. Your responses help us build <strong>Savor</strong> - the personal food memory app.</p>
+                <p><strong>Time:</strong> 5 minutes max | <strong>Purpose:</strong> Validate if foodies face memory challenges</p>
+            </div>
+
+            <div style="background: var(--savor-gray-50); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h4>What to expect:</h4>
+                <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                    <li><strong>4 short sections</strong> with 2-3 questions each</li>
+                    <li><strong>Multiple choice</strong> - no lengthy writing required</li>
+                    <li><strong>Your honest experience</strong> - there are no wrong answers</li>
+                    <li><strong>Early access opportunity</strong> - if you're interested!</li>
+                </ul>
+            </div>
+
+            <div class="navigation-buttons">
+                <button type="button" class="btn btn-secondary" onclick="showLogin()">Exit Survey</button>
+                <button type="button" class="btn" onclick="showSurveySection(1)">Start Survey →</button>
+            </div>
+        </div>
+
+        <!-- Survey Section 1: Memory Reality Check -->
+        <div id="surveySection1" class="survey-screen hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%;"></div>
+            </div>
+            
+            <div class="section-header">
+                <h3>Section 1 of 4: The Memory Reality Check</h3>
+                <p>Let's see how well you remember your recent dining experiences</p>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">Think about the last 10 restaurants you visited. Without looking at your photos or social media, how many can you remember?</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="q1" value="all-10" id="q1_1">
+                        <label for="q1_1">All 10 (you're a food memory superhero!)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q1" value="7-9" id="q1_2">
+                        <label for="q1_2">7-9 (pretty good recall)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q1" value="4-6" id="q1_3">
+                        <label for="q1_3">4-6 (average food memory)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q1" value="1-3" id="q1_4">
+                        <label for="q1_4">1-3 (welcome to the club)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q1" value="barely-yesterday" id="q1_5">
+                        <label for="q1_5">Honestly, I can barely remember what I ate yesterday</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">Of those restaurants you remembered, how many specific dishes can you recall by name?</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="q2" value="every-dish" id="q2_1">
+                        <label for="q2_1">I remember every dish in detail</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q2" value="most-dishes" id="q2_2">
+                        <label for="q2_2">Most dishes, with some details</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q2" value="few-standout" id="q2_3">
+                        <label for="q2_3">A few standout dishes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q2" value="maybe-1-2" id="q2_4">
+                        <label for="q2_4">Maybe 1-2 dishes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q2" value="restaurant-not-dishes" id="q2_5">
+                        <label for="q2_5">I remember the restaurant but not what I ordered</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">When friends ask "What was that amazing pasta place you went to?" how do you usually respond?</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="q3" value="exact-details" id="q3_1">
+                        <label for="q3_1">I give them the exact name, dish, and detailed review</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q3" value="place-struggle-specifics" id="q3_2">
+                        <label for="q3_2">I remember the place but struggle with specifics</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q3" value="good-cant-remember" id="q3_3">
+                        <label for="q3_3">It was good but I can't remember exactly why</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q3" value="check-photos" id="q3_4">
+                        <label for="q3_4">Let me check my photos... (then spend 10 minutes scrolling)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q3" value="think-good-maybe" id="q3_5">
+                        <label for="q3_5">I think it was good? Maybe ask me about something else</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button type="button" class="btn btn-secondary" onclick="showSurveyIntro()">← Back</button>
+                <button type="button" class="btn" onclick="showSurveySection(2)">Continue →</button>
+            </div>
+        </div>
+
+        <!-- Survey Section 2: Pain Points -->
+        <div id="surveySection2" class="survey-screen hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%;"></div>
+            </div>
+            
+            <div class="section-header">
+                <h3>Section 2 of 4: The Pain Points Discovery</h3>
+                <p>Understanding specific frustrations with food memories</p>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">Have you ever had an incredible dish but couldn't remember enough details to: <em>(Select all that apply)</em></div>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="recommend-confidence" id="q4_1">
+                        <label for="q4_1">Recommend it to friends with confidence</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="find-similar" id="q4_2">
+                        <label for="q4_2">Find a similar dish elsewhere</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="remember-why-loved" id="q4_3">
+                        <label for="q4_3">Remember why you loved it so much</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="order-again" id="q4_4">
+                        <label for="q4_4">Order it again at the same restaurant</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="compare-versions" id="q4_5">
+                        <label for="q4_5">Compare it to other versions you've tried</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q4" value="hasnt-happened" id="q4_6">
+                        <label for="q4_6">This hasn't happened to me</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">When someone asks for restaurant recommendations, what's your biggest challenge? <em>(Select all that apply)</em></div>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="remember-restaurants-not-dishes" id="q5_1">
+                        <label for="q5_1">I remember restaurants but not specific dishes</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="cant-remember-worth-ordering" id="q5_2">
+                        <label for="q5_2">I can't remember which dishes were actually worth ordering</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="mix-up-details" id="q5_3">
+                        <label for="q5_3">I mix up details from different places</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="recommend-cant-explain" id="q5_4">
+                        <label for="q5_4">I recommend places but can't explain why they're good</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="send-to-yelp" id="q5_5">
+                        <label for="q5_5">I just send them to Yelp instead</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="q5" value="great-at-recommendations" id="q5_6">
+                        <label for="q5_6">I'm great at recommendations (no problems here)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button type="button" class="btn btn-secondary" onclick="showSurveySection(1)">← Back</button>
+                <button type="button" class="btn" onclick="showSurveySection(3)">Continue →</button>
+            </div>
+        </div>
+
+        <!-- Survey Section 3: Solution Validation -->
+        <div id="surveySection3" class="survey-screen hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            
+            <div class="section-header">
+                <h3>Section 3 of 4: The Solution Validation</h3>
+                <p>Testing if our solution resonates and building excitement</p>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">Imagine you had a personal food diary that automatically organized every dish you've ever eaten by cuisine, location, and your own ratings. How valuable would this be?</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="q6" value="life-changing" id="q6_1">
+                        <label for="q6_1">Life-changing (I need this yesterday)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q6" value="very-valuable" id="q6_2">
+                        <label for="q6_2">Very valuable (would definitely use it)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q6" value="somewhat-useful" id="q6_3">
+                        <label for="q6_3">Somewhat useful (might try it)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q6" value="not-very-useful" id="q6_4">
+                        <label for="q6_4">Not very useful (wouldn't use much)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q6" value="not-useful" id="q6_5">
+                        <label for="q6_5">Not useful at all (not for me)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="question-label">How interested would you be in instantly comparing every ramen you've ever had, ranked by your own ratings?</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="q7" value="extremely-interested" id="q7_1">
+                        <label for="q7_1">Extremely interested (this sounds amazing)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q7" value="very-interested" id="q7_2">
+                        <label for="q7_2">Very interested (would love this)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q7" value="moderately-interested" id="q7_3">
+                        <label for="q7_3">Moderately interested (could be useful)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q7" value="slightly-interested" id="q7_4">
+                        <label for="q7_4">Slightly interested (maybe occasionally)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="q7" value="not-interested" id="q7_5">
+                        <label for="q7_5">Not interested (wouldn't use this)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button type="button" class="btn btn-secondary" onclick="showSurveySection(2)">← Back</button>
+                <button type="button" class="btn" onclick="showSurveySection(4)">Continue →</button>
+            </div>
+        </div>
+
+        <!-- Survey Section 4: Demographics -->
+        <div id="surveySection4" class="survey-screen hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+            
+            <div class="section-header">
+                <h3>Section 4 of 4: About You</h3>
+                <p>Help us understand our community (almost done!)</p>
+            </div>
+
+            <form id="surveyForm">
+                <div class="form-group">
+                    <div class="question-label">Which best describes you?</div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="foodie_profile" value="serious-foodie" id="fp_1">
+                            <label for="fp_1">Serious foodie (I plan trips around restaurants)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="foodie_profile" value="enthusiastic-eater" id="fp_2">
+                            <label for="fp_2">Enthusiastic eater (I love trying new places)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="foodie_profile" value="casual-diner" id="fp_3">
+                            <label for="fp_3">Casual diner (I eat out regularly but not obsessively)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="foodie_profile" value="occasional-explorer" id="fp_4">
+                            <label for="fp_4">Occasional explorer (I eat out sometimes)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="foodie_profile" value="home-cook" id="fp_5">
+                            <label for="fp_5">Home cook who rarely eats out</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="question-label">How often do you eat at restaurants/try new dishes?</div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="dining_frequency" value="multiple-weekly" id="df_1">
+                            <label for="df_1">Multiple times per week</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="dining_frequency" value="weekly" id="df_2">
+                            <label for="df_2">Weekly</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="dining_frequency" value="2-3-monthly" id="df_3">
+                            <label for="df_3">2-3 times per month</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="dining_frequency" value="monthly" id="df_4">
+                            <label for="df_4">Monthly</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="dining_frequency" value="few-yearly" id="df_5">
+                            <label for="df_5">A few times per year</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age_range">Age Range:</label>
+                    <select name="age_range" id="age_range">
+                        <option value="">Select age range</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55+">55+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Primary Location:</label>
+                    <select name="location" id="location">
+                        <option value="">Select location</option>
+                        <option value="major-us-city">Major US city</option>
+                        <option value="us-suburbs">US suburbs/smaller city</option>
+                        <option value="international">International</option>
+                        <option value="rural">Rural area</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Optional - for early access notifications):</label>
+                    <input type="email" name="email" id="email" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="final_thoughts">Any other thoughts on food memory challenges or features you'd love to see? (Optional)</label>
+                    <textarea name="final_thoughts" id="final_thoughts" placeholder="Share your thoughts..."></textarea>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="showSurveySection(3)">← Back</button>
+                    <button type="submit" class="btn">Submit Survey 🎉</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminScreen" class="admin-screen hidden">
+            <h1>📊 Survey Dashboard</h1>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalResponses">0</span>
+                    <span class="stat-label">Total Responses</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="todayResponses">0</span>
+                    <span class="stat-label">Today's Responses</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="emailSignups">0</span>
+                    <span class="stat-label">Email Signups</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="avgCompletionTime">0</span>
+                    <span class="stat-label">Avg. Completion (min)</span>
+                </div>
+            </div>
+
+            <div class="export-buttons">
+                <button class="btn" onclick="exportCSV()">Export CSV</button>
+                <button class="btn btn-secondary" onclick="exportJSON()">Export JSON</button>
+                <button class="btn btn-secondary" onclick="clearData()">Clear All Data</button>
+            </div>
+
+            <h2>Recent Responses</h2>
+            <div id="responsesList">
+                <!-- Responses will be populated here -->
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-secondary" onclick="showLogin()">Back to Login</button>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successScreen" class="survey-screen hidden">
+            <div class="success-message">
+                <h2>🙏 Thank you for taking our Survey for Foodies!</h2>
+            </div>
+            
+            <p>Your responses are incredibly valuable as we build <strong>Savor</strong> - the personal food memory app for people who love food too much to forget it.</p>
+            
+            <h3>What happens next:</h3>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>If you left your email, you'll be first to know when we launch</li>
+                <li>Your feedback is directly shaping what features we prioritize</li>
+                <li>We'll share the survey results with everyone who's interested</li>
+            </ul>
+            
+            <div style="background: var(--savor-gray-50); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h4>The Vision:</h4>
+                <p>Turn your phone into a personal food memory vault where every dish you've loved is searchable, comparable, and shareable. No more "I went to this amazing place but can't remember what made it special."</p>
+            </div>
+            
+            <div style="text-align: center; color: var(--savor-gray-600); font-style: italic;">
+                <p>Thank you for helping us build something amazing! 🚀</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const SURVEY_PASSWORD = 'savor2024';
+        const ADMIN_PASSWORD = 'admin123savor';
+        
+        // Data storage
+        let surveyData = JSON.parse(localStorage.getItem('savorSurveyData') || '[]');
+        let currentSection = 1;
+        const totalSections = 4;
+
+        // Authentication functions
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('passwordError');
+            
+            if (password === SURVEY_PASSWORD) {
+                showScreen('surveyIntroScreen');
+            } else {
+                errorDiv.classList.remove('hidden');
+                document.getElementById('password').value = '';
+            }
+        }
+
+        function checkAdminPassword() {
+            const password = document.getElementById('adminPassword').value;
+            const errorDiv = document.getElementById('adminPasswordError');
+            
+            if (password === ADMIN_PASSWORD) {
+                showScreen('adminScreen');
+                loadAdminData();
+            } else {
+                errorDiv.classList.remove('hidden');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        function showAdminLogin() {
+            showScreen('adminLogin');
+        }
+
+        function showLogin() {
+            showScreen('loginScreen');
+            document.getElementById('password').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        // Screen management
+        function showScreen(screenId) {
+            const screens = ['loginScreen', 'adminLogin', 'surveyIntroScreen', 'surveySection1', 'surveySection2', 'surveySection3', 'surveySection4', 'adminScreen', 'successScreen'];
+            screens.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        // Survey navigation functions
+        function showSurveyIntro() {
+            showScreen('surveyIntroScreen');
+        }
+
+        function showSurveySection(sectionNumber) {
+            // Validate current section before moving forward
+            if (sectionNumber > 1) {
+                const currentSection = sectionNumber - 1;
+                if (!validateSection(currentSection)) {
+                    return; // Don't proceed if validation fails
+                }
+            }
+            
+            showScreen('surveySection' + sectionNumber);
+            
+            // Auto-scroll to top of new section
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validateSection(sectionNumber) {
+            let isValid = true;
+            let missingFields = [];
+
+            switch(sectionNumber) {
+                case 1:
+                    if (!document.querySelector('input[name="q1"]:checked')) {
+                        missingFields.push('restaurant memory question');
+                        isValid = false;
+                    }
+                    if (!document.querySelector('input[name="q2"]:checked')) {
+                        missingFields.push('dish recall question');
+                        isValid = false;
+                    }
+                    if (!document.querySelector('input[name="q3"]:checked')) {
+                        missingFields.push('recommendation response question');
+                        isValid = false;
+                    }
+                    break;
+                case 2:
+                    if (!document.querySelector('input[name="q4"]:checked')) {
+                        missingFields.push('dish memory challenges question');
+                        isValid = false;
+                    }
+                    if (!document.querySelector('input[name="q5"]:checked')) {
+                        missingFields.push('recommendation challenges question');
+                        isValid = false;
+                    }
+                    break;
+                case 3:
+                    if (!document.querySelector('input[name="q6"]:checked')) {
+                        missingFields.push('food diary value question');
+                        isValid = false;
+                    }
+                    if (!document.querySelector('input[name="q7"]:checked')) {
+                        missingFields.push('comparison feature question');
+                        isValid = false;
+                    }
+                    break;
+            }
+
+            if (!isValid) {
+                alert('Please answer all questions in this section before continuing:\n• ' + missingFields.join('\n• '));
+            }
+
+            return isValid;
+        }
+
+        // Progress tracking (simplified since progress is now fixed per section)
+        function updateProgress() {
+            // Progress is now handled by fixed percentages per section
+            // This function can be used for other progress tracking if needed
+        }
+
+        // Form submission
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate final section
+            if (!validateFinalSection()) {
+                return;
+            }
+            
+            // Collect all responses from all sections
+            const responses = {};
+            
+            // Collect all radio button responses
+            const radioInputs = document.querySelectorAll('input[type="radio"]:checked');
+            radioInputs.forEach(input => {
+                responses[input.name] = input.value;
+            });
+            
+            // Collect all checkbox responses
+            const checkboxInputs = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxInputs.forEach(input => {
+                if (responses[input.name]) {
+                    if (Array.isArray(responses[input.name])) {
+                        responses[input.name].push(input.value);
+                    } else {
+                        responses[input.name] = [responses[input.name], input.value];
+                    }
+                } else {
+                    responses[input.name] = [input.value];
+                }
+            });
+            
+            // Collect form data from the final section
+            const formData = new FormData(this);
+            for (let [key, value] of formData.entries()) {
+                if (value.trim() !== '') {
+                    responses[key] = value;
+                }
+            }
+            
+            // Add metadata
+            const surveyResponse = {
+                id: Date.now(),
+                timestamp: new Date().toISOString(),
+                responses: responses,
+                completionTime: Math.round(Math.random() * 3 + 4) // Simulated completion time
+            };
+            
+            // Save to localStorage
+            surveyData.push(surveyResponse);
+            localStorage.setItem('savorSurveyData', JSON.stringify(surveyData));
+            
+            // Show success screen
+            showScreen('successScreen');
+        });
+
+        function validateFinalSection() {
+            let isValid = true;
+            let missingFields = [];
+
+            if (!document.querySelector('input[name="foodie_profile"]:checked')) {
+                missingFields.push('foodie profile');
+                isValid = false;
+            }
+            if (!document.querySelector('input[name="dining_frequency"]:checked')) {
+                missingFields.push('dining frequency');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                alert('Please answer the required questions before submitting:\n• ' + missingFields.join('\n• '));
+            }
+
+            return isValid;
+        }
+
+        // Admin functions
+        function loadAdminData() {
+            const data = JSON.parse(localStorage.getItem('savorSurveyData') || '[]');
+            
+            // Update stats
+            document.getElementById('totalResponses').textContent = data.length;
+            
+            const today = new Date().toDateString();
+            const todayResponses = data.filter(response => 
+                new Date(response.timestamp).toDateString() === today
+            ).length;
+            document.getElementById('todayResponses').textContent = todayResponses;
+            
+            const emailSignups = data.filter(response => 
+                response.responses.email && response.responses.email.trim() !== ''
+            ).length;
+            document.getElementById('emailSignups').textContent = emailSignups;
+            
+            const avgTime = data.length > 0 ? 
+                Math.round(data.reduce((sum, r) => sum + (r.completionTime || 5), 0) / data.length) : 0;
+            document.getElementById('avgCompletionTime').textContent = avgTime;
+            
+            // Load responses
+            loadResponses();
+        }
+
+        function loadResponses() {
+            const data = JSON.parse(localStorage.getItem('savorSurveyData') || '[]');
+            const responsesList = document.getElementById('responsesList');
+            
+            if (data.length === 0) {
+                responsesList.innerHTML = '<p style="text-align: center; color: var(--savor-gray-600);">No responses yet.</p>';
+                return;
+            }
+            
+            responsesList.innerHTML = data.slice(-10).reverse().map(response => `
+                <div class="response-item">
+                    <div class="response-header">
+                        <span>Response #${response.id}</span>
+                        <span>${new Date(response.timestamp).toLocaleString()}</span>
+                    </div>
+                    <div class="response-data">
+                        <strong>Profile:</strong> ${response.responses.foodie_profile || 'Not specified'}<br>
+                        <strong>Dining Frequency:</strong> ${response.responses.dining_frequency || 'Not specified'}<br>
+                        <strong>Age:</strong> ${response.responses.age_range || 'Not specified'}<br>
+                        <strong>Location:</strong> ${response.responses.location || 'Not specified'}<br>
+                        <strong>Email:</strong> ${response.responses.email || 'Not provided'}<br>
+                        ${response.responses.final_thoughts ? `<strong>Comments:</strong> ${response.responses.final_thoughts}` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function exportCSV() {
+            const data = JSON.parse(localStorage.getItem('savorSurveyData') || '[]');
+            
+            if (data.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            // Create CSV headers
+            const headers = ['ID', 'Timestamp', 'Foodie Profile', 'Dining Frequency', 'Age Range', 'Location', 'Email', 'Final Thoughts'];
+            
+            // Create CSV rows
+            const rows = data.map(response => [
+                response.id,
+                response.timestamp,
+                response.responses.foodie_profile || '',
+                response.responses.dining_frequency || '',
+                response.responses.age_range || '',
+                response.responses.location || '',
+                response.responses.email || '',
+                response.responses.final_thoughts || ''
+            ]);
+            
+            // Combine headers and rows
+            const csvContent = [headers, ...rows].map(row => 
+                row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(',')
+            ).join('\n');
+            
+            // Download file
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `savor-survey-data-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function exportJSON() {
+            const data = JSON.parse(localStorage.getItem('savorSurveyData') || '[]');
+            
+            if (data.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `savor-survey-data-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function clearData() {
+            if (confirm('Are you sure you want to clear all survey data? This cannot be undone.')) {
+                localStorage.removeItem('savorSurveyData');
+                surveyData = [];
+                loadAdminData();
+                alert('All data has been cleared.');
+            }
+        }
+
+        // Form progress tracking is now handled by fixed section progress
+        
+        // Enter key support for password fields
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+        
+        document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkAdminPassword();
+        });
+    </script>
+</body>
+</html>
