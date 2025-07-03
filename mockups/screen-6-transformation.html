@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savor - Your Transformation</title>
+    <title>Savor - Thank You from Alex</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -62,138 +62,104 @@
             overflow-y: auto;
         }
         
-        .transformation-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 25px 0;
-            gap: 15px;
-        }
-        
-        .state {
+        .main-section {
             flex: 1;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
-        .state-icon {
-            width: 60px;
-            height: 60px;
+        .avatar {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin: 0 auto 10px;
-            transition: all 0.5s ease;
+            font-size: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+            animation: warmGlow 3s ease-in-out infinite;
         }
         
-        .before .state-icon {
-            background: rgba(100, 100, 100, 0.3);
-            border: 2px solid rgba(100, 100, 100, 0.5);
+        @keyframes warmGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3); }
+            50% { box-shadow: 0 15px 40px rgba(212, 165, 116, 0.5); }
         }
         
-        .after .state-icon {
-            background: linear-gradient(135deg, #D4A574, #E8C547);
-            border: 2px solid #D4A574;
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
-            animation: glow 2s infinite;
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); }
-            50% { box-shadow: 0 15px 40px rgba(212, 165, 116, 0.6); }
-        }
-        
-        .state-label {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .before .state-label {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        
-        .after .state-label {
-            color: #D4A574;
-        }
-        
-        .state-description {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.3;
-        }
-        
-        .arrow {
-            font-size: 24px;
-            color: #D4A574;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(5px); }
-        }
-        
-        .main-headline {
+        .greeting {
             font-size: 24px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
         
         .highlight {
             color: #D4A574;
         }
         
-        .community-stat {
-            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.05));
-            border: 1px solid rgba(212, 165, 116, 0.3);
-            border-radius: 20px;
-            padding: 15px;
-            margin: 20px 0;
+        .gratitude-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
         
-        .stat-label {
-            font-size: 16px;
+        .feedback-container {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.05));
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feedback-title {
+            font-size: 15px;
             color: #D4A574;
             font-weight: 600;
-            line-height: 1.3;
+            margin-bottom: 15px;
         }
         
-        .benefits-preview {
+        .social-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin: 20px 0;
+            margin-bottom: 15px;
         }
         
-        .benefit-item {
+        .social-button {
             background: rgba(212, 165, 116, 0.1);
-            border: 1px solid rgba(212, 165, 116, 0.2);
+            border: 1px solid rgba(212, 165, 116, 0.3);
             border-radius: 12px;
             padding: 12px;
             text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
         
-        .benefit-icon {
-            font-size: 18px;
+        .social-button:hover {
+            background: rgba(212, 165, 116, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .social-icon {
+            font-size: 20px;
             margin-bottom: 6px;
             display: block;
         }
         
-        .benefit-text {
+        .social-name {
             font-size: 11px;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
         }
         
-        .tagline {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 15px 0;
-        }
         
         .continue-btn {
             background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
@@ -250,62 +216,52 @@
             </div>
             
             <div class="content">
-                <h1 class="main-headline">
-                    From food forgetter to <span class="highlight">dish expert</span>
-                </h1>
-                
-                <div class="transformation-container">
-                    <div class="state before">
-                        <div class="state-icon">❓</div>
-                        <div class="state-label">Before</div>
-                        <div class="state-description">Confused<br>Uncertain</div>
+                <div class="main-section">
+                    <div class="avatar">👩‍🍳</div>
+                    
+                    <h1 class="greeting">
+                        <span class="highlight">Thank you</span> for trying Savor
+                    </h1>
+                    
+                    <p class="gratitude-text">
+                        It means the world to me that you're here
+                    </p>
+                    
+                    <div class="feedback-container">
+                        <div class="feedback-title">I'd love to hear from you!</div>
+                        
+                        <div class="social-grid">
+                            <div class="social-button">
+                                <span class="social-icon">📷</span>
+                                <div class="social-name">Instagram</div>
+                            </div>
+                            <div class="social-button">
+                                <span class="social-icon">🐦</span>
+                                <div class="social-name">Twitter</div>
+                            </div>
+                            <div class="social-button">
+                                <span class="social-icon">🎵</span>
+                                <div class="social-name">TikTok</div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="arrow">→</div>
+                    <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-top: 15px;">
+                        Find me on all our social channels
+                    </p>
+                </div>
+                
+                <div class="bottom-section">
+                    <a href="index.html" class="continue-btn">Let's start cooking!</a>
                     
-                    <div class="state after">
-                        <div class="state-icon">⭐</div>
-                        <div class="state-label">After</div>
-                        <div class="state-description">Confident<br>Expert</div>
+                    <div class="progress-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot active"></div>
                     </div>
-                </div>
-                
-                <div class="community-stat">
-                    <div class="stat-label">Join the growing community of foodies and food critics</div>
-                </div>
-                
-                <div class="benefits-preview">
-                    <div class="benefit-item">
-                        <span class="benefit-icon">📊</span>
-                        <div class="benefit-text">Instant comparisons</div>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">🎯</span>
-                        <div class="benefit-text">Perfect recommendations</div>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">🧠</span>
-                        <div class="benefit-text">Perfect memory</div>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">👑</span>
-                        <div class="benefit-text">Food authority</div>
-                    </div>
-                </div>
-                
-                <p class="tagline">Your taste becomes your <span class="highlight">superpower</span></p>
-                
-                <a href="screen-9-alex-thank-you-clean.html" class="continue-btn">Join the community</a>
-                
-                <div class="progress-dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
                 </div>
             </div>
         </div>
