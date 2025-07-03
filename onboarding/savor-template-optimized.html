@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor - Optimized Template</title>
+    <style>
+        /* Research-Based Mobile Onboarding Template */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* Device Frame - iPhone 14 Pro Dimensions */
+        .device-frame {
+            width: 375px;
+            height: 812px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #000000 100%);
+            border-radius: 40px;
+            padding: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #000000 0%, #111111 100%);
+            border-radius: 38px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Status Bar - 44pt from top (safe area) */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px 0;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            height: 44px;
+        }
+        
+        /* Main Content Area - Optimized spacing */
+        .content {
+            flex: 1;
+            padding: 64px 24px 120px; /* 64pt top, 24pt sides, 120pt bottom (safe areas) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Primary Headline - 32pt, Bold, Brand Color */
+        .primary-headline {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+            max-width: 320px; /* 85% of screen width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .brand-highlight {
+            color: #D4A574;
+        }
+        
+        /* Secondary Text - 18pt, Medium weight */
+        .secondary-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+            margin-bottom: 48px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Visual Element Container - 35% of screen coverage */
+        .visual-container {
+            margin: 40px 0;
+            height: 280px; /* Optimal size based on research */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        /* Hero Graphic */
+        .hero-graphic {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2), rgba(212, 165, 116, 0.05));
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .graphic-icon {
+            font-size: 80px;
+            filter: drop-shadow(0 4px 20px rgba(212, 165, 116, 0.3));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        /* Supporting Text - 16pt, Regular */
+        .supporting-text {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            margin-bottom: 48px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* CTA Button - Research-optimized sizing */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
+            border: none;
+            border-radius: 28px; /* Increased for better touch target */
+            padding: 18px 48px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #000000;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 32px rgba(212, 165, 116, 0.4);
+            min-height: 56px; /* iOS HIG compliance */
+            margin: 0 auto 32px;
+            display: block;
+            text-decoration: none;
+            min-width: 240px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(212, 165, 116, 0.5);
+        }
+        
+        .cta-button:active {
+            transform: translateY(0px);
+        }
+        
+        /* Progress Indicators - Bottom positioning */
+        .progress-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+        
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background: #D4A574;
+            box-shadow: 0 0 12px rgba(212, 165, 116, 0.6);
+            transform: scale(1.2);
+        }
+        
+        /* Micro-interactions */
+        .visual-container:hover .hero-graphic {
+            transform: scale(1.02);
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+        
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-graphic,
+            .cta-button {
+                animation: none;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .primary-headline {
+                color: #ffffff;
+            }
+            .secondary-text {
+                color: rgba(255, 255, 255, 0.9);
+            }
+            .supporting-text {
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        /* Large text accessibility */
+        @media (prefers-font-size: large) {
+            .primary-headline {
+                font-size: 36px;
+            }
+            .secondary-text {
+                font-size: 20px;
+            }
+            .supporting-text {
+                font-size: 18px;
+            }
+        }
+        
+        /* Focus states for keyboard navigation */
+        .cta-button:focus {
+            outline: 3px solid #D4A574;
+            outline-offset: 2px;
+        }
+        
+        /* Research-based spacing system (16pt base grid) */
+        .spacing-16 { margin: 16px 0; }
+        .spacing-24 { margin: 24px 0; }
+        .spacing-32 { margin: 32px 0; }
+        .spacing-48 { margin: 48px 0; }
+        
+        /* Optimal content width constraints */
+        .content-width-sm { max-width: 280px; margin: 0 auto; }
+        .content-width-md { max-width: 320px; margin: 0 auto; }
+        .content-width-lg { max-width: 340px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <div class="device-frame">
+        <div class="screen">
+            <!-- Status Bar - Research shows this creates device authenticity -->
+            <div class="status-bar">
+                <span>9:41</span>
+                <div>
+                    <span>●●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+            
+            <!-- Main Content - Optimized hierarchy and spacing -->
+            <div class="content">
+                <!-- Primary Message - 32pt, single concept -->
+                <h1 class="primary-headline">
+                    Never forget an <span class="brand-highlight">amazing dish</span> again
+                </h1>
+                
+                <!-- Secondary Context - 18pt, supporting info -->
+                <p class="secondary-text">
+                    Scan, rate & compare every bite
+                </p>
+                
+                <!-- Visual Element - 35% screen coverage, centered -->
+                <div class="visual-container">
+                    <div class="hero-graphic">
+                        <span class="graphic-icon">🍽️</span>
+                    </div>
+                </div>
+                
+                <!-- Supporting Information - 16pt, contextual -->
+                <p class="supporting-text">
+                    Join thousands building their personal food memory vault
+                </p>
+                
+                <!-- Primary CTA - 56pt height, thumb-friendly -->
+                <a href="#" class="cta-button">Start my vault</a>
+                
+                <!-- Progress Indicators - Bottom positioned -->
+                <div class="progress-container">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

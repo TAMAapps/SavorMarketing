@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" class="ios">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Savor - Framework7 Enhanced Onboarding</title>
+    
+    <!-- Framework7 iOS Bundle CSS -->
+    <link rel="stylesheet" href="../Framework7-iosApps/Framework7_files/framework7-bundle.min.css">
+    
+    <style>
+        /* Custom Savor Branding on Framework7 Foundation */
+        :root {
+            /* Savor Brand Colors Override Framework7 Theme */
+            --f7-ios-primary: #D4A574;
+            --f7-ios-primary-shade: #B8935F;
+            --f7-ios-primary-tint: #E8C547;
+            --f7-ios-primary-rgb: 212, 165, 116;
+            --f7-theme-color: #D4A574;
+            --f7-theme-color-rgb: 212, 165, 116;
+            --f7-theme-color-shade: #B8935F;
+            --f7-theme-color-tint: #E8C547;
+            
+            /* Savor Dark Theme */
+            --savor-background: linear-gradient(180deg, #000000 0%, #111111 100%);
+            --savor-surface: rgba(212, 165, 116, 0.1);
+            --savor-text-primary: #ffffff;
+            --savor-text-secondary: rgba(255, 255, 255, 0.8);
+            --savor-text-muted: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Override Framework7 body for full dark theme */
+        body {
+            background: var(--savor-background);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Framework7 App Container with iPhone 14 Pro Dimensions */
+        .framework7-root {
+            width: 375px;
+            height: 812px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--savor-background);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Full-height onboarding page */
+        .page {
+            background: var(--savor-background);
+            height: 100%;
+        }
+        
+        .page-content {
+            height: 100%;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        /* Status Bar Styling - iOS Native Look */
+        .statusbar {
+            background: transparent;
+            color: var(--savor-text-primary);
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            font-size: 16px;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        /* Main Content Container */
+        .onboarding-container {
+            height: calc(100% - 44px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 30px 30px;
+            text-align: center;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Avatar with F7 styling enhancements */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--f7-theme-color) 0%, var(--f7-theme-color-tint) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
+            animation: breathe 3s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 20px 45px rgba(212, 165, 116, 0.6);
+            }
+        }
+        
+        /* Typography - Research-Based Sizing */
+        .primary-headline {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--savor-text-primary);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        
+        .secondary-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--f7-theme-color);
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+        
+        .context-label {
+            font-size: 14px;
+            color: var(--savor-text-muted);
+            font-weight: 400;
+            margin-bottom: 24px;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Enhanced Card Component */
+        .feature-card {
+            background: linear-gradient(135deg, var(--savor-surface), rgba(212, 165, 116, 0.05));
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 24px 0;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .card-title {
+            font-size: 15px;
+            color: var(--f7-theme-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dish-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .dish-emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .dish-rating {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--savor-text-primary);
+            margin-bottom: 5px;
+        }
+        
+        .dish-year {
+            font-size: 14px;
+            color: var(--savor-text-muted);
+        }
+        
+        .vs-text {
+            color: var(--f7-theme-color);
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0 20px;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: var(--savor-text-secondary);
+            font-weight: 400;
+            margin-top: 32px;
+        }
+        
+        .highlight {
+            color: var(--f7-theme-color);
+            font-weight: 600;
+        }
+        
+        /* Bottom Section */
+        .bottom-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        /* Framework7 Enhanced Button */
+        .f7-button-savor {
+            background: linear-gradient(135deg, var(--f7-theme-color) 0%, var(--f7-theme-color-tint) 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #000000;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-height: 56px;
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .f7-button-savor:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);
+        }
+        
+        /* Progress Dots - iOS Style */
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .dot.active {
+            background: var(--f7-theme-color);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+            transform: scale(1.2);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 375px) {
+            .framework7-root {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .primary-headline {
+                font-size: 28px;
+            }
+            
+            .onboarding-container {
+                padding: 32px 24px 24px;
+            }
+        }
+        
+        /* iOS Safe Area Support */
+        @supports (padding: max(0px)) {
+            .statusbar {
+                padding-top: max(0px, env(safe-area-inset-top));
+            }
+            
+            .bottom-section {
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+            }
+        }
+        
+        /* Animation for smooth transitions */
+        .page-content {
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="framework7-root">
+        <div class="view view-main view-init">
+            <div class="page">
+                <!-- iOS Status Bar -->
+                <div class="statusbar">
+                    <span>9:41</span>
+                    <div>
+                        <span>●●●●</span>
+                        <span>📶</span>
+                        <span>🔋</span>
+                    </div>
+                </div>
+                
+                <div class="page-content">
+                    <div class="onboarding-container">
+                        <!-- Hero Section -->
+                        <div class="hero-section">
+                            <div class="avatar">👩‍🍳</div>
+                            
+                            <h1 class="primary-headline">
+                                Hi, I'm Alex <span style="display: inline-block; animation: wave 2s infinite;">👋</span>
+                            </h1>
+                            
+                            <p class="secondary-text">I was tired of forgetting incredible dishes</p>
+                            
+                            <div class="context-label">what I ate, where</div>
+                            
+                            <!-- Feature Card -->
+                            <div class="feature-card">
+                                <div class="card-title">Now I can compare:</div>
+                                <div class="comparison-grid">
+                                    <div class="dish-item">
+                                        <span class="dish-emoji">🍜</span>
+                                        <div class="dish-rating">8.7/10</div>
+                                        <div class="dish-year">Today</div>
+                                    </div>
+                                    <div class="vs-text">VS</div>
+                                    <div class="dish-item">
+                                        <span class="dish-emoji">🍜</span>
+                                        <div class="dish-rating">7.2/10</div>
+                                        <div class="dish-year">2021</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="tagline">No more wondering <span class="highlight">"was this better?"</span></p>
+                        </div>
+                        
+                        <!-- Bottom Section -->
+                        <div class="bottom-section">
+                            <a href="#" class="f7-button-savor" onclick="nextScreen()">I need this too</a>
+                            
+                            <div class="progress-dots">
+                                <div class="dot active"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Framework7 Bundle JS -->
+    <script src="../Framework7-iosApps/Framework7_files/framework7-bundle.min.js"></script>
+    
+    <script>
+        // Wave animation for emoji
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes wave {
+                0%, 100% { transform: rotate(0deg); }
+                25% { transform: rotate(20deg); }
+                75% { transform: rotate(-10deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize Framework7
+        var app = new Framework7({
+            el: '#app',
+            theme: 'ios',
+            view: {
+                stackPages: true,
+                xhrCache: false,
+                preloadPreviousPage: false
+            },
+            touch: {
+                fastClicks: true,
+                tapHold: true,
+                disableContextMenu: false
+            },
+            clicks: {
+                externalLinks: '.external'
+            }
+        });
+        
+        // Get main view
+        var mainView = app.views.main;
+        
+        // Demo navigation function
+        function nextScreen() {
+            // Add haptic feedback for iOS-like experience
+            if (navigator.vibrate) {
+                navigator.vibrate(10);
+            }
+            
+            // Animate button press
+            event.target.style.transform = 'translateY(2px) scale(0.98)';
+            
+            setTimeout(() => {
+                event.target.style.transform = '';
+                // Here you would navigate to the next onboarding screen
+                console.log('Navigate to next onboarding screen');
+            }, 150);
+        }
+        
+        // Add swipe gesture support for onboarding navigation
+        var onboardingContainer = document.querySelector('.onboarding-container');
+        
+        // Touch events for swipe detection
+        var startX = 0;
+        var startY = 0;
+        
+        onboardingContainer.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+        
+        onboardingContainer.addEventListener('touchend', function(e) {
+            var endX = e.changedTouches[0].clientX;
+            var endY = e.changedTouches[0].clientY;
+            
+            var deltaX = endX - startX;
+            var deltaY = endY - startY;
+            
+            // Check if it's a horizontal swipe (not vertical scroll)
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                if (deltaX < 0) {
+                    // Swipe left - next screen
+                    nextScreen();
+                } else {
+                    // Swipe right - previous screen
+                    console.log('Navigate to previous onboarding screen');
+                }
+            }
+        });
+        
+        // Prevent scrolling on the onboarding page
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor - Your Memory Loss</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: linear-gradient(145deg, #000000 0%, #0a0a0a 100%);
+            border-radius: 40px;
+            padding: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #000000 0%, #111111 100%);
+            border-radius: 38px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px 0;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 60px 30px 40px;
+            height: calc(100% - 50px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .main-headline {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            color: #D4A574;
+        }
+        
+        .calculator-card {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.05));
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 25px;
+            padding: 40px 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .calculation-result {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .calculation-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+        }
+        
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .breakdown-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .breakdown-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+        
+        .impact-section {
+            margin: 30px 0;
+        }
+        
+        .impact-text {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(135deg, #D4A574 0%, #E8C547 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #000000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+            margin-bottom: 25px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
+        }
+        
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #D4A574;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <div>
+                    <span>●●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+            
+            <div class="content">
+                <h1 class="main-headline">
+                    You've most likely forgotten <span class="highlight">247 dishes</span> already this year
+                </h1>
+                
+                <div class="calculator-card">
+                    <div class="calculation-result">247</div>
+                    <div class="calculation-label">Amazing dishes lost forever</div>
+                    
+                    <div class="breakdown-grid">
+                        <div class="breakdown-item">
+                            <div class="breakdown-number">52</div>
+                            <div class="breakdown-label">Perfect 10s</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-number">91</div>
+                            <div class="breakdown-label">Hidden gems</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-number">78</div>
+                            <div class="breakdown-label">Must-returns</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-number">26</div>
+                            <div class="breakdown-label">Life-changing</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-section">
+                    <p class="impact-text">The memories you can't get back</p>
+                </div>
+                
+                <a href="screen-4-solution-intro-clean.html" class="continue-btn">Stop the bleeding</a>
+                
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

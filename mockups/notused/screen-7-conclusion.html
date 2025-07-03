@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Permission to Begin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2C3E50 0%, #D4A574 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            padding: 50px 25px 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .top-section {
+            text-align: center;
+        }
+        
+        .headline {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .start-messy {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4A574, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .subtext {
+            font-size: 18px;
+            color: #D4D4D4;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .airport-sandwich-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 40px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .sandwich-photo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            background: linear-gradient(135deg, #666 0%, #888 100%);
+            position: relative;
+        }
+        
+        .photo-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #D4A574;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .rating-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(212, 165, 116, 0.9);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .authenticity-note {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .note-text {
+            font-size: 14px;
+            color: #B0B0B0;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .arrow-down {
+            font-size: 12px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(135deg, #D4A574, #f4d03f);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+        }
+        
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D4A574;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .imperfect-sticker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: wiggle 4s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(-15deg);
+            }
+            25% {
+                transform: translate(-50%, -50%) rotate(-20deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+        }
+        
+        .emoji-float {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: floatEmoji 10s linear infinite;
+        }
+        
+        .emoji-float:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .emoji-float:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .emoji-float:nth-child(3) { left: 50%; animation-delay: 4s; }
+        .emoji-float:nth-child(4) { left: 70%; animation-delay: 6s; }
+        .emoji-float:nth-child(5) { left: 90%; animation-delay: 8s; }
+        
+        @keyframes floatEmoji {
+            0% {
+                transform: translateY(850px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="screen">
+            <div class="content">
+                <div class="emoji-float">😅</div>
+                <div class="emoji-float">🥪</div>
+                <div class="emoji-float">✈️</div>
+                <div class="emoji-float">💫</div>
+                <div class="emoji-float">🌟</div>
+                
+                <div class="top-section">
+                    <h1 class="headline">One last thing... <span class="start-messy">Start messy</span></h1>
+                    <p class="subtext">Even my first Savor was a mediocre airport sandwich 😅 Every food story starts somewhere.</p>
+                    
+                    <div class="airport-sandwich-container">
+                        <div class="sandwich-photo">
+                            🥪
+                            <div class="imperfect-sticker">Perfectly Imperfect!</div>
+                        </div>
+                        <div class="photo-label">
+                            LAX Terminal 4 • Gate 42 • 6:47 AM
+                        </div>
+                        <div class="rating-overlay">
+                            ⭐ 2.5/5
+                        </div>
+                    </div>
+                    
+                    <div class="authenticity-note">
+                        <div class="note-text">
+                            <span class="arrow-down">↑</span>
+                            Alex's actual first Savor
+                            <span class="arrow-down">↑</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bottom-section">
+                    <button class="continue-btn">
+                        Begin my food story
+                    </button>
+                    <div class="progress-dots">
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add hover effect to sandwich
+        const sandwichContainer = document.querySelector('.airport-sandwich-container');
+        
+        sandwichContainer.addEventListener('mouseenter', () => {
+            sandwichContainer.style.transform = 'scale(1.02)';
+            sandwichContainer.style.transition = 'transform 0.3s ease';
+        });
+        
+        sandwichContainer.addEventListener('mouseleave', () => {
+            sandwichContainer.style.transform = 'scale(1)';
+        });
+        
+        // Add click effect to button
+        const continueBtn = document.querySelector('.continue-btn');
+        
+        continueBtn.addEventListener('click', () => {
+            // Create pulse effect
+            continueBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                continueBtn.style.transform = 'scale(1)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
