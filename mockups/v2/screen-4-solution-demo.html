@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0F0C29 0%, #24243e 50%, #302B63 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: #D4A574;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float-particle 8s infinite linear;
+        }
+
+        .particle:nth-child(1) {
+            width: 3px;
+            height: 3px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 2px;
+            height: 2px;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            width: 4px;
+            height: 4px;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        /* Status bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .status-left {
+            font-size: 17px;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Main content */
+        .content {
+            text-align: center;
+            padding: 60px 40px 40px;
+            max-width: 350px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Headlines */
+        .headline {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #D4A574;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* iPhone mockup */
+        .phone-container {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 180px;
+            height: 360px;
+            background: #1A1A1A;
+            border-radius: 36px;
+            padding: 8px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: phone-float 3s ease-in-out infinite;
+            border: 2px solid #333;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .camera-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scan-target {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #D4A574;
+            border-radius: 12px;
+            position: relative;
+            animation: scan-pulse 2s ease-in-out infinite;
+        }
+
+        .scan-corners {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+        }
+
+        .scan-corners::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #D4A574;
+        }
+
+        .scan-corners::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: #D4A574;
+        }
+
+        .corner-tl {
+            top: -2px;
+            left: -2px;
+        }
+
+        .corner-tr {
+            top: -2px;
+            right: -2px;
+        }
+
+        .corner-br {
+            bottom: -2px;
+            right: -2px;
+        }
+
+        .corner-bl {
+            bottom: -2px;
+            left: -2px;
+        }
+
+        .dish-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .rating-flash {
+            background: rgba(212, 165, 116, 0.9);
+            color: #1A1A1A;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            animation: rating-appear 3s ease-in-out infinite;
+            margin-top: 16px;
+        }
+
+        /* Enhanced tagline */
+        .enhanced-tagline {
+            font-size: 20px;
+            color: #D4A574;
+            margin: 40px 0;
+            font-weight: 600;
+            font-style: italic;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in-up 1s ease-out 2s forwards;
+        }
+
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.3);
+            margin-top: 30px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #D4A574;
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes phone-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes scan-pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 0 10px rgba(212, 165, 116, 0);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes rating-appear {
+            0%, 70% { opacity: 0; transform: scale(0.8); }
+            80%, 100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fade-in-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">9:41</div>
+        <div class="status-right">
+            <span>••••</span>
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="headline">Point. Snap. Remember forever.</h1>
+        
+        <!-- iPhone Mockup with Live Demo -->
+        <div class="phone-container">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="camera-overlay">
+                        <div class="dish-emoji">🍝</div>
+                        <div class="scan-target">
+                            <div class="scan-corners corner-tl"></div>
+                            <div class="scan-corners corner-tr"></div>
+                            <div class="scan-corners corner-br"></div>
+                            <div class="scan-corners corner-bl"></div>
+                        </div>
+                        <div class="rating-flash">9.2/10 ⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="enhanced-tagline">Instantly rated in 3 seconds. Never lose another perfect bite.</p>
+
+        <button class="cta-button">See the transformation →</button>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
+</body>
+</html>

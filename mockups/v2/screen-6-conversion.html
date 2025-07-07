@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+            animation: gradient-shift 10s ease-in-out infinite;
+        }
+
+        /* Status bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .status-left {
+            font-size: 17px;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Main content */
+        .content {
+            text-align: center;
+            padding: 60px 30px 40px;
+            max-width: 350px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Headlines */
+        .headline {
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .highlight {
+            color: #D4A574;
+            font-style: italic;
+        }
+
+        /* Limited offer banner */
+        .limited-offer {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            animation: banner-pulse 3s ease-in-out infinite;
+        }
+
+        .offer-text {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .countdown {
+            font-size: 18px;
+            font-weight: 800;
+            color: #C70039;
+        }
+
+        .banner-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: glow-rotate 4s linear infinite;
+        }
+
+        /* Benefits checklist */
+        .benefits-list {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 16px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slide-in 0.5s ease-out forwards;
+        }
+
+        .benefits-list li:nth-child(1) { animation-delay: 0.2s; }
+        .benefits-list li:nth-child(2) { animation-delay: 0.4s; }
+        .benefits-list li:nth-child(3) { animation-delay: 0.6s; }
+        .benefits-list li:nth-child(4) { animation-delay: 0.8s; }
+
+        .checkmark {
+            color: #D4A574;
+            font-size: 20px;
+            margin-right: 12px;
+            font-weight: 700;
+        }
+
+        /* Testimonials carousel */
+        .testimonials {
+            margin: 30px 0;
+            height: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            font-style: italic;
+            color: #E5E5E5;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            color: #D4A574;
+            font-weight: 600;
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            margin: 40px 0 20px;
+        }
+
+        .primary-cta {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.4);
+            width: 100%;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.6);
+        }
+
+        .primary-cta:active {
+            transform: translateY(0);
+        }
+
+        .button-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: button-shine 3s ease-in-out infinite;
+        }
+
+        .secondary-cta {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-cta:hover {
+            color: white;
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #D4A574;
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes gradient-shift {
+            0%, 100% { 
+                filter: hue-rotate(0deg);
+            }
+            50% { 
+                filter: hue-rotate(10deg);
+            }
+        }
+
+        @keyframes banner-pulse {
+            0%, 100% { 
+                box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 8px 30px rgba(212, 165, 116, 0.5);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes glow-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slide-in {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes button-shine {
+            0% { left: -100%; }
+            50% { left: 0%; }
+            100% { left: 100%; }
+        }
+
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">9:41</div>
+        <div class="status-right">
+            <span>••••</span>
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="headline">Ready to capture <span class="highlight">every</span> great bite?</h1>
+        
+
+        <!-- Benefits Checklist -->
+        <ul class="benefits-list">
+            <li>
+                <span class="checkmark">✓</span>
+                Remember every dish
+            </li>
+            <li>
+                <span class="checkmark">✓</span>
+                Compare like a pro
+            </li>
+            <li>
+                <span class="checkmark">✓</span>
+                Share customised lists with friends
+            </li>
+            <li>
+                <span class="checkmark">✓</span>
+                Impress friends with perfect picks
+            </li>
+        </ul>
+
+        <!-- Testimonials Carousel -->
+        <div class="testimonials">
+            <div class="testimonial active">
+                <div class="testimonial-text">"Finally! An app that remembers what I can't. Game changer for foodies."</div>
+                <div class="testimonial-author">— Jessica M., Food Blogger</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"My friends now call me the restaurant whisperer. Worth every penny!"</div>
+                <div class="testimonial-author">— David L., Chef</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"Went from food amateur to taste authority in 30 days. Incredible!"</div>
+                <div class="testimonial-author">— Maria S., Food Critic</div>
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-container">
+            <button class="primary-cta">
+                <div class="button-glow"></div>
+                Become a Taste Master
+            </button>
+            <button class="secondary-cta">Maybe later</button>
+        </div>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
+
+    <script>
+
+        // Testimonials carousel
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function nextTestimonial() {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }
+
+        setInterval(nextTestimonial, 5000);
+
+        // Button interaction
+        document.querySelector('.primary-cta').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    </script>
+</body>
+</html>

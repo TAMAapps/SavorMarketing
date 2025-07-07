@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1A0A2E 0%, #16213E 50%, #0F4C75 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Status bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .status-left {
+            font-size: 17px;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Main content */
+        .content {
+            text-align: center;
+            padding: 60px 40px 40px;
+            max-width: 350px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Headlines */
+        .headline {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .percentage {
+            color: #FF6B6B;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .sub-headline {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #D4A574;
+        }
+
+        .highlight {
+            color: #D4A574;
+            font-weight: 700;
+        }
+
+        .prompt {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #E5E5E5;
+            font-style: italic;
+        }
+
+        /* Dish grid */
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 40px 0;
+            padding: 0 10px;
+        }
+
+        .dish-tile {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            transition: all 2s ease;
+        }
+
+        .dish-tile.remembered {
+            background: rgba(212, 165, 116, 0.3);
+            border-color: #D4A574;
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        .dish-tile.forgotten {
+            animation: fade-out 3s ease-in-out forwards;
+            animation-delay: var(--delay);
+        }
+
+        /* Floating counter */
+        .floating-counter {
+            position: absolute;
+            top: 20%;
+            right: 20px;
+            background: rgba(255, 107, 107, 0.9);
+            padding: 12px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            backdrop-filter: blur(10px);
+            animation: float-up 4s ease-in-out infinite;
+        }
+
+        .counter-number {
+            color: #FFE66D;
+            font-weight: 700;
+            animation: count-up 2s linear infinite;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #D4A574;
+            transform: scale(1.2);
+        }
+
+        /* Source link */
+        .source-link {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin-left: 8px;
+        }
+
+        /* Animations */
+        @keyframes glow-pulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fade-out {
+            0% { 
+                opacity: 1; 
+                filter: saturate(1) brightness(1);
+            }
+            100% { 
+                opacity: 0.2; 
+                filter: saturate(0) brightness(0.5);
+            }
+        }
+
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes count-up {
+            0% { color: #FFE66D; }
+            50% { color: #FF6B6B; }
+            100% { color: #FFE66D; }
+        }
+
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">9:41</div>
+        <div class="status-right">
+            <span>••••</span>
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+    </div>
+
+    <!-- Floating Counter -->
+    <div class="floating-counter">
+        <span class="counter-number">2,947</span> dishes forgotten so far today
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="headline"><span class="percentage">92%</span> of amazing dishes vanish from memory in 30 days.</h1>
+        
+        <p class="sub-headline">That's <span class="highlight">€11 billion</span> in wasted flavour every year. <a href="#" class="source-link">(source)</a></p>
+
+        <!-- Dish Grid -->
+        <div class="dish-grid">
+            <div class="dish-tile remembered">🍕</div>
+            <div class="dish-tile forgotten" style="--delay: 0.5s">🍝</div>
+            <div class="dish-tile forgotten" style="--delay: 1s">🍣</div>
+            <div class="dish-tile forgotten" style="--delay: 1.5s">🥘</div>
+            
+            <div class="dish-tile forgotten" style="--delay: 2s">🍜</div>
+            <div class="dish-tile remembered">🥗</div>
+            <div class="dish-tile forgotten" style="--delay: 2.5s">🍔</div>
+            <div class="dish-tile forgotten" style="--delay: 3s">🌮</div>
+            
+            <div class="dish-tile forgotten" style="--delay: 3.5s">🍰</div>
+            <div class="dish-tile forgotten" style="--delay: 4s">🥐</div>
+            <div class="dish-tile remembered">🍱</div>
+            <div class="dish-tile forgotten" style="--delay: 4.5s">🥙</div>
+            
+            <div class="dish-tile forgotten" style="--delay: 5s">🍲</div>
+            <div class="dish-tile forgotten" style="--delay: 5.5s">🥧</div>
+            <div class="dish-tile forgotten" style="--delay: 6s">🍖</div>
+            <div class="dish-tile forgotten" style="--delay: 6.5s">🦐</div>
+        </div>
+
+        <p class="prompt">Ever struggled to remember where you had the best tiramisu?</p>
+
+        <button class="cta-button">Calculate my personal loss →</button>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
+
+    <script>
+        // Counter animation
+        let counter = 2947;
+        const counterElement = document.querySelector('.counter-number');
+        
+        setInterval(() => {
+            counter++;
+            counterElement.textContent = counter.toLocaleString();
+        }, 2000);
+    </script>
+</body>
+</html>

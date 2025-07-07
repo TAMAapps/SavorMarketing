@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Final Onboarding Flow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 24px;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.3);
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #CCCCCC;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .flow-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 32px;
+            border-radius: 20px;
+            margin: 60px 0;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .flow-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4A574;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .flow-description {
+            color: #E5E5E5;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .flow-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: rgba(212, 165, 116, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #D4A574;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .screen-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .screen-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #D4A574;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212, 165, 116, 0.2);
+        }
+
+        .screen-preview {
+            width: 200px;
+            height: 400px;
+            margin: 0 auto 24px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .screen-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 24px;
+        }
+
+        .screen-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+            text-align: center;
+        }
+
+        .screen-description {
+            color: #CCCCCC;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .screen-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .screen-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #E5E5E5;
+        }
+
+        .screen-features li::before {
+            content: '✓';
+            color: #D4A574;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .view-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .view-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 165, 116, 0.4);
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin: 40px auto;
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .demo-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(212, 165, 116, 0.6);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 36px;
+            }
+            
+            .screens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">S</div>
+            <h1 class="title">Savor Final Onboarding</h1>
+            <p class="subtitle">The complete user journey from problem recognition to conversion</p>
+        </header>
+
+        <div class="flow-info">
+            <h2 class="flow-title">🎯 Optimized Conversion Flow</h2>
+            <p class="flow-description">
+                This final onboarding sequence combines the best elements from our testing iterations: 
+                emotional storytelling from the original mockups with psychological optimization from V2. 
+                The result is a 6-screen journey designed for maximum user engagement and conversion.
+            </p>
+            
+            <div class="flow-features">
+                <div class="feature">
+                    <div class="feature-title">Personal Connection</div>
+                    <div class="feature-desc">Alex's vulnerable founder story creates immediate emotional resonance</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Loss Aversion</div>
+                    <div class="feature-desc">92% statistic triggers visceral fear of missing incredible experiences</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Personal Impact</div>
+                    <div class="feature-desc">Interactive calculator makes abstract problem tangible and personal</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Live Demo</div>
+                    <div class="feature-desc">Animated iPhone mockup shows instant gratification and core value</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Identity Transformation</div>
+                    <div class="feature-desc">Before/after comparison shows aspirational outcome</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Social Proof & Benefits</div>
+                    <div class="feature-desc">Testimonials carousel with clear benefit stacking for conversion</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center">
+            <a href="screen-1.html" class="demo-button">▶️ Start Full Demo</a>
+        </div>
+
+        <div class="screens-grid">
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-1.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 1: Personal Hook</h3>
+                <p class="screen-description">
+                    Alex's vulnerable founder story with animated floating hearts and dish comparison widget.
+                </p>
+                <ul class="screen-features">
+                    <li>Emotional founder connection</li>
+                    <li>Visual dish comparison</li>
+                    <li>Warm floating hearts animation</li>
+                    <li>Personal vulnerability builds trust</li>
+                </ul>
+                <a href="screen-1.html" class="view-button" target="_blank">View Screen 1</a>
+            </div>
+
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-2.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 2: Universal Problem</h3>
+                <p class="screen-description">
+                    92% statistic with animated dish grid and live counter to amplify loss aversion.
+                </p>
+                <ul class="screen-features">
+                    <li>Shocking 92% forgetting statistic</li>
+                    <li>Live counter of dishes forgotten</li>
+                    <li>Animated dish fade-out visualization</li>
+                    <li>Emotional impact emphasis</li>
+                </ul>
+                <a href="screen-2.html" class="view-button" target="_blank">View Screen 2</a>
+            </div>
+
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-3.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 3: Personal Calculator</h3>
+                <p class="screen-description">
+                    Interactive slider personalizes the loss with real-time calculations and animated breakdown.
+                </p>
+                <ul class="screen-features">
+                    <li>Interactive dining frequency slider</li>
+                    <li>Real-time loss calculation</li>
+                    <li>Animated category breakdown</li>
+                    <li>Personal relevance maximized</li>
+                </ul>
+                <a href="screen-3.html" class="view-button" target="_blank">View Screen 3</a>
+            </div>
+
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-4.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 4: Solution Demo</h3>
+                <p class="screen-description">
+                    Animated iPhone mockup with live scanning demo and floating gold particles.
+                </p>
+                <ul class="screen-features">
+                    <li>Live iPhone scanning animation</li>
+                    <li>Instant rating demonstration</li>
+                    <li>Floating gold particle effects</li>
+                    <li>Clear value proposition</li>
+                </ul>
+                <a href="screen-4.html" class="view-button" target="_blank">View Screen 4</a>
+            </div>
+
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-5.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 5: Transformation</h3>
+                <p class="screen-description">
+                    Interactive before/after scrubber shows identity transformation from amateur to connoisseur.
+                </p>
+                <ul class="screen-features">
+                    <li>Interactive scrubber comparison</li>
+                    <li>Before/after identity shift</li>
+                    <li>Aspirational outcome focus</li>
+                    <li>Community belonging element</li>
+                </ul>
+                <a href="screen-5.html" class="view-button" target="_blank">View Screen 5</a>
+            </div>
+
+            <div class="screen-card">
+                <div class="screen-preview">
+                    <iframe src="screen-6.html"></iframe>
+                </div>
+                <h3 class="screen-title">Screen 6: Conversion</h3>
+                <p class="screen-description">
+                    Final conversion screen with testimonials carousel and benefit stacking.
+                </p>
+                <ul class="screen-features">
+                    <li>Rotating social proof testimonials</li>
+                    <li>Clear benefit checklist</li>
+                    <li>"Become a Taste Master" CTA</li>
+                    <li>Gradient background animation</li>
+                </ul>
+                <a href="screen-6.html" class="view-button" target="_blank">View Screen 6</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

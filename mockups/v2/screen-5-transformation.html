@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Status bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .status-left {
+            font-size: 17px;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Main content */
+        .content {
+            text-align: center;
+            padding: 60px 30px 40px;
+            max-width: 380px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Headlines */
+        .headline {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .arrow {
+            color: #D4A574;
+            margin: 0 8px;
+            position: relative;
+        }
+
+        .connoisseur {
+            position: relative;
+        }
+
+        .sparkles {
+            position: absolute;
+            top: -8px;
+            right: -20px;
+            color: #D4A574;
+            font-size: 16px;
+            animation: sparkle-twinkle 2s ease-in-out infinite;
+        }
+
+        /* Split comparison */
+        .comparison-container {
+            position: relative;
+            margin: 40px 0;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .split-panel {
+            display: flex;
+            height: 100%;
+            position: relative;
+        }
+
+        .before-panel {
+            flex: 0.5;
+            background: linear-gradient(135deg, #2C2C54 0%, #40407A 100%);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            filter: saturate(0.7) brightness(0.8);
+            transition: all 0.5s ease;
+        }
+
+        .after-panel {
+            flex: 0.5;
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #1A1A1A;
+            transition: all 0.5s ease;
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .panel-list {
+            list-style: none;
+            space-y: 12px;
+        }
+
+        .panel-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        .panel-list li span {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .before-panel li {
+            color: #CCCCCC;
+        }
+
+        .after-panel li {
+            color: #1A1A1A;
+            font-weight: 500;
+        }
+
+        /* Scrubber */
+        .scrubber-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            z-index: 10;
+        }
+
+        .scrubber-container:active {
+            cursor: grabbing;
+        }
+
+        .scrubber-line {
+            width: 2px;
+            height: 100%;
+            background: white;
+            position: absolute;
+        }
+
+        .scrubber-handle {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Community section */
+        .community-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .community-text {
+            font-size: 16px;
+            color: #E5E5E5;
+            line-height: 1.4;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.3);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #D4A574;
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes sparkle-twinkle {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">9:41</div>
+        <div class="status-right">
+            <span>••••</span>
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="headline">
+            From Food Amateur <span class="arrow">→</span> 
+            <span class="connoisseur">
+                Trusted Connoisseur
+                <span class="sparkles">✨</span>
+            </span>
+        </h1>
+        
+        <!-- Split Panel Comparison -->
+        <div class="comparison-container">
+            <div class="split-panel" id="splitPanel">
+                <div class="before-panel">
+                    <div class="panel-title">BEFORE</div>
+                    <ul class="panel-list">
+                        <li><span>📸</span> Random photos</li>
+                        <li><span>🤷‍♂️</span> Forgettable meals</li>
+                        <li><span>😬</span> "Where should we eat?" panic</li>
+                    </ul>
+                </div>
+                
+                <div class="after-panel">
+                    <div class="panel-title">AFTER</div>
+                    <ul class="panel-list">
+                        <li><span>📚</span> Curated taste archive</li>
+                        <li><span>⭐</span> 10/10 memories at a glance</li>
+                        <li><span>🙌</span> Friends rely on YOUR picks</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Scrubber -->
+            <div class="scrubber-container" id="scrubber">
+                <div class="scrubber-line"></div>
+                <div class="scrubber-handle">⟷</div>
+            </div>
+        </div>
+
+        <!-- Community Section -->
+        <div class="community-section">
+            <p class="community-text">
+                Join a community of food lovers building their taste autobiography.
+            </p>
+        </div>
+
+        <button class="cta-button">I'm in →</button>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
+
+    <script>
+        // Scrubber functionality
+        const scrubber = document.getElementById('scrubber');
+        const splitPanel = document.getElementById('splitPanel');
+        const beforePanel = splitPanel.querySelector('.before-panel');
+        const afterPanel = splitPanel.querySelector('.after-panel');
+        let isDragging = false;
+
+        function updatePanels(percentage) {
+            beforePanel.style.flex = `0 0 ${percentage}%`;
+            afterPanel.style.flex = `0 0 ${100 - percentage}%`;
+            scrubber.style.left = `${percentage}%`;
+        }
+
+        scrubber.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const rect = splitPanel.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            
+            updatePanels(percentage);
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events for mobile
+        scrubber.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            const rect = splitPanel.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            
+            updatePanels(percentage);
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+    </script>
+</body>
+</html>

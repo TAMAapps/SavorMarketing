@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Onboarding - Screen 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2C1B47 0%, #3B2A5C 50%, #4A3F73 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Status bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .status-left {
+            font-size: 17px;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Main content */
+        .content {
+            text-align: center;
+            padding: 60px 40px 40px;
+            max-width: 350px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Headlines */
+        .headline {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .highlight {
+            color: #D4A574;
+            font-style: italic;
+        }
+
+        /* Slider section */
+        .slider-section {
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .input-label {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #E5E5E5;
+        }
+
+        .slider-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(212, 165, 116, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.6);
+        }
+
+        .slider-track-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 8px;
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            pointer-events: none;
+        }
+
+        .slider-value {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #D4A574;
+            color: #1A1A1A;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        /* Result section */
+        .result-section {
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .result-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #FF6B6B;
+            margin-bottom: 16px;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .result-text {
+            font-size: 18px;
+            color: #E5E5E5;
+            margin-bottom: 24px;
+        }
+
+        /* Breakdown chips */
+        .breakdown-chips {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px 12px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+
+        .chip.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .chip-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #D4A574;
+            margin-bottom: 4px;
+        }
+
+        .chip-label {
+            font-size: 12px;
+            color: #CCCCCC;
+            font-weight: 500;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574 0%, #F4C17F 100%);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 25px;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(212, 165, 116, 0.3);
+            margin-top: 30px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #D4A574;
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes count-up {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .count-animation {
+            animation: count-up 0.5s ease-out;
+        }
+
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">9:41</div>
+        <div class="status-right">
+            <span>••••</span>
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="headline">How many incredible dishes have <span class="highlight">you</span> lost?</h1>
+        
+        <div class="slider-section">
+            <p class="input-label">I eat out <strong>3</strong> times per week.</p>
+            
+            <div class="slider-container">
+                <div class="slider-track-fill" id="sliderFill"></div>
+                <input type="range" min="1" max="10" value="3" class="slider" id="frequencySlider">
+                <div class="slider-value" id="sliderValue">3</div>
+            </div>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="result-number" id="resultNumber">156</div>
+            <p class="result-text">You've likely forgotten <strong><span id="resultText">156 dishes</span></strong> this year — including <strong><span id="topCategory">hidden gems</span></strong>.</p>
+            
+            <div class="breakdown-chips">
+                <div class="chip" style="transition-delay: 0.1s;">
+                    <div class="chip-number" id="perfectTens">8</div>
+                    <div class="chip-label">Perfect 10s</div>
+                </div>
+                <div class="chip" style="transition-delay: 0.2s;">
+                    <div class="chip-number" id="hiddenGems">23</div>
+                    <div class="chip-label">Hidden Gems</div>
+                </div>
+                <div class="chip" style="transition-delay: 0.3s;">
+                    <div class="chip-number" id="mustReturns">41</div>
+                    <div class="chip-label">Must-Returns</div>
+                </div>
+                <div class="chip" style="transition-delay: 0.4s;">
+                    <div class="chip-number" id="lifeChanging">3</div>
+                    <div class="chip-label">Life-Changing</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="screen-4.html" class="cta-button">Stop the bleeding →</a>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
+
+    <script>
+        const slider = document.getElementById('frequencySlider');
+        const sliderFill = document.getElementById('sliderFill');
+        const sliderValue = document.getElementById('sliderValue');
+        const resultSection = document.getElementById('resultSection');
+        const resultNumber = document.getElementById('resultNumber');
+        const resultText = document.getElementById('resultText');
+        const topCategory = document.getElementById('topCategory');
+        
+        // Elements for breakdown
+        const perfectTens = document.getElementById('perfectTens');
+        const hiddenGems = document.getElementById('hiddenGems');
+        const mustReturns = document.getElementById('mustReturns');
+        const lifeChanging = document.getElementById('lifeChanging');
+
+        function updateCalculation() {
+            const frequency = parseInt(slider.value);
+            const total = frequency * 52; // meals per year
+            
+            // Update slider appearance
+            const percentage = ((frequency - 1) / 9) * 100;
+            sliderFill.style.width = percentage + '%';
+            sliderValue.textContent = frequency;
+            
+            // Update text
+            document.querySelector('.input-label strong').textContent = frequency;
+            
+            // Calculate breakdown
+            const perfectCount = Math.round(total * 0.05);
+            const hiddenCount = Math.round(total * 0.15);
+            const mustReturnCount = Math.round(total * 0.26);
+            const lifeChangingCount = Math.round(total * 0.02);
+            
+            // Animate number change
+            animateNumber(resultNumber, total);
+            resultText.textContent = `${total} dishes`;
+            
+            // Update breakdown with animation
+            setTimeout(() => {
+                animateNumber(perfectTens, perfectCount);
+                animateNumber(hiddenGems, hiddenCount);
+                animateNumber(mustReturns, mustReturnCount);
+                animateNumber(lifeChanging, lifeChangingCount);
+                
+                // Show chips
+                document.querySelectorAll('.chip').forEach(chip => {
+                    chip.classList.add('visible');
+                });
+            }, 200);
+            
+            // Show result section
+            resultSection.classList.add('visible');
+            
+            // Update top category based on frequency
+            const categories = ['comfort foods', 'hidden gems', 'must-try dishes', 'perfect experiences'];
+            const categoryIndex = Math.min(Math.floor(frequency / 3), categories.length - 1);
+            topCategory.textContent = categories[categoryIndex];
+        }
+
+        function animateNumber(element, targetValue) {
+            element.classList.add('count-animation');
+            element.textContent = targetValue;
+            
+            setTimeout(() => {
+                element.classList.remove('count-animation');
+            }, 500);
+        }
+
+        slider.addEventListener('input', updateCalculation);
+
+        // Initial calculation
+        updateCalculation();
+    </script>
+</body>
+</html>
