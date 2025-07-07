@@ -53,26 +53,12 @@
             font-weight: 600;
         }
         
-        .floating-counter {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 107, 107, 0.2);
-            border: 1px solid rgba(255, 107, 107, 0.4);
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 12px;
-            color: #ff6b6b;
-            font-weight: 600;
-        }
         
         .content {
-            padding: 60px 30px 40px;
-            height: calc(100% - 50px);
+            padding: 80px 30px 20px;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             text-align: center;
         }
         
@@ -80,8 +66,8 @@
             background: rgba(212, 165, 116, 0.1);
             border: 1px solid rgba(212, 165, 116, 0.3);
             border-radius: 25px;
-            padding: 40px 30px;
-            margin-bottom: 40px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
             backdrop-filter: blur(10px);
         }
         
@@ -102,52 +88,94 @@
         .subheading {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             line-height: 1.4;
         }
         
         .visual-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 30px 0;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 280px;
         }
         
-        .dish-icon {
-            aspect-ratio: 1;
-            border-radius: 12px;
+        .memory-visualization {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 30px auto;
+            max-width: 300px;
+        }
+        
+        .memory-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.6s ease-out forwards;
+            animation-delay: var(--delay);
+        }
+        
+        .memory-content {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 16px;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .memory-content.remembered {
+            background: rgba(212, 165, 116, 0.15);
+            border-color: #D4A574;
+        }
+        
+        .memory-card.fading .memory-content {
+            opacity: 0.5;
+            animation: fadeOut 4s ease-in-out infinite;
+        }
+        
+        .memory-icon {
             font-size: 24px;
-            transition: all 0.5s ease;
+            width: 40px;
+            text-align: center;
         }
         
-        .dish-icon.remembered {
-            background: linear-gradient(135deg, #D4A574, #E8C547);
-            animation: glow 2s infinite;
+        .memory-label {
+            flex: 1;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
         }
         
-        .dish-icon.forgotten {
-            background: rgba(60, 60, 60, 0.3);
-            opacity: 0.4;
-            animation: fade 3s infinite;
+        .memory-date {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
         }
         
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(212, 165, 116, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.6); }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        @keyframes fade {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.1; }
+        @keyframes fadeOut {
+            0%, 100% { opacity: 0.5; filter: blur(0px); }
+            50% { opacity: 0.2; filter: blur(2px); }
         }
         
         .bottom-text {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
             margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .bottom-text p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
         }
         
         .highlight {
@@ -166,8 +194,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
-            margin-top: 40px;
-            margin-bottom: 25px;
+            margin-top: 20px;
+            margin-bottom: 40px;
             text-decoration: none;
             display: inline-block;
             text-align: center;
@@ -220,9 +248,6 @@
                 </div>
             </div>
             
-            <div class="floating-counter">
-                2,847 dishes forgotten this hour
-            </div>
             
             <div class="content">
                 <div class="stat-card">
@@ -233,21 +258,34 @@
                 
                 <p class="subheading">How many incredible dishes have slipped away from your memory?</p>
                 
-                <div class="visual-grid">
-                    <div class="dish-icon remembered">🍝</div>
-                    <div class="dish-icon forgotten">🍜</div>
-                    <div class="dish-icon forgotten">🥘</div>
-                    <div class="dish-icon remembered">🍲</div>
-                    <div class="dish-icon forgotten">🥗</div>
-                    <div class="dish-icon forgotten">🍕</div>
-                    <div class="dish-icon remembered">🌮</div>
-                    <div class="dish-icon forgotten">🍣</div>
+                <div class="memory-visualization">
+                    <div class="memory-card" style="--delay: 0.1s">
+                        <div class="memory-content remembered">
+                            <div class="memory-icon">⭐</div>
+                            <div class="memory-label">Truffle Pasta</div>
+                            <div class="memory-date">Last week</div>
+                        </div>
+                    </div>
+                    <div class="memory-card fading" style="--delay: 0.3s">
+                        <div class="memory-content">
+                            <div class="memory-icon">?</div>
+                            <div class="memory-label">Amazing Ramen</div>
+                            <div class="memory-date">3 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="memory-card fading" style="--delay: 0.5s">
+                        <div class="memory-content">
+                            <div class="memory-icon">?</div>
+                            <div class="memory-label">Perfect Tacos</div>
+                            <div class="memory-date">Last month</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <p class="bottom-text">
-                    Worse: you can't compare them.<br>
-                    <span class="highlight">You'll never know which was better.</span>
-                </p>
+                <div class="bottom-text">
+                    <p style="margin-bottom: 8px;">Worse: you can't compare them.</p>
+                    <p class="highlight">You'll never know which was better.</p>
+                </div>
                 
                 <a href="screen-3.html" class="continue-btn">Help me!</a>
                 
