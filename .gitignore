@@ -1,0 +1,150 @@
+# Git Ignore File - Prevents sensitive files from being committed to version control
+
+# Environment Variables and API Keys
+.env
+.env.*
+.environment
+.env.local
+.env.development
+.env.staging
+.env.production
+.env.test
+
+# Secrets and Credentials
+secrets/
+secrets.json
+config/secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cert
+credentials/
+auth/
+ssl/
+api-keys/
+tokens/
+.auth
+.credentials
+.password
+.secret
+
+# Authentication Files
+oauth/
+firebase-adminsdk-*.json
+service-account*.json
+google-credentials*.json
+aws-credentials*
+azure-credentials*
+stripe-keys*
+payment-secrets*
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+database.json
+db-config.json
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build Output
+dist/
+build/
+.next/
+.nuxt/
+.vite/
+out/
+
+# Runtime and Cache
+.cache/
+tmp/
+temp/
+.temp/
+.vercel/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+debug.log
+error.log
+access.log
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.history/
+
+# Testing and Coverage
+coverage/
+.nyc_output/
+test-results/
+*.lcov
+.coverage/
+junit.xml
+
+# Deployment and Infrastructure
+docker-compose.override.yml
+docker-compose.local.yml
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+kubernetes/secrets/
+helm/secrets/
+ansible/vault/
+
+# Backup Files
+backup/
+backups/
+*.backup
+*.bak
+*.old
+*.orig
+
+# Application Specific
+# Add your specific sensitive files here
+config.local.js
+config.production.js
+firebase-config.js
+analytics-config.js
+
+# Development Tools
+.eslintcache
+.stylelintcache
+.parcel-cache/
+
+# Documentation with sensitive info
+docs/deployment/
+docs/infrastructure/
+docs/security/
+DEPLOYMENT.md
+INFRASTRUCTURE.md
+
+# Temporary files
+*.tmp
+*.temp 

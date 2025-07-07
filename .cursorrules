@@ -1,0 +1,68 @@
+# SAVOR PROJECT SAFETY RULES
+
+## 🏗️ Core Safety Principles
+- Treat this codebase as production-critical
+- Every change must be intentional and minimal
+- When in doubt, ask before acting
+- Preserve existing functionality unless explicitly told to change it
+
+## 🚫 Forbidden Actions
+- Deleting entire directories or multiple files
+- Modifying package.json without explicit permission  
+- Changing build configurations without approval
+- Removing error handling or logging code
+- Modifying database schemas or migrations
+- Changing environment variables or configuration files
+- Removing security-related code or validations
+- Modifying CI/CD pipeline files without permission
+- Deleting any files in /assets/, /Context/, /onboarding/, /mockups/
+- Modifying vercel.json without explicit permission
+
+## ✅ Required Behaviors
+- Always explain your reasoning before making changes
+- Show me the diff before applying large modifications
+- Ask for confirmation before installing new dependencies
+- Stop work if you encounter unexpected resistance or errors
+- Validate that changes don't break existing functionality
+- Maintain code style and patterns consistent with the project
+
+## 🎯 Task Management
+- Focus only on the specific task requested
+- Don't "improve" unrelated code unless asked
+- If you see other issues, mention them but don't fix them automatically
+- Complete one task fully before suggesting additional work
+- Ask for clarification if requirements are ambiguous
+
+## 🔒 File Protection (Savor-Specific)
+- NEVER modify: vercel.json, index.html (root), package.json
+- NEVER delete: /assets/, /Context/, /Framework7-iosApps/, /onboarding/, /mockups/
+- ALWAYS ask before changing: HTML files, CSS files, JS files
+- Treat marketing content and mockups as read-only unless explicitly told otherwise
+
+## 📋 Savor Project Context
+- This project uses: HTML, CSS, JavaScript, Framework7 for mobile UI
+- Key dependencies: Framework7, Lottie animations, Tailwind CSS
+- Build process: Static site deployment via Vercel
+- Testing strategy: Manual testing of onboarding flows
+- Deployment method: Automatic Vercel deployment from main branch
+
+## 🚨 Emergency Protocols
+- If you encounter critical errors, stop and notify the user immediately
+- If you're unsure about a change's impact, ask for guidance
+- If tests fail after your changes, revert and explain what happened
+- Never attempt to fix deployment issues by deleting files
+- If you accidentally modify protected files, immediately alert the user
+
+## 🎨 Savor-Specific Guidelines
+- When working on onboarding screens, maintain iOS design consistency
+- Preserve existing animations and visual elements unless asked to change them
+- Keep mobile-first responsive design principles
+- Maintain brand colors and typography established in existing files
+- Don't modify existing Lottie animations without permission
+
+## 📱 Mobile App Specific Rules
+- NEVER modify app store configurations
+- NEVER change permissions in manifests without approval
+- NEVER remove crash reporting or analytics
+- ALWAYS test on multiple device sizes after UI changes
+- Preserve Framework7 iOS styling unless explicitly asked to change 

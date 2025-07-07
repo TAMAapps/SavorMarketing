@@ -1,4 +1,4 @@
-name: Weekly Landing Page Tests
+name: Daily Landing Page Tests
 
 on:
   # Run tests on push to main branch
@@ -9,9 +9,9 @@ on:
   pull_request:
     branches: [ main ]
   
-  # Run tests weekly on Mondays at 9 AM UTC
+  # Run tests daily at 9 AM UTC (1 AM PST / 4 AM EST)
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * *'
   
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
@@ -80,8 +80,8 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const title = `🚨 Weekly Tests Failed - ${new Date().toISOString().split('T')[0]}`;
-          const body = `The weekly Playwright tests have failed.
+          const title = `🚨 Daily Tests Failed - ${new Date().toISOString().split('T')[0]}`;
+          const body = `The daily Playwright tests have failed.
           
           **Failed Job:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref }}

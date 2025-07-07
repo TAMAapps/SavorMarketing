@@ -1,0 +1,107 @@
+# Cursor Indexing Ignore - Prevents AI from indexing these files/directories
+
+# Additional Security Layer - Files that shouldn't be indexed
+config/
+secrets/
+private/
+internal/
+admin/
+security/
+.env*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials/
+api-keys/
+tokens/
+oauth/
+
+# Documentation that might contain sensitive information
+docs/deployment/
+docs/infrastructure/
+docs/security/
+docs/api-keys/
+docs/credentials/
+DEPLOYMENT.md
+INFRASTRUCTURE.md
+SECURITY.md
+API_KEYS.md
+CREDENTIALS.md
+
+# Configuration files that might contain secrets
+config.json
+app-config.json
+server-config.json
+database-config.json
+api-config.json
+auth-config.json
+firebase-config.json
+aws-config.json
+azure-config.json
+stripe-config.json
+payment-config.json
+
+# Backup and Archive Files
+backup/
+backups/
+archives/
+*.backup
+*.bak
+*.old
+*.orig
+*.tar.gz
+*.zip
+
+# Large directories that slow down indexing
+node_modules/
+.git/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+logs/
+
+# System and temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+.cache/
+tmp/
+temp/
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# Test and development files that might contain sensitive data
+test-data/
+mock-data/
+sample-data/
+fixtures/
+seeds/
+migrations/
+
+# Deployment and CI/CD files
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile*
+kubernetes/
+helm/
+terraform/
+ansible/
+
+# Analytics and tracking files
+analytics/
+tracking/
+metrics/
+monitoring/ 
