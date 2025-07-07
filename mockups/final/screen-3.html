@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #2C1B47 0%, #3B2A5C 50%, #4A3F73 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -22,6 +22,7 @@
             color: white;
             overflow: hidden;
             position: relative;
+            animation: gradient-shift 10s ease-in-out infinite;
         }
 
         /* Status bar */
@@ -281,6 +282,16 @@
             height: 5px;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 3px;
+        }
+        
+        /* Background animation */
+        @keyframes gradient-shift {
+            0%, 100% { 
+                filter: hue-rotate(0deg);
+            }
+            50% { 
+                filter: hue-rotate(10deg);
+            }
         }
     </style>
 </head>
