@@ -16,30 +16,41 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            color: white;
-            overflow: hidden;
-            position: relative;
+            justify-content: center;
+            overflow-x: hidden;
             animation: gradient-shift 10s ease-in-out infinite;
+        }
+        
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: linear-gradient(145deg, #2C2C54 0%, #40407A 100%);
+            border-radius: 40px;
+            padding: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 38px;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         /* Status bar */
         .status-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 44px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            color: white;
-            font-size: 17px;
+            padding: 15px 25px 0;
+            color: #ffffff;
+            font-size: 16px;
             font-weight: 600;
-            z-index: 100;
         }
 
         .status-left {
@@ -54,11 +65,11 @@
 
         /* Main content */
         .content {
+            padding: 50px 25px 80px;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
             text-align: center;
-            padding: 60px 30px 40px;
-            max-width: 350px;
-            position: relative;
-            z-index: 10;
         }
 
         /* Headlines */
@@ -237,7 +248,7 @@
         /* Progress dots */
         .progress-dots {
             position: fixed;
-            bottom: 100px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -310,18 +321,18 @@
     </style>
 </head>
 <body>
-    <!-- Status Bar -->
-    <div class="status-bar">
-        <div class="status-left">9:41</div>
-        <div class="status-right">
-            <span>••••</span>
-            <span>📶</span>
-            <span>🔋</span>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <div class="status-right">
+                    <span>●●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+            
+            <div class="content">
         <h1 class="headline">Ready to capture <span class="highlight">every</span> great bite?</h1>
         
 
@@ -368,6 +379,8 @@
                 Become a Taste Master
             </button>
             <a href="screen-1.html" class="secondary-cta">Maybe later</a>
+        </div>
+    </div>
         </div>
     </div>
 
