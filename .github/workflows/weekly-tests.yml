@@ -1,0 +1,98 @@
+name: Weekly Landing Page Tests
+
+on:
+  # Run tests on push to main branch
+  push:
+    branches: [ main ]
+  
+  # Run tests on pull requests
+  pull_request:
+    branches: [ main ]
+  
+  # Run tests weekly on Mondays at 9 AM UTC
+  schedule:
+    - cron: '0 9 * * 1'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps ${{ matrix.browser }}
+    
+    - name: Run Playwright tests
+      run: npx playwright test --project=${{ matrix.browser }}
+      env:
+        PRODUCTION_URL: https://savortheapp.com
+        CI: true
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report-${{ matrix.browser }}
+        path: playwright-report/
+        retention-days: 30
+    
+    - name: Upload test videos
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-videos-${{ matrix.browser }}
+        path: test-results/
+        retention-days: 7
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: test
+    if: failure()
+    
+    steps:
+    - name: Send failure notification
+      run: |
+        echo "Tests failed! Check the GitHub Actions log for details."
+        # You can add email notification here using GitHub Secrets
+        # Example with SendGrid, Mailgun, or GitHub Issues API
+    
+    # Optional: Create GitHub Issue on failure
+    - name: Create GitHub Issue on failure
+      if: failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = `🚨 Weekly Tests Failed - ${new Date().toISOString().split('T')[0]}`;
+          const body = `The weekly Playwright tests have failed.
+          
+          **Failed Job:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref }}
+          **Commit:** ${{ github.sha }}
+          
+          Please investigate the failure and fix any issues found.`;
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['bug', 'automated-test']
+          });
