@@ -222,9 +222,14 @@
         }
         
         .progress-dots {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             gap: 8px;
+            z-index: 100;
         }
         
         .dot {
@@ -339,6 +344,19 @@
                 filter: hue-rotate(10deg);
             }
         }
+        
+        /* Home indicator */
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
@@ -411,5 +429,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- Home Indicator -->
+    <div class="home-indicator"></div>
 </body>
 </html>
