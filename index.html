@@ -47,6 +47,12 @@
     }
   </script>
   
+  <!-- Vercel Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  
   <!-- Custom Styles -->
   <style>
     @keyframes float {
@@ -636,7 +642,7 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover-lift fade-in">
               <!-- App Screenshot -->
               <div class="mb-8 flex justify-center">
-                <img src="assets/images/app-screenshots/dishscreensnap2.jpg" alt="AI Dish Recognition" class="w-48 h-auto rounded-2xl shadow-2xl animate-float">
+                <img src="assets/app-screenshots/dishscreensnap2.jpg" alt="AI Dish Recognition" class="w-48 h-auto rounded-2xl shadow-2xl animate-float">
               </div>
               
               <!-- Feature Content -->
@@ -674,7 +680,7 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover-lift fade-in">
               <!-- App Screenshot -->
               <div class="mb-8 flex justify-center">
-                <img src="assets/images/app-screenshots/ListofDishes.jpg" alt="Smart Memory Vault" class="w-48 h-auto rounded-2xl shadow-2xl animate-float-delayed">
+                <img src="assets/app-screenshots/ListofDishes.jpg" alt="Smart Memory Vault" class="w-48 h-auto rounded-2xl shadow-2xl animate-float-delayed">
               </div>
               
               <!-- Feature Content -->
@@ -715,7 +721,7 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-10 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover-lift fade-in">
               <!-- App Screenshot -->
               <div class="mb-8 flex justify-center">
-                <img src="assets/images/app-screenshots/Intelligentdiscovery.jpg" alt="Intelligent Discovery" class="w-48 h-auto rounded-2xl shadow-2xl animate-bounce-slow">
+                <img src="assets/app-screenshots/Intelligentdiscovery.jpg" alt="Intelligent Discovery" class="w-48 h-auto rounded-2xl shadow-2xl animate-bounce-slow">
               </div>
               
               <!-- Feature Content -->
@@ -1162,6 +1168,140 @@
 
   <!-- Scripts -->
   <script>
+    // Vercel Analytics Custom Event Tracking
+    function trackEvent(eventName, properties = {}) {
+      if (window.va) {
+        window.va('track', eventName, properties);
+      }
+    }
+
+    // Track form submissions
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hero waitlist form
+      const heroForm = document.getElementById('hero-waitlist-form');
+      if (heroForm) {
+        heroForm.addEventListener('submit', function(e) {
+          trackEvent('form_submitted', {
+            form_name: 'hero_waitlist',
+            location: 'hero_section',
+            form_id: 'hero-waitlist-form'
+          });
+        });
+      }
+
+      // CTA waitlist form
+      const ctaForm = document.getElementById('cta-waitlist-form');
+      if (ctaForm) {
+        ctaForm.addEventListener('submit', function(e) {
+          trackEvent('form_submitted', {
+            form_name: 'cta_waitlist',
+            location: 'final_cta_section',
+            form_id: 'cta-waitlist-form'
+          });
+        });
+      }
+
+      // Track navigation clicks
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const target = this.getAttribute('href').substring(1);
+          trackEvent('navigation_clicked', {
+            target_section: target,
+            link_text: this.textContent.trim()
+          });
+        });
+      });
+
+      // Track CTA button clicks (non-form)
+      const ctaButtons = document.querySelectorAll('a[href="#waitlist"]');
+      ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          trackEvent('cta_clicked', {
+            button_text: this.textContent.trim(),
+            location: this.closest('section')?.id || 'unknown'
+          });
+        });
+      });
+
+      // Track social media clicks
+      const socialLinks = document.querySelectorAll('footer a[href*="instagram.com"], footer a[href*="twitter.com"], footer a[href*="tiktok.com"]');
+      socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const platform = this.querySelector('span.sr-only')?.textContent || 'unknown';
+          trackEvent('social_clicked', {
+            platform: platform,
+            url: this.href
+          });
+        });
+      });
+
+      // Track footer link clicks
+      const footerLinks = document.querySelectorAll('footer a:not([href*="instagram.com"]):not([href*="twitter.com"]):not([href*="tiktok.com"])');
+      footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          trackEvent('footer_link_clicked', {
+            link_text: this.textContent.trim(),
+            url: this.href
+          });
+        });
+      });
+
+      // Track scroll depth
+      let scrollDepths = [25, 50, 75, 90, 100];
+      let reachedDepths = [];
+      
+      function checkScrollDepth() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollPercent = (scrollTop + windowHeight) / documentHeight * 100;
+        
+        scrollDepths.forEach(depth => {
+          if (scrollPercent >= depth && !reachedDepths.includes(depth)) {
+            reachedDepths.push(depth);
+            trackEvent('scroll_depth_reached', {
+              depth: depth,
+              percent: `${depth}%`
+            });
+          }
+        });
+      }
+      
+      let scrollTimer;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(checkScrollDepth, 100);
+      });
+
+      // Track time on page
+      let startTime = Date.now();
+      let engagementTracked = false;
+      
+      setTimeout(function() {
+        if (!engagementTracked) {
+          engagementTracked = true;
+          trackEvent('engagement_milestone', {
+            milestone: '30_seconds',
+            time_spent: 30
+          });
+        }
+      }, 30000);
+
+      // Track page visibility changes
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          const timeSpent = Math.round((Date.now() - startTime) / 1000);
+          trackEvent('page_hidden', {
+            time_spent_seconds: timeSpent
+          });
+        } else {
+          startTime = Date.now();
+          trackEvent('page_visible', {});
+        }
+      });
+    });
+
     // Intersection Observer for fade-in animations
     const observerOptions = {
       threshold: 0.1,
