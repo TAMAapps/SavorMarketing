@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && cp ../index.html .vercel/output/static/index.html && cp -r ../assets .vercel/output/static/ && cp -r ../Framework7-iosApps .vercel/output/static/ && cp -r ../LottieAnimations .vercel/output/static/",
     "preview": "astro preview",
     "astro": "astro"
   },
