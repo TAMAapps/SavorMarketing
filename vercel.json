@@ -4,7 +4,7 @@
   "installCommand": "cd savor-site && npm install",
   "framework": "astro",
   "env": {
-    "WORDPRESS_API": "https://savorcms.wordpress.com/wp-json/wp/v2"
+    "WORDPRESS_API": "https://savorcms.wpcomstaging.com/wp-json/wp/v2"
   },
   "rewrites": [
     {
