@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor Lottie Animations Preview</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2C3E50;
+            margin-bottom: 40px;
+        }
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .animation-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .animation-card h3 {
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+        .animation-card p {
+            color: #6C757D;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .usage-code {
+            background: #f1f3f4;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .integration-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .integration-section h2 {
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+        .screen-example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .screen-example h4 {
+            color: #D4A574;
+            margin-bottom: 10px;
+        }
+        .recommended {
+            border: 2px solid #D4A574;
+            background: #FFF9F0;
+        }
+        /* CSS Animation Placeholders */
+        .fork-animation {
+            width: 60px;
+            height: 60px;
+            background: #D4A574;
+            border-radius: 4px;
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .checkmark-animation {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #059669;
+            border-radius: 50%;
+            position: relative;
+            animation: checkmark-bounce 1s ease-in-out infinite;
+        }
+        .checkmark-animation::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #059669;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        @keyframes checkmark-bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .swipe-animation {
+            width: 120px;
+            height: 80px;
+            background: #f1f3f4;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .swipe-dot {
+            width: 20px;
+            height: 20px;
+            background: #D4A574;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: swipe 3s ease-in-out infinite;
+        }
+        @keyframes swipe {
+            0% { left: 10px; }
+            50% { left: 90px; }
+            100% { left: 10px; }
+        }
+        .camera-animation {
+            width: 100px;
+            height: 100px;
+            border: 3px solid #D4A574;
+            border-radius: 8px;
+            position: relative;
+            background: #f8f9fa;
+        }
+        .scan-line {
+            width: 90%;
+            height: 2px;
+            background: #D4A574;
+            position: absolute;
+            left: 5%;
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 10%; }
+            100% { top: 85%; }
+        }
+        .hearts-animation {
+            width: 100px;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #D4A574;
+            font-size: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .heart:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 50%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 80%; animation-delay: 2s; }
+        @keyframes float {
+            0% { bottom: -20px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 120px; opacity: 0; }
+        }
+        .discovery-animation {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+        .plate {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #D4A574;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: plate-pulse 2s ease-in-out infinite;
+        }
+        @keyframes plate-pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ Savor Lottie Animations Library</h1>
+        
+        <div class="animation-grid">
+            <!-- Food Loading Animation -->
+            <div class="animation-card">
+                <h3>Food Loading</h3>
+                <p>Perfect for loading states, processing food data, or waiting screens</p>
+                <div class="animation-container">
+                    <div class="fork-animation"></div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="food-loading.json" 
+    style="width: 120px; height: 120px;" 
+    loop autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+
+            <!-- Success Checkmark -->
+            <div class="animation-card">
+                <h3>Success Checkmark</h3>
+                <p>Ideal for completed actions, successful saves, or confirmation screens</p>
+                <div class="animation-container">
+                    <div class="checkmark-animation"></div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="success-checkmark.json" 
+    style="width: 100px; height: 100px;" 
+    autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+
+            <!-- Swipe Gesture -->
+            <div class="animation-card">
+                <h3>Swipe Gesture</h3>
+                <p>Great for onboarding instructions, navigation hints, or tutorial screens</p>
+                <div class="animation-container">
+                    <div class="swipe-animation">
+                        <div class="swipe-dot"></div>
+                    </div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="swipe-gesture.json" 
+    style="width: 150px; height: 100px;" 
+    loop autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+
+            <!-- Food Discovery -->
+            <div class="animation-card">
+                <h3>Food Discovery</h3>
+                <p>Perfect for discovery screens, search results, or featured content</p>
+                <div class="animation-container">
+                    <div class="discovery-animation">
+                        <div class="plate"></div>
+                    </div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="food-discovery.json" 
+    style="width: 140px; height: 140px;" 
+    loop autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+
+            <!-- Camera Scan -->
+            <div class="animation-card">
+                <h3>Camera Scan</h3>
+                <p>Ideal for photo capture features, AI analysis, or scanning demonstrations</p>
+                <div class="animation-container">
+                    <div class="camera-animation">
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="camera-scan.json" 
+    style="width: 120px; height: 120px;" 
+    loop autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+
+            <!-- Floating Hearts -->
+            <div class="animation-card">
+                <h3>Floating Hearts</h3>
+                <p>Perfect for emotional connection, love for food, or positive feedback</p>
+                <div class="animation-container">
+                    <div class="hearts-animation">
+                        <div class="heart">♥</div>
+                        <div class="heart">♥</div>
+                        <div class="heart">♥</div>
+                    </div>
+                </div>
+                <div class="usage-code">
+&lt;lottie-player src="floating-hearts.json" 
+    style="width: 100px; height: 120px;" 
+    loop autoplay&gt;&lt;/lottie-player&gt;
+                </div>
+            </div>
+        </div>
+
+        <div class="integration-section">
+            <h2>🎯 Integration with Your Existing Onboarding Screens</h2>
+            
+            <div class="screen-example recommended">
+                <h4>Screen 0: Personal Connection (Alex's Story)</h4>
+                <p><strong>Recommended Animation:</strong> Floating Hearts</p>
+                <p><strong>Placement:</strong> Background animation while Alex tells her story</p>
+                <div class="usage-code">
+&lt;div class="founder-story-container"&gt;
+    &lt;div class="background-animation"&gt;
+        &lt;lottie-player src="LottieAnimations/floating-hearts.json" 
+            style="width: 100%; height: 300px; opacity: 0.3;" 
+            loop autoplay&gt;&lt;/lottie-player&gt;
+    &lt;/div&gt;
+    &lt;div class="story-content"&gt;
+        &lt;h1&gt;Hi, I'm Alex 👋&lt;/h1&gt;
+        &lt;p&gt;Three months after the best ramen...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="screen-example recommended">
+                <h4>Screen 1: The Breaking Point</h4>
+                <p><strong>Recommended Animation:</strong> Swipe Gesture</p>
+                <p><strong>Placement:</strong> Show confusion with scattered map pins</p>
+                <div class="usage-code">
+&lt;div class="breaking-point-visual"&gt;
+    &lt;div class="phone-mockup"&gt;
+        &lt;!-- Scattered map pins --&gt;
+        &lt;lottie-player src="LottieAnimations/swipe-gesture.json" 
+            style="width: 80px; height: 60px;" 
+            loop autoplay&gt;&lt;/lottie-player&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="screen-example recommended">
+                <h4>Screen 5: Instant Solution Demo</h4>
+                <p><strong>Recommended Animation:</strong> Camera Scan</p>
+                <p><strong>Placement:</strong> Live camera demo with scanning overlay</p>
+                <div class="usage-code">
+&lt;div class="camera-demo"&gt;
+    &lt;div class="camera-overlay"&gt;
+        &lt;lottie-player src="LottieAnimations/camera-scan.json" 
+            style="width: 200px; height: 200px;" 
+            loop autoplay&gt;&lt;/lottie-player&gt;
+    &lt;/div&gt;
+    &lt;div class="analysis-results"&gt;
+        &lt;p&gt;Italian Pasta • 8.7/10 • Carbonara&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="screen-example recommended">
+                <h4>Screen 6: Personal Food Vault</h4>
+                <p><strong>Recommended Animation:</strong> Food Discovery</p>
+                <p><strong>Placement:</strong> Gallery organization demonstration</p>
+                <div class="usage-code">
+&lt;div class="vault-demo"&gt;
+    &lt;div class="gallery-header"&gt;
+        &lt;lottie-player src="LottieAnimations/food-discovery.json" 
+            style="width: 60px; height: 60px;" 
+            loop autoplay&gt;&lt;/lottie-player&gt;
+        &lt;h3&gt;Your Food Vault&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="organized-grid"&gt;
+        &lt;!-- Food photos grid --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="screen-example recommended">
+                <h4>Screen 8: Begin Your Journey</h4>
+                <p><strong>Recommended Animation:</strong> Success Checkmark</p>
+                <p><strong>Placement:</strong> Checklist completion animations</p>
+                <div class="usage-code">
+&lt;div class="journey-checklist"&gt;
+    &lt;div class="checklist-item completed"&gt;
+        &lt;lottie-player src="LottieAnimations/success-checkmark.json" 
+            style="width: 30px; height: 30px;" 
+            autoplay&gt;&lt;/lottie-player&gt;
+        &lt;span&gt;Download Savor and capture your first meal&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- More checklist items --&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="screen-example">
+                <h4>Loading States (All Screens)</h4>
+                <p><strong>Recommended Animation:</strong> Food Loading</p>
+                <p><strong>Placement:</strong> Any loading or processing states</p>
+                <div class="usage-code">
+&lt;div class="loading-overlay"&gt;
+    &lt;lottie-player src="LottieAnimations/food-loading.json" 
+        style="width: 100px; height: 100px;" 
+        loop autoplay&gt;&lt;/lottie-player&gt;
+    &lt;p&gt;Processing your food memory...&lt;/p&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+        </div>
+
+        <div class="integration-section">
+            <h2>🚀 How to Implement in Your Project</h2>
+            
+            <h3>1. Add Lottie Player Script</h3>
+            <div class="usage-code">
+&lt;script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"&gt;&lt;/script&gt;
+            </div>
+
+            <h3>2. Update Your Existing Onboarding Files</h3>
+            <p>Add animations to your existing files in <code>onboarding/mockups/</code>:</p>
+            <ul>
+                <li><code>screen-0-founder-story.html</code> → Add floating hearts</li>
+                <li><code>screen-1-breaking-point.html</code> → Add swipe gesture</li>
+                <li><code>screen-5-magic-solution.html</code> → Add camera scan</li>
+                <li><code>screen-6-personal-vault.html</code> → Add food discovery</li>
+                <li><code>screen-8-conclusion.html</code> → Add success checkmarks</li>
+            </ul>
+
+            <h3>3. CSS for Animation Containers</h3>
+            <div class="usage-code">
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
