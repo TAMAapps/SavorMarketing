@@ -3,6 +3,9 @@
   "outputDirectory": "savor-site/.vercel/output/static",
   "installCommand": "cd savor-site && npm install",
   "framework": "astro",
+  "env": {
+    "WORDPRESS_API": "https://savorcms.wordpress.com/wp-json/wp/v2"
+  },
   "rewrites": [
     {
       "source": "/unbound",
