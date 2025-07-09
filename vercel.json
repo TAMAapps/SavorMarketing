@@ -1,4 +1,8 @@
 {
+  "buildCommand": "cd savor-site && npm run build",
+  "outputDirectory": "savor-site/.vercel/output/static",
+  "installCommand": "cd savor-site && npm install",
+  "framework": "astro",
   "rewrites": [
     {
       "source": "/unbound",
