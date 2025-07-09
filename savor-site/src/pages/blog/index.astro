@@ -1,15 +1,164 @@
 ---
 // Blog listing page - will be available at /blog/
+import { getPosts, getCategories } from '../../lib/wordpress';
+
+// Fetch posts at build time
+let posts: any[] = [];
+let categories: any[] = [];
+let error: string | null = null;
+
+try {
+  posts = await getPosts('per_page=20');
+  categories = await getCategories();
+} catch (e: any) {
+  error = e.message || 'Unknown error';
+  console.error('Error fetching WordPress data:', e);
+}
+
+// Helper function to get category name
+function getCategoryName(categoryId: number) {
+  const category = categories.find(cat => cat.id === categoryId);
+  return category ? category.name : 'Uncategorized';
+}
+
+// Helper function to format date
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+
 ---
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savor Blog</title>
+    <title>Savor Blog - Food Stories & Restaurant Reviews</title>
+    <meta name="description" content="Discover food stories, restaurant reviews, cooking tips, and culinary adventures from around the world.">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .post-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+        }
+        .post-title a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .post-title a:hover {
+            color: #d4a574;
+        }
+        .post-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .post-excerpt {
+            color: #555;
+            line-height: 1.6;
+        }
+        .category-tag {
+            display: inline-block;
+            background: #d4a574;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .no-posts {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        .back-link {
+            display: inline-block;
+            color: #d4a574;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+    <a href="/" class="back-link">← Back to Home</a>
+    
     <h1>Savor Blog</h1>
-    <p>Future blog posts will appear here. This is just a placeholder.</p>
-    <a href="/">← Back to Home</a>
+    <p class="subtitle">Food Stories & Restaurant Reviews</p>
+    
+    {error ? (
+        <div class="error-message">
+            <strong>Error loading posts:</strong> {error}
+        </div>
+    ) : posts.length === 0 ? (
+        <div class="no-posts">
+            <h2>No posts yet</h2>
+            <p>Check back soon for delicious content!</p>
+        </div>
+    ) : (
+        <ul class="post-list">
+            {posts.map((post) => (
+                <li class="post-card">
+                    <h2 class="post-title">
+                        <a href={`/blog/${post.slug}`} set:html={post.title.rendered}></a>
+                    </h2>
+                    <div class="post-meta">
+                        {formatDate(post.date)}
+                        {post.categories.length > 0 && (
+                            <span class="category-tag">
+                                {getCategoryName(post.categories[0])}
+                            </span>
+                        )}
+                    </div>
+                    <div class="post-excerpt" set:html={post.excerpt.rendered}></div>
+                </li>
+            ))}
+        </ul>
+    )}
 </body>
 </html>

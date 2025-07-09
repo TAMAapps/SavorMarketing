@@ -1,0 +1,206 @@
+---
+// Individual blog post page - dynamic route
+import { getPosts, getCategories } from '../../lib/wordpress';
+
+// Generate static paths for all posts at build time
+export async function getStaticPaths() {
+  try {
+    const posts = await getPosts('per_page=100');
+    
+    return posts.map((post) => ({
+      params: { slug: post.slug },
+      props: { post }
+    }));
+  } catch (error) {
+    console.error('Error generating static paths:', error);
+    return [];
+  }
+}
+
+// Get the post from props
+const { post } = Astro.props;
+
+// Fetch categories for display
+let categories: any[] = [];
+try {
+  categories = await getCategories();
+} catch (error) {
+  console.error('Error fetching categories:', error);
+}
+
+// Helper function to get category name
+function getCategoryName(categoryId: number) {
+  const category = categories.find(cat => cat.id === categoryId);
+  return category ? category.name : 'Uncategorized';
+}
+
+// Helper function to format date
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+
+// Extract plain text from HTML for meta description
+function getPlainText(html: string, maxLength: number = 160) {
+  const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+const metaDescription = post.excerpt?.rendered ? getPlainText(post.excerpt.rendered) : getPlainText(post.content.rendered);
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{post.title.rendered} - Savor Blog</title>
+    <meta name="description" content={metaDescription}>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content={post.title.rendered}>
+    <meta property="og:description" content={metaDescription}>
+    <meta property="og:site_name" content="Savor">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={post.title.rendered}>
+    <meta name="twitter:description" content={metaDescription}>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .breadcrumb a {
+            color: #d4a574;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0 0 20px 0;
+        }
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .category-tag {
+            background: #d4a574;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .content h2, .content h3, .content h4 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .content p {
+            margin-bottom: 20px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .content ul, .content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        .content li {
+            margin-bottom: 10px;
+        }
+        .content blockquote {
+            border-left: 4px solid #d4a574;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666;
+        }
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 40px;
+            color: #d4a574;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .article {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>→</span>
+        <a href="/blog">Blog</a>
+        <span>→</span>
+        <span>Article</span>
+    </nav>
+    
+    <article class="article">
+        <h1 set:html={post.title.rendered}></h1>
+        
+        <div class="post-meta">
+            <time datetime={post.date}>{formatDate(post.date)}</time>
+            {post.categories.length > 0 && (
+                <span class="category-tag">
+                    {getCategoryName(post.categories[0])}
+                </span>
+            )}
+        </div>
+        
+        <div class="content" set:html={post.content.rendered}></div>
+        
+        <a href="/blog" class="back-to-blog">← Back to Blog</a>
+    </article>
+</body>
+</html>
