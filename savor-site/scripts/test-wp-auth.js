@@ -20,8 +20,8 @@ const WP_APP_PASSWORD = process.env.WP_APP_PASSWORD;
 if (!WP_USERNAME || !WP_APP_PASSWORD) {
   console.error('❌ Missing WordPress credentials!');
   console.error('Please set environment variables:');
-  console.error('  export WP_USERNAME="among803"');
-  console.error('  export WP_APP_PASSWORD="oiwa EShX xAcU CcB5 QhS3 kH1S"');
+  console.error('  export WP_USERNAME="your-username"');
+  console.error('  export WP_APP_PASSWORD="your-app-password"');
   process.exit(1);
 }
 
