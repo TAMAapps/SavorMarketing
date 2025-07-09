@@ -183,6 +183,8 @@
 - Shows default "Hello World!" post from WordPress
 - Ready for Restaurant Reviews content
 - Deployed to production at savortheapp.com/blog/
+- **End-to-End Testing Complete**: Created "Amazing Italian Restaurant in NYC" post, verified it appears on both /blog/ and individual post page
+- WordPress.com API caching delay noted (10 minutes for new posts to appear in builds)
 
 **Phase 1 Completion**: 🔄 80% (4/5 tasks completed)
 
@@ -191,6 +193,7 @@
 - Task 1.2: Configure Vercel Project
 - Task 1.4: Build WordPress API Client
 - Task 1.5: Create Blog Pages in Astro
+- **End-to-End Testing**: WordPress → Astro → Live Site verified working
 
 **🔄 In Progress**: Task 1.3 (WordPress.com Business setup) - Rank Math setup pending
 
@@ -530,7 +533,7 @@
 3. **Complete Task 1.3** - WordPress.com Business setup (Rank Math setup pending)
 4. ✅ **Complete Task 1.4** - Build WordPress API client (DONE)
 5. ✅ **Complete Task 1.5** - Create blog pages in Astro (DONE)
-6. **Create test Restaurant Review post** - Verify end-to-end workflow (Post created: "Amazing Italian Restaurant in NYC")
+6. ✅ **Create test Restaurant Review post** - Verify end-to-end workflow (DONE: "Amazing Italian Restaurant in NYC")
 7. **Begin Task 2.1** - Scripted post creation from Cursor
 
 ### Short Term (Next 30 Days)
