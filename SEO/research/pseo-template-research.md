@@ -408,3 +408,303 @@ small: 0.875rem (14px) - Meta information (prep time, difficulty)
 *Research Date: July 11, 2025*  
 *Screenshots: Stored in `/research/` directory*  
 *Analysis: Complete pSEO website analysis with actionable recommendations*
+
+---
+
+## 📐 APPENDIX: Visual Format Recommendations for Key Savor Pages
+
+> **Based on Analysis**: Drawing from NomadList's data presentation, TripAdvisor's visual engagement, Wise's utility focus, and Yelp's local discovery patterns
+
+### **🏠 Homepage Visual Format** 
+*Inspiration: NomadList + TripAdvisor hybrid approach*
+
+**Layout Structure:**
+```
+[Hero Section - Full Width]
+├── Background: High-quality food photography (hero-dining-experience.jpg)
+├── Overlay: Subtle dark gradient (0.4 opacity)
+├── Title: "Discover Your Perfect Dining Experience" (48px, white)
+├── Subtitle: "AI-powered restaurant discovery tailored to your taste" (20px)
+└── CTA: "Start Discovering" (Savor orange button, prominent)
+
+[Value Proposition Cards - 3-column grid]
+├── Card 1: "Smart Discovery" (feature-ai-recognition.jpg)
+├── Card 2: "Personal Vault" (feature-smart-vault.jpg)
+└── Card 3: "Community Insights" (feature-discovery.jpg)
+
+[Featured Content Section]
+├── "Trending Restaurants" carousel
+├── "Latest Food Articles" grid (3x2 layout)
+└── "Popular Cuisines" category tiles
+
+[Social Proof Section]
+├── User testimonials with photos
+├── App store ratings display
+└── Community stats (restaurants discovered, users, etc.)
+```
+
+**Visual Specifications:**
+- **Hero Image**: 1920x1080px, food-focused, warm lighting
+- **Color Scheme**: Savor orange (#ef6c00) accents on warm cream background
+- **Typography**: Bold sans-serif headlines, readable body text (18px)
+- **Cards**: Elevated shadows, rounded corners (8px), hover animations
+- **Mobile**: Stack vertically, maintain visual hierarchy
+
+---
+
+### **🍽️ Restaurant Discovery Page Template**
+*Inspiration: Yelp location pages + NomadList filtering*
+
+**Layout Structure:**
+```
+[Search & Filter Header]
+├── Location selector (current city detection)
+├── Cuisine type filters (horizontal scroll on mobile)
+├── Price range, rating, distance filters
+└── Sort options (rating, distance, price, trending)
+
+[Results Grid - Card Layout]
+├── Restaurant Card (400x300px image + details)
+│   ├── Hero food photo (top 60% of card)
+│   ├── Restaurant name (bold, 20px)
+│   ├── Cuisine type badge (colored by category)
+│   ├── Rating stars + review count
+│   ├── Price range ($ to $$$$)
+│   ├── Distance + estimated time
+│   └── Quick actions (save, share, directions)
+
+[Map Integration - Side Panel (Desktop)]
+├── Interactive map with restaurant pins
+├── Cluster markers for dense areas
+└── Quick preview on pin hover
+```
+
+**Visual Specifications:**
+- **Card Grid**: 3 columns desktop, 2 tablet, 1 mobile
+- **Images**: 400x300px, optimized for food photography
+- **Hover Effects**: Subtle lift animation, image zoom
+- **Loading States**: Skeleton cards while data loads
+- **Empty States**: Friendly illustrations when no results
+
+---
+
+### **📖 Food Article Template**
+*Inspiration: TripAdvisor content depth + G2 authority design*
+
+**Layout Structure:**
+```
+[Article Header - Full Width]
+├── Hero food image (1200x675px)
+├── Breadcrumb navigation
+├── Article title (large, appetizing typography)
+├── Author info + publication date
+├── Reading time + difficulty level
+├── Social sharing buttons (sticky on scroll)
+└── Save to collection button
+
+[Article Content - Two Column Layout]
+├── Main Content (70% width)
+│   ├── Introduction paragraph
+│   ├── Ingredients list (if recipe)
+│   ├── Step-by-step instructions
+│   ├── Tips and variations
+│   └── Nutritional information
+│
+└── Sidebar (30% width)
+    ├── Related articles
+    ├── Popular recipes
+    ├── Restaurant recommendations
+    └── Newsletter signup
+
+[Engagement Section]
+├── Rating system (5-star)
+├── Comments section
+├── Related content carousel
+└── "More from this author" section
+```
+
+**Visual Specifications:**
+- **Hero Image**: High-quality food photography, proper alt text
+- **Typography**: Clear hierarchy (32px → 24px → 18px → 16px)
+- **Ingredients**: Checkbox-style list for interactive experience
+- **Instructions**: Numbered steps with clear spacing
+- **Mobile**: Single column, collapsible sidebar
+
+---
+
+### **🗂️ Cuisine Category Page**
+*Inspiration: Zapier app directory + G2 category organization*
+
+**Layout Structure:**
+```
+[Category Header]
+├── Cuisine banner image (Italian pasta, Asian stir-fry, etc.)
+├── Category title + description
+├── Quick stats (restaurants, articles, popularity)
+└── Sub-category filters (regional styles, dietary options)
+
+[Featured Content Grid]
+├── "Best [Cuisine] Restaurants" section
+├── "Popular [Cuisine] Recipes" section
+├── "Expert [Cuisine] Articles" section
+└── "Trending [Cuisine] Discussions" section
+
+[Comprehensive Listings]
+├── All restaurants in category (paginated)
+├── Filter by location, price, rating
+├── Sort options (rating, distance, popularity)
+└── Load more / infinite scroll
+```
+
+**Visual Specifications:**
+- **Banner**: Cuisine-specific food photography (1200x400px)
+- **Grid Layout**: Consistent card sizing across content types
+- **Color Coding**: Subtle cuisine-specific color themes
+- **Filtering**: Clear, accessible filter interface
+- **Performance**: Lazy loading for large lists
+
+---
+
+### **📍 Location-Based Restaurant Page**
+*Inspiration: NomadList city pages + Yelp local authority*
+
+**Layout Structure:**
+```
+[Location Hero Section]
+├── City/neighborhood banner image
+├── Location title + local context
+├── Key stats (restaurant count, popular cuisines, avg price)
+└── Weather/time info (if relevant for outdoor dining)
+
+[Quick Discovery Section]
+├── "Top Rated" restaurants carousel
+├── "Trending Now" based on recent activity
+├── "Hidden Gems" lesser-known quality spots
+└── "Quick Bites" for fast casual options
+
+[Comprehensive Directory]
+├── All restaurants with advanced filtering
+├── Map integration showing clusters
+├── List/grid view toggle
+└── Export/share location guide option
+
+[Local Insights]
+├── Best times to visit
+├── Local food culture notes
+├── Seasonal recommendations
+└── Transportation/parking info
+```
+
+**Visual Specifications:**
+- **Location Images**: Authentic local food scene photography
+- **Data Visualization**: Clean charts for price ranges, ratings
+- **Map Integration**: Custom markers with restaurant photos
+- **Local Context**: Warm, inviting design reflecting local culture
+
+---
+
+### **🔍 Search Results Page**
+*Inspiration: Wise utility focus + TripAdvisor comprehensive results*
+
+**Layout Structure:**
+```
+[Search Header]
+├── Search query display + modify option
+├── Results count + search time
+├── Filter toggles (restaurants, articles, recipes)
+└── Sort options (relevance, rating, distance, date)
+
+[Results Layout - Mixed Content]
+├── Restaurant results (card format)
+├── Article results (horizontal card format)
+├── Recipe results (square card with cook time)
+└── Pagination or infinite scroll
+
+[Search Suggestions]
+├── "Did you mean..." corrections
+├── Related searches
+├── Popular searches in your area
+└── Trending food topics
+```
+
+**Visual Specifications:**
+- **Result Cards**: Consistent sizing with content-type indicators
+- **Search Feedback**: Clear, helpful messaging for no results
+- **Performance**: Fast loading with skeleton states
+- **Accessibility**: Keyboard navigation, screen reader friendly
+
+---
+
+### **📱 Mobile-Specific Considerations**
+
+**Key Mobile Adaptations:**
+1. **Touch-First Design**: Minimum 44px touch targets
+2. **Thumb Navigation**: Bottom navigation for key actions
+3. **Swipe Gestures**: Horizontal scrolling for category filters
+4. **Progressive Disclosure**: Collapsible sections to reduce scroll
+5. **Offline Support**: Cache key content for poor connectivity
+
+**Mobile Layout Priorities:**
+- **Hero Images**: Maintain impact on smaller screens
+- **Filter Interface**: Slide-up modal instead of sidebar
+- **Card Layouts**: Single column with generous spacing
+- **Typography**: Larger base font size (16px minimum)
+- **Loading States**: Clear progress indicators
+
+---
+
+### **🎨 Visual Design System Summary**
+
+**Color Strategy:**
+- **Primary**: Savor orange (#ef6c00) for CTAs and accents
+- **Supporting**: Warm food palette (cream, brown, fresh green)
+- **Functional**: Clear hierarchy with good contrast ratios
+- **Cuisine-Specific**: Subtle color themes for different food types
+
+**Typography Hierarchy:**
+```
+H1: 48px (homepage hero) / 32px (page titles)
+H2: 28px (section headers)
+H3: 24px (subsections)
+H4: 20px (card titles)
+Body: 18px (main content)
+Small: 16px (meta information)
+Caption: 14px (image captions, fine print)
+```
+
+**Spacing System:**
+- **Base Unit**: 8px
+- **Component Padding**: 16px (mobile) / 24px (desktop)
+- **Section Margins**: 32px (mobile) / 48px (desktop)
+- **Card Gaps**: 16px (mobile) / 24px (desktop)
+
+**Image Strategy:**
+- **Hero Images**: 1200x675px (16:9 ratio)
+- **Card Images**: 400x300px (4:3 ratio)
+- **Thumbnails**: 120x120px (1:1 ratio)
+- **Quality**: WebP format with JPEG fallback
+- **Loading**: Progressive loading with blur-up effect
+
+---
+
+### **🚀 Implementation Priority Matrix**
+
+**Phase 1 (Week 1): Foundation**
+1. Homepage hero section redesign
+2. Basic restaurant card template
+3. Article template enhancement
+4. Mobile responsiveness fixes
+
+**Phase 2 (Week 2-3): Content Templates**
+1. Cuisine category pages
+2. Location-based pages
+3. Search results optimization
+4. Advanced filtering interfaces
+
+**Phase 3 (Month 1): Advanced Features**
+1. Map integrations
+2. User review systems
+3. Personalization features
+4. Performance optimizations
+
+This visual format strategy combines the proven success patterns from leading pSEO websites with Savor's specific food discovery needs, ensuring both SEO effectiveness and user engagement.

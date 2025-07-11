@@ -6,9 +6,12 @@ export interface Props {
   image?: string;
   date?: string;
   category?: string;
+  readTime?: string;
+  difficulty?: string;
+  cuisine?: string;
 }
 
-const { title, excerpt, href, image, date, category } = Astro.props;
+const { title, excerpt, href, image, date, category, readTime, difficulty, cuisine } = Astro.props;
 
 // Format date if provided
 const formattedDate = date ? new Date(date).toLocaleDateString('en-US', {
@@ -16,47 +19,113 @@ const formattedDate = date ? new Date(date).toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric'
 }) : '';
+
+// Generate food-themed gradient background if no image
+const gradients = [
+  'from-orange-400 to-red-500',
+  'from-green-400 to-blue-500', 
+  'from-yellow-400 to-orange-500',
+  'from-purple-400 to-pink-500',
+  'from-indigo-400 to-purple-500'
+];
+const gradientClass = gradients[Math.abs(title.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) % gradients.length];
+
+// Get cuisine-specific colors
+const getCuisineColor = (cuisine: string) => {
+  const colors = {
+    'Italian': 'bg-green-100 text-green-800',
+    'Japanese': 'bg-red-100 text-red-800', 
+    'Chinese': 'bg-yellow-100 text-yellow-800',
+    'Mexican': 'bg-orange-100 text-orange-800',
+    'French': 'bg-purple-100 text-purple-800',
+    'Indian': 'bg-pink-100 text-pink-800',
+    'Thai': 'bg-lime-100 text-lime-800',
+    'default': 'bg-gray-100 text-gray-800'
+  };
+  return colors[cuisine as keyof typeof colors] || colors.default;
+};
 ---
 
-<article class="card card-hover group">
+<article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
   <a href={href} class="block">
-    {image && (
-      <div class="aspect-video overflow-hidden">
+    <div class="aspect-[4/3] overflow-hidden relative">
+      {image ? (
         <img 
           src={image} 
           alt={title}
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />
-      </div>
-    )}
-    
-    <div class="p-6">
-      {(date || category) && (
-        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-          {date && <time datetime={date}>{formattedDate}</time>}
-          {date && category && <span>•</span>}
-          {category && (
-            <span class="bg-brand-100 text-brand-700 px-2 py-1 rounded-full text-xs font-medium">
-              {category}
-            </span>
-          )}
+      ) : (
+        <div class={`w-full h-full bg-gradient-to-br ${gradientClass} flex items-center justify-center`}>
+          <div class="text-white text-center">
+            <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H9a1 1 0 110 2H7.771l.062-.245.123-.489.804-.804L8.771 12zm2.229 0H11a1 1 0 110 2h-1.229l.062-.245.123-.489.804-.804L10.229 12z" clip-rule="evenodd"/>
+            </svg>
+            <p class="text-sm font-medium opacity-90">Food Article</p>
+          </div>
         </div>
       )}
       
-      <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors line-clamp-2">
+      {/* Category Badge */}
+      {(category || cuisine) && (
+        <div class="absolute top-3 left-3">
+          <span class={`px-2 py-1 rounded-full text-xs font-semibold ${getCuisineColor(cuisine || category || '')}`}>
+            {cuisine || category}
+          </span>
+        </div>
+      )}
+      
+      {/* Difficulty Badge */}
+      {difficulty && (
+        <div class="absolute top-3 right-3">
+          <span class="bg-white bg-opacity-90 text-gray-800 px-2 py-1 rounded-full text-xs font-medium">
+            {difficulty}
+          </span>
+        </div>
+      )}
+    </div>
+    
+    <div class="p-6">
+      {/* Meta Information */}
+      <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+        {date && <time datetime={date}>{formattedDate}</time>}
+        {date && readTime && <span>•</span>}
+        {readTime && (
+          <div class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>{readTime}</span>
+          </div>
+        )}
+      </div>
+      
+      {/* Title */}
+      <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors line-clamp-2 leading-tight">
         {title}
       </h3>
       
-      <p class="text-gray-600 line-clamp-3 leading-relaxed">
+      {/* Excerpt */}
+      <p class="text-gray-600 line-clamp-3 leading-relaxed mb-4">
         {excerpt}
       </p>
       
-      <div class="mt-4 flex items-center text-brand-600 font-medium text-sm group-hover:text-brand-700 transition-colors">
-        Read more
-        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
+      {/* Read More CTA */}
+      <div class="flex items-center justify-between">
+        <div class="flex items-center text-brand-600 font-semibold text-sm group-hover:text-brand-700 transition-colors">
+          <span>Read Recipe</span>
+          <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+        
+        {/* Save Button */}
+        <button class="p-2 text-gray-400 hover:text-brand-600 transition-colors group/save" aria-label="Save recipe">
+          <svg class="w-5 h-5 group-hover/save:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </button>
       </div>
     </div>
   </a>

@@ -1,0 +1,98 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+---
+
+<BlogLayout 
+  title="Page Not Found - Savor Blog"
+  description="Oops! The page you're looking for doesn't exist. Discover delicious content on our blog instead."
+>
+  <div class="min-h-[60vh] flex items-center justify-center">
+    <div class="text-center max-w-2xl mx-auto px-6">
+      <!-- Food-themed 404 illustration -->
+      <div class="mb-8">
+        <div class="w-32 h-32 mx-auto bg-gradient-to-br from-brand-400 to-brand-600 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Recipe Not Found!</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Looks like this dish isn't on our menu. But don't worry – we have plenty of delicious content waiting for you!
+        </p>
+      </div>
+
+      <!-- Helpful actions -->
+      <div class="space-y-6">
+        <!-- Primary CTA -->
+        <div>
+          <a 
+            href="/blog" 
+            class="inline-flex items-center px-8 py-4 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-4 4m4-4l-4-4"/>
+            </svg>
+            Browse Our Food Blog
+          </a>
+        </div>
+
+        <!-- Secondary actions -->
+        <div class="flex flex-wrap justify-center gap-4">
+          <a 
+            href="/" 
+            class="inline-flex items-center px-6 py-3 border-2 border-brand-600 text-brand-600 font-medium rounded-lg hover:bg-brand-50 transition-colors"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Go Home
+          </a>
+          
+          <button 
+            onclick="history.back()" 
+            class="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Go Back
+          </button>
+        </div>
+      </div>
+
+      <!-- Popular content suggestions -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <h3 class="text-lg font-semibold text-gray-900 mb-6">Popular Recipes & Guides</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <a href="/blog" class="p-4 bg-gray-50 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors group">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5z" clip-rule="evenodd"/>
+              </svg>
+              <span class="font-medium group-hover:text-brand-700">Italian Recipes</span>
+            </div>
+          </a>
+          
+          <a href="/blog" class="p-4 bg-gray-50 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors group">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="font-medium group-hover:text-brand-700">Restaurant Guides</span>
+            </div>
+          </a>
+          
+          <a href="/blog" class="p-4 bg-gray-50 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors group">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="font-medium group-hover:text-brand-700">Cooking Tips</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BlogLayout> 

@@ -1,4 +1,13 @@
+ 
 # Savor SEO Technical Architecture Overview
+
+> **Important Note:**
+> 
+> The main landing page (`index.html` in the project root) and the Formspree form/component are **static files**. They are **completely separate** from all Astro, WordPress, and programmatic SEO (pSEO) systems described in this document. 
+>
+> - **Do not move, edit, or migrate the landing page or Formspree form into Astro or WordPress.**
+> - All pSEO, blog, and automated content lives in the `/savor-site/` directory and is managed by Astro/WordPress/Supabase.
+> - The landing page and its form must remain untouched by any pSEO, blog, or automation changes.
 
 *Complete technical documentation for developers and SEO specialists*
 
@@ -7,24 +16,22 @@
 ## 🏗️ SYSTEM ARCHITECTURE
 
 ### High-Level Overview
-Savor implements a **hybrid static + headless WordPress** approach for programmatic SEO (pSEO), designed to generate thousands of SEO-optimized pages while preserving the existing high-converting landing page.
+Savor implements a **headless WordPress + static site generator** approach for programmatic SEO (pSEO), designed to generate thousands of SEO-optimized pages while maintaining performance and developer experience.
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Content CMS   │    │   Hybrid Build   │    │   CDN/Hosting   │
-│  WordPress.com  │───▶│  Static HTML +   │───▶│    Vercel       │
-│   (Headless)    │    │   Astro Blog     │    │   (Static)      │
+│   Content CMS   │    │   Static Site    │    │   CDN/Hosting   │
+│  WordPress.com  │───▶│  Generator       │───▶│    Vercel       │
+│   (Headless)    │    │   (Astro 4)      │    │   (Edge/ISR)    │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
          │                       │                       │
     ┌────▼────┐             ┌────▼────┐             ┌────▼────┐
-    │ REST API│             │ Root:    │             │ Users   │
-    │ /blog   │             │ index.   │             │ Landing │
-    │ Content │             │ html     │             │ +Blog   │
+    │ REST API│             │ Build   │             │ Users   │
+    │ Content │             │ Process │             │ Traffic │
+    │ Delivery│             │ & ISR   │             │ & SEO   │
     └─────────┘             └─────────┘             └─────────┘
 ```
-
-**Key Architecture Decision**: Landing page stays as static HTML, Astro only processes `/blog/*` routes
 
 ### Core Technology Stack
 
@@ -510,64 +517,6 @@ git push --force-with-lease origin main
 # Implement fallback in wordpress.ts
 # Monitor WordPress.com status page
 ```
-
----
-
-## 🚨 TECHNICAL CHALLENGES & SOLUTIONS
-
-### Challenge 1: Landing Page Integration (RESOLVED)
-**Problem**: Initial approach attempted to convert working static `index.html` to Astro component
-- CSS loading broke (Tailwind not loading properly)
-- JavaScript animations failed
-- User experience completely degraded
-
-**Solution**: Hybrid deployment approach
-- Keep original `index.html` as static file
-- Configure Astro to only process `/blog/*` routes
-- Build process copies static files to Astro output directory
-
-**Code Implementation**:
-```bash
-# In savor-site/package.json
-"build": "astro check && astro build && cp ../index.html .vercel/output/static/index.html && cp -r ../assets .vercel/output/static/"
-
-# In astro.config.mjs
-export default defineConfig({
-  output: 'static',
-  adapter: vercel(),
-  // Only processes src/pages/blog/* routes
-});
-```
-
-### Challenge 2: Documentation Loss (RESOLVED)
-**Problem**: Used `git reset --hard` too broadly, accidentally deleted documentation files
-- Lost task-tracker.md and technical-overview.md
-- Disrupted project tracking
-
-**Solution**: Selective file recovery from git history
-```bash
-git show fa1899e:docs/task-tracker.md > docs/task-tracker.md
-git show e5315f5:docs/technical-overview.md > docs/technical-overview.md
-```
-
-**Prevention**: Use targeted reverts instead of blanket resets
-
-### Challenge 3: Asset Path Management (RESOLVED)
-**Problem**: Asset paths broken between static HTML and Astro processing
-- Images and CSS not loading correctly
-- File structure conflicts
-
-**Solution**: Centralized asset copying in build process
-- Copy all assets to Astro's output directory
-- Maintain original path structure
-- Use build-time asset resolution
-
-### Current Architecture Status
-✅ **Working**: Static landing page with full functionality
-✅ **Working**: Astro blog routes (`/blog/`)
-✅ **Working**: Unified deployment pipeline
-⏳ **Pending**: WordPress API integration
-⏳ **Pending**: Content generation pipeline
 
 ---
 

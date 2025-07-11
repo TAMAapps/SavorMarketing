@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor pSEO Visual Mockup - Design Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'savor-orange': '#ef6c00',
+                        'savor-orange-light': '#ff9800',
+                        'savor-orange-dark': '#d45500',
+                        'warm-cream': '#faf7f2',
+                        'rich-brown': '#3e2723',
+                        'fresh-green': '#4caf50',
+                        'appetite-red': '#f44336',
+                        'golden-yellow': '#ffc107'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(239, 108, 0, 0.4) 0%, rgba(62, 39, 35, 0.6) 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-warm-cream">
+    <!-- Navigation Mockup Selector -->
+    <div class="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 p-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap gap-2">
+            <h1 class="text-xl font-bold text-rich-brown mr-4">Savor pSEO Mockup Review:</h1>
+            <button onclick="showSection('homepage')" class="px-4 py-2 bg-savor-orange text-white rounded-lg hover:bg-savor-orange-dark">Homepage</button>
+            <button onclick="showSection('restaurant-discovery')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">Restaurant Discovery</button>
+            <button onclick="showSection('article-template')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">Article Template</button>
+            <button onclick="showSection('cuisine-category')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">Cuisine Category</button>
+            <button onclick="showSection('location-page')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">Location Page</button>
+        </div>
+    </div>
+
+    <div class="pt-20">
+        <!-- Homepage Mockup -->
+        <section id="homepage" class="mockup-section">
+            <!-- Hero Section -->
+            <div class="relative h-screen bg-cover bg-center" style="background-image: url('../assets/images/hero/hero-dining-experience.jpg');">
+                <div class="absolute inset-0 hero-gradient"></div>
+                <div class="relative z-10 flex items-center justify-center h-full">
+                    <div class="text-center text-white max-w-4xl px-6">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6">Discover Your Perfect Dining Experience</h1>
+                        <p class="text-xl md:text-2xl mb-8 opacity-90">AI-powered restaurant discovery tailored to your taste</p>
+                        <button class="bg-savor-orange hover:bg-savor-orange-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                            Start Discovering
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Proposition Cards -->
+            <div class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-center text-rich-brown mb-12">Why Choose Savor?</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="card-hover bg-warm-cream rounded-xl p-8 text-center">
+                            <div class="w-16 h-16 bg-savor-orange rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Smart Discovery</h3>
+                            <p class="text-gray-600">AI-powered recommendations based on your taste preferences and dining history</p>
+                        </div>
+                        <div class="card-hover bg-warm-cream rounded-xl p-8 text-center">
+                            <div class="w-16 h-16 bg-fresh-green rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Personal Vault</h3>
+                            <p class="text-gray-600">Save and organize your favorite restaurants, recipes, and dining experiences</p>
+                        </div>
+                        <div class="card-hover bg-warm-cream rounded-xl p-8 text-center">
+                            <div class="w-16 h-16 bg-golden-yellow rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Community Insights</h3>
+                            <p class="text-gray-600">Real reviews and recommendations from fellow food enthusiasts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Content Section -->
+            <div class="py-16 bg-warm-cream">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-center text-rich-brown mb-12">Trending Now</h2>
+                    
+                    <!-- Trending Restaurants -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold text-rich-brown mb-6">Popular Restaurants</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-savor-orange to-appetite-red"></div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-rich-brown mb-2">Bella Vista</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Italian • $$$ • 4.8★</p>
+                                    <p class="text-sm text-gray-500">0.3 miles away</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-fresh-green to-golden-yellow"></div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-rich-brown mb-2">Sakura Sushi</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Japanese • $$ • 4.7★</p>
+                                    <p class="text-sm text-gray-500">0.5 miles away</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-appetite-red to-rich-brown"></div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-rich-brown mb-2">Spice Route</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Indian • $$ • 4.6★</p>
+                                    <p class="text-sm text-gray-500">0.8 miles away</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-golden-yellow to-savor-orange"></div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-rich-brown mb-2">Le Petit Bistro</h4>
+                                    <p class="text-sm text-gray-600 mb-2">French • $$$$ • 4.9★</p>
+                                    <p class="text-sm text-gray-500">1.2 miles away</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Articles -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-rich-brown mb-6">Latest Food Articles</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-savor-orange to-golden-yellow"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-savor-orange font-semibold">RECIPE</span>
+                                    <h4 class="font-bold text-rich-brown mb-2 mt-1">Perfect Pasta Carbonara</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Learn the authentic Italian technique for creamy, delicious carbonara...</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>15 min read</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Easy</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-fresh-green to-appetite-red"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-fresh-green font-semibold">GUIDE</span>
+                                    <h4 class="font-bold text-rich-brown mb-2 mt-1">Best Brunch Spots in NYC</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Discover the city's most Instagram-worthy brunch destinations...</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>8 min read</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Local Guide</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-rich-brown to-golden-yellow"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-rich-brown font-semibold">TIPS</span>
+                                    <h4 class="font-bold text-rich-brown mb-2 mt-1">Wine Pairing Basics</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Master the art of pairing wine with your favorite dishes...</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>12 min read</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant Discovery Page -->
+        <section id="restaurant-discovery" class="mockup-section hidden">
+            <!-- Search Header -->
+            <div class="bg-white shadow-lg">
+                <div class="max-w-6xl mx-auto px-6 py-6">
+                    <div class="flex flex-col lg:flex-row gap-4 items-center">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <input type="text" placeholder="Search restaurants..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-savor-orange focus:border-transparent">
+                                <svg class="absolute left-3 top-3.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 flex-wrap">
+                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-savor-orange">
+                                <option>All Cuisines</option>
+                                <option>Italian</option>
+                                <option>Japanese</option>
+                                <option>Mexican</option>
+                            </select>
+                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-savor-orange">
+                                <option>Any Price</option>
+                                <option>$ (Under $15)</option>
+                                <option>$$ ($15-30)</option>
+                                <option>$$$ ($30-60)</option>
+                                <option>$$$$ ($60+)</option>
+                            </select>
+                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-savor-orange">
+                                <option>Sort by Rating</option>
+                                <option>Sort by Distance</option>
+                                <option>Sort by Price</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="py-8 bg-warm-cream">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-rich-brown">342 restaurants found</h2>
+                        <div class="flex gap-2">
+                            <button class="p-2 bg-savor-orange text-white rounded-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                </svg>
+                            </button>
+                            <button class="p-2 bg-gray-200 text-gray-700 rounded-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Restaurant Card 1 -->
+                        <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-48 bg-gradient-to-br from-savor-orange to-appetite-red relative">
+                                <div class="absolute top-4 left-4">
+                                    <span class="bg-fresh-green text-white px-2 py-1 rounded-full text-xs font-semibold">Open Now</span>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <button class="bg-white bg-opacity-20 text-white p-2 rounded-full hover:bg-opacity-30">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-start justify-between mb-2">
+                                    <h3 class="font-bold text-rich-brown text-lg">Osteria del Mare</h3>
+                                    <div class="flex items-center">
+                                        <span class="text-golden-yellow text-sm">★★★★★</span>
+                                        <span class="text-gray-600 text-sm ml-1">4.8</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-savor-orange text-white px-2 py-1 rounded-full text-xs">Italian</span>
+                                    <span class="text-gray-600 text-sm">$$$ • 0.3 miles</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Authentic Italian seafood with fresh ingredients and traditional recipes. Perfect for romantic dinners.</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 bg-savor-orange text-white py-2 rounded-lg text-sm font-semibold hover:bg-savor-orange-dark">View Menu</button>
+                                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">Directions</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Restaurant Card 2 -->
+                        <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-48 bg-gradient-to-br from-fresh-green to-golden-yellow relative">
+                                <div class="absolute top-4 left-4">
+                                    <span class="bg-appetite-red text-white px-2 py-1 rounded-full text-xs font-semibold">Busy</span>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <button class="bg-white bg-opacity-20 text-white p-2 rounded-full hover:bg-opacity-30">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-start justify-between mb-2">
+                                    <h3 class="font-bold text-rich-brown text-lg">Sakura Garden</h3>
+                                    <div class="flex items-center">
+                                        <span class="text-golden-yellow text-sm">★★★★☆</span>
+                                        <span class="text-gray-600 text-sm ml-1">4.6</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-fresh-green text-white px-2 py-1 rounded-full text-xs">Japanese</span>
+                                    <span class="text-gray-600 text-sm">$$ • 0.7 miles</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Fresh sushi and traditional Japanese dishes in a peaceful garden setting. Great for lunch meetings.</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 bg-savor-orange text-white py-2 rounded-lg text-sm font-semibold hover:bg-savor-orange-dark">View Menu</button>
+                                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">Directions</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Restaurant Card 3 -->
+                        <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-48 bg-gradient-to-br from-rich-brown to-golden-yellow relative">
+                                <div class="absolute top-4 left-4">
+                                    <span class="bg-golden-yellow text-rich-brown px-2 py-1 rounded-full text-xs font-semibold">Moderate</span>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <button class="bg-white bg-opacity-20 text-white p-2 rounded-full hover:bg-opacity-30">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-start justify-between mb-2">
+                                    <h3 class="font-bold text-rich-brown text-lg">Café Lumière</h3>
+                                    <div class="flex items-center">
+                                        <span class="text-golden-yellow text-sm">★★★★☆</span>
+                                        <span class="text-gray-600 text-sm ml-1">4.4</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-rich-brown text-white px-2 py-1 rounded-full text-xs">French</span>
+                                    <span class="text-gray-600 text-sm">$$$ • 1.1 miles</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Cozy French bistro with excellent coffee and pastries. Perfect spot for breakfast or afternoon treats.</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 bg-savor-orange text-white py-2 rounded-lg text-sm font-semibold hover:bg-savor-orange-dark">View Menu</button>
+                                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">Directions</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-8">
+                        <button class="bg-white text-savor-orange border-2 border-savor-orange px-8 py-3 rounded-lg font-semibold hover:bg-savor-orange hover:text-white transition-colors">
+                            Load More Restaurants
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Template -->
+        <section id="article-template" class="mockup-section hidden">
+            <!-- Article Header -->
+            <div class="relative h-96 bg-gradient-to-br from-savor-orange to-appetite-red">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="relative z-10 max-w-4xl mx-auto px-6 h-full flex items-end pb-12">
+                    <div class="text-white">
+                        <nav class="text-sm mb-4 opacity-90">
+                            <a href="#" class="hover:underline">Home</a> 
+                            <span class="mx-2">›</span>
+                            <a href="#" class="hover:underline">Recipes</a>
+                            <span class="mx-2">›</span>
+                            <span>Italian</span>
+                        </nav>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">Perfect Pasta Carbonara: The Authentic Italian Recipe</h1>
+                        <div class="flex flex-wrap items-center gap-4 text-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+                                <span>By Chef Marco Rossi</span>
+                            </div>
+                            <span>•</span>
+                            <span>March 15, 2025</span>
+                            <span>•</span>
+                            <span>15 min read</span>
+                            <span>•</span>
+                            <span class="bg-white bg-opacity-20 px-2 py-1 rounded">Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <div class="py-12 bg-white">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-3 gap-12">
+                        <!-- Main Content -->
+                        <div class="lg:col-span-2">
+                            <div class="prose prose-lg max-w-none">
+                                <div class="bg-warm-cream rounded-xl p-6 mb-8">
+                                    <h3 class="text-xl font-bold text-rich-brown mb-4">Recipe Overview</h3>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-savor-orange">15</div>
+                                            <div class="text-sm text-gray-600">Prep Time</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-savor-orange">10</div>
+                                            <div class="text-sm text-gray-600">Cook Time</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-savor-orange">4</div>
+                                            <div class="text-sm text-gray-600">Servings</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-savor-orange">★★☆</div>
+                                            <div class="text-sm text-gray-600">Difficulty</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="text-lg text-gray-700 mb-8">Carbonara is one of Rome's most beloved pasta dishes, and when made correctly, it's absolutely divine. This authentic recipe uses just five simple ingredients to create a creamy, rich sauce without any cream at all.</p>
+
+                                <h3 class="text-2xl font-bold text-rich-brown mb-4">Ingredients</h3>
+                                <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-4 h-4 text-savor-orange border-gray-300 rounded focus:ring-savor-orange">
+                                            <span>400g spaghetti or tonnarelli</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-4 h-4 text-savor-orange border-gray-300 rounded focus:ring-savor-orange">
+                                            <span>200g guanciale (or pancetta), diced</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-4 h-4 text-savor-orange border-gray-300 rounded focus:ring-savor-orange">
+                                            <span>4 large egg yolks</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-4 h-4 text-savor-orange border-gray-300 rounded focus:ring-savor-orange">
+                                            <span>100g Pecorino Romano cheese, grated</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-4 h-4 text-savor-orange border-gray-300 rounded focus:ring-savor-orange">
+                                            <span>Freshly ground black pepper</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <h3 class="text-2xl font-bold text-rich-brown mb-4">Instructions</h3>
+                                <div class="space-y-6">
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-savor-orange text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                                        <div>
+                                            <h4 class="font-semibold text-rich-brown mb-2">Prepare the pasta water</h4>
+                                            <p class="text-gray-700">Bring a large pot of salted water to boil. The water should taste like the sea – this is crucial for properly seasoned pasta.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-savor-orange text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                                        <div>
+                                            <h4 class="font-semibold text-rich-brown mb-2">Cook the guanciale</h4>
+                                            <p class="text-gray-700">In a large skillet, cook the diced guanciale over medium heat until crispy and golden, about 8-10 minutes. The fat should render out completely.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-savor-orange text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                                        <div>
+                                            <h4 class="font-semibold text-rich-brown mb-2">Prepare the egg mixture</h4>
+                                            <p class="text-gray-700">In a bowl, whisk together egg yolks, grated Pecorino Romano, and a generous amount of black pepper until well combined.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="lg:col-span-1">
+                            <div class="sticky top-8 space-y-8">
+                                <!-- Social Sharing -->
+                                <div class="bg-warm-cream rounded-xl p-6">
+                                    <h4 class="font-bold text-rich-brown mb-4">Share this recipe</h4>
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm">Facebook</button>
+                                        <button class="flex-1 bg-sky-500 text-white py-2 rounded-lg text-sm">Twitter</button>
+                                        <button class="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm">WhatsApp</button>
+                                    </div>
+                                </div>
+
+                                <!-- Related Articles -->
+                                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                                    <h4 class="font-bold text-rich-brown mb-4">Related Recipes</h4>
+                                    <div class="space-y-4">
+                                        <a href="#" class="block group">
+                                            <div class="flex gap-3">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-savor-orange to-appetite-red rounded-lg flex-shrink-0"></div>
+                                                <div>
+                                                    <h5 class="font-semibold text-rich-brown group-hover:text-savor-orange text-sm">Cacio e Pepe</h5>
+                                                    <p class="text-xs text-gray-600">Another Roman classic</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="block group">
+                                            <div class="flex gap-3">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-fresh-green to-golden-yellow rounded-lg flex-shrink-0"></div>
+                                                <div>
+                                                    <h5 class="font-semibold text-rich-brown group-hover:text-savor-orange text-sm">Pasta Amatriciana</h5>
+                                                    <p class="text-xs text-gray-600">Spicy tomato sauce</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="block group">
+                                            <div class="flex gap-3">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-rich-brown to-golden-yellow rounded-lg flex-shrink-0"></div>
+                                                <div>
+                                                    <h5 class="font-semibold text-rich-brown group-hover:text-savor-orange text-sm">Aglio e Olio</h5>
+                                                    <p class="text-xs text-gray-600">Simple garlic & oil</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Newsletter Signup -->
+                                <div class="bg-savor-orange rounded-xl p-6 text-white">
+                                    <h4 class="font-bold mb-2">Get More Recipes</h4>
+                                    <p class="text-sm mb-4 opacity-90">Weekly recipes and cooking tips delivered to your inbox</p>
+                                    <div class="space-y-2">
+                                        <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-lg text-gray-900">
+                                        <button class="w-full bg-white text-savor-orange py-2 rounded-lg font-semibold">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuisine Category Page -->
+        <section id="cuisine-category" class="mockup-section hidden">
+            <!-- Category Header -->
+            <div class="relative h-80 bg-gradient-to-br from-appetite-red to-rich-brown">
+                <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                <div class="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
+                    <div class="text-white">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">Italian Cuisine</h1>
+                        <p class="text-xl mb-6 opacity-90">Discover authentic Italian restaurants, traditional recipes, and culinary insights</p>
+                        <div class="flex flex-wrap gap-6 text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl font-bold">247</span>
+                                <span>Restaurants</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl font-bold">89</span>
+                                <span>Recipes</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl font-bold">4.7★</span>
+                                <span>Avg Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-category Filters -->
+            <div class="bg-white border-b border-gray-200">
+                <div class="max-w-6xl mx-auto px-6 py-4">
+                    <div class="flex gap-4 overflow-x-auto">
+                        <button class="px-4 py-2 bg-savor-orange text-white rounded-full whitespace-nowrap">All Italian</button>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200">Northern Italian</button>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200">Southern Italian</button>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200">Pizza & Pasta</button>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200">Seafood</button>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200">Vegetarian</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Content Grid -->
+            <div class="py-12 bg-warm-cream">
+                <div class="max-w-6xl mx-auto px-6">
+                    <!-- Best Italian Restaurants -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-rich-brown mb-8">Top-Rated Italian Restaurants</h2>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-40 bg-gradient-to-br from-savor-orange to-appetite-red"></div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-rich-brown mb-1">Nonna's Kitchen</h3>
+                                    <p class="text-sm text-gray-600 mb-2">★★★★★ 4.9 • $$$ • 0.5 mi</p>
+                                    <p class="text-xs text-gray-500">Authentic family recipes since 1952</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-40 bg-gradient-to-br from-fresh-green to-golden-yellow"></div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-rich-brown mb-1">Il Giardino</h3>
+                                    <p class="text-sm text-gray-600 mb-2">★★★★☆ 4.7 • $$ • 0.8 mi</p>
+                                    <p class="text-xs text-gray-500">Fresh pasta made daily</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-40 bg-gradient-to-br from-rich-brown to-golden-yellow"></div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-rich-brown mb-1">Pizzeria Roma</h3>
+                                    <p class="text-sm text-gray-600 mb-2">★★★★☆ 4.6 • $ • 1.2 mi</p>
+                                    <p class="text-xs text-gray-500">Wood-fired Neapolitan pizza</p>
+                                </div>
+                            </div>
+                            <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-40 bg-gradient-to-br from-appetite-red to-savor-orange"></div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-rich-brown mb-1">Bella Vista</h3>
+                                    <p class="text-sm text-gray-600 mb-2">★★★★★ 4.8 • $$$$ • 2.1 mi</p>
+                                    <p class="text-xs text-gray-500">Fine dining with harbor views</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popular Italian Recipes -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-rich-brown mb-8">Popular Italian Recipes</h2>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-savor-orange to-golden-yellow"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-savor-orange font-semibold">PASTA</span>
+                                    <h3 class="font-bold text-rich-brown mb-2 mt-1">Classic Carbonara</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Creamy Roman pasta with guanciale and pecorino</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>25 min</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Easy</span>
+                                        <span class="mx-2">•</span>
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-appetite-red to-rich-brown"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-appetite-red font-semibold">PIZZA</span>
+                                    <h3 class="font-bold text-rich-brown mb-2 mt-1">Margherita Pizza</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Traditional Neapolitan pizza with fresh mozzarella</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>45 min</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Medium</span>
+                                        <span class="mx-2">•</span>
+                                        <span>★★★★☆</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="h-48 bg-gradient-to-br from-fresh-green to-golden-yellow"></div>
+                                <div class="p-6">
+                                    <span class="text-sm text-fresh-green font-semibold">RISOTTO</span>
+                                    <h3 class="font-bold text-rich-brown mb-2 mt-1">Mushroom Risotto</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Creamy Arborio rice with wild mushrooms</p>
+                                    <div class="flex items-center text-xs text-gray-500">
+                                        <span>35 min</span>
+                                        <span class="mx-2">•</span>
+                                        <span>Medium</span>
+                                        <span class="mx-2">•</span>
+                                        <span>★★★★☆</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- View All Button -->
+                    <div class="text-center">
+                        <button class="bg-savor-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-savor-orange-dark">
+                            Explore All Italian Content
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Page -->
+        <section id="location-page" class="mockup-section hidden">
+            <!-- Location Hero -->
+            <div class="relative h-96 bg-gradient-to-br from-savor-orange via-appetite-red to-rich-brown">
+                <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                <div class="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
+                    <div class="text-white">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">Restaurants in Manhattan, NYC</h1>
+                        <p class="text-xl mb-6 opacity-90">Discover the best dining experiences in the heart of New York City</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">1,247</div>
+                                <div class="opacity-90">Restaurants</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">85°F</div>
+                                <div class="opacity-90">Perfect weather</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">$$$</div>
+                                <div class="opacity-90">Avg price range</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">4.6★</div>
+                                <div class="opacity-90">Avg rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Discovery Section -->
+            <div class="py-12 bg-white">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-rich-brown mb-8">Quick Discovery</h2>
+                    
+                    <!-- Category Tabs -->
+                    <div class="flex gap-4 mb-8 overflow-x-auto">
+                        <button class="px-6 py-3 bg-savor-orange text-white rounded-lg whitespace-nowrap">Top Rated</button>
+                        <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg whitespace-nowrap hover:bg-gray-200">Trending Now</button>
+                        <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg whitespace-nowrap hover:bg-gray-200">Hidden Gems</button>
+                        <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg whitespace-nowrap hover:bg-gray-200">Quick Bites</button>
+                        <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg whitespace-nowrap hover:bg-gray-200">Fine Dining</button>
+                    </div>
+
+                    <!-- Restaurant Carousel -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="card-hover bg-warm-cream rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-40 bg-gradient-to-br from-savor-orange to-appetite-red relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-golden-yellow text-rich-brown px-2 py-1 rounded-full text-xs font-semibold">#1 Rated</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-rich-brown mb-1">Le Bernardin</h3>
+                                <p class="text-sm text-gray-600 mb-2">French Seafood • $$$$</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-golden-yellow text-sm">★★★★★ 4.9</span>
+                                    <span class="text-xs text-gray-500">Midtown West</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-warm-cream rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-40 bg-gradient-to-br from-fresh-green to-golden-yellow relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-appetite-red text-white px-2 py-1 rounded-full text-xs font-semibold">Trending</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-rich-brown mb-1">Xi'an Famous Foods</h3>
+                                <p class="text-sm text-gray-600 mb-2">Chinese • $</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-golden-yellow text-sm">★★★★☆ 4.5</span>
+                                    <span class="text-xs text-gray-500">Multiple Locations</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-warm-cream rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-40 bg-gradient-to-br from-rich-brown to-golden-yellow relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-fresh-green text-white px-2 py-1 rounded-full text-xs font-semibold">Hidden Gem</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-rich-brown mb-1">Russ & Daughters</h3>
+                                <p class="text-sm text-gray-600 mb-2">Jewish Deli • $$</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-golden-yellow text-sm">★★★★★ 4.7</span>
+                                    <span class="text-xs text-gray-500">Lower East Side</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-warm-cream rounded-xl overflow-hidden shadow-lg">
+                            <div class="h-40 bg-gradient-to-br from-appetite-red to-savor-orange relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-savor-orange text-white px-2 py-1 rounded-full text-xs font-semibold">Quick Bite</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-rich-brown mb-1">Joe's Pizza</h3>
+                                <p class="text-sm text-gray-600 mb-2">Pizza • $</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-golden-yellow text-sm">★★★★☆ 4.3</span>
+                                    <span class="text-xs text-gray-500">Greenwich Village</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Insights -->
+            <div class="py-12 bg-warm-cream">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-rich-brown mb-8">Local Dining Insights</h2>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Best Times -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Best Times to Dine</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">Lunch (12-2pm)</span>
+                                    <span class="text-fresh-green font-semibold">Less crowded</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">Happy Hour (5-7pm)</span>
+                                    <span class="text-golden-yellow font-semibold">Great deals</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">Dinner (7-9pm)</span>
+                                    <span class="text-appetite-red font-semibold">Peak busy</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Popular Cuisines -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Popular Cuisines</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">Italian</span>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-savor-orange h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">American</span>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-savor-orange h-2 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">Asian</span>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-savor-orange h-2 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transportation -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-rich-brown mb-4">Getting Around</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">M</div>
+                                    <span class="text-gray-700">Subway stations nearby</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-golden-yellow rounded-full flex items-center justify-center text-white text-sm font-bold">T</div>
+                                    <span class="text-gray-700">Taxi/Uber readily available</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-fresh-green rounded-full flex items-center justify-center text-white text-sm font-bold">W</div>
+                                    <span class="text-gray-700">Very walkable area</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.mockup-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update button styles
+            document.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('bg-savor-orange', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Highlight active button
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-savor-orange', 'text-white');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html> 
