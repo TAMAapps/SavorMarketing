@@ -1,6 +1,6 @@
 ---
 // Blog listing page - will be available at /blog/
-import { getPosts, getCategories } from '../../lib/wordpress';
+import { getPosts, getCategories, decodeHtmlEntities } from '../../lib/wordpress';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 
@@ -23,9 +23,10 @@ function getCategoryName(categoryId: number) {
   return category ? category.name : 'Uncategorized';
 }
 
-// Helper function to strip HTML from excerpt
+// Helper function to strip HTML from excerpt and decode entities
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '').trim();
+  const decoded = decodeHtmlEntities(html);
+  return decoded.replace(/<[^>]*>/g, '').trim();
 }
 ---
 
@@ -54,7 +55,7 @@ function stripHtml(html: string) {
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
       {posts.map((post) => (
         <BlogCard
-          title={post.title.rendered}
+          title={decodeHtmlEntities(post.title.rendered)}
           excerpt={stripHtml(post.excerpt.rendered)}
           href={`/blog/${post.slug}`}
           date={post.date}

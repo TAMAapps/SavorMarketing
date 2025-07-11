@@ -1,6 +1,6 @@
 ---
 // Individual blog post page - dynamic route
-import { getPosts, getCategories } from '../../lib/wordpress';
+import { getPosts, getCategories, cleanWordPressContent, decodeHtmlEntities } from '../../lib/wordpress';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import PostHeader from '../../components/PostHeader.astro';
 import SEO from '../../components/SEO.astro';
@@ -39,21 +39,27 @@ function getCategoryName(categoryId: number) {
 
 // Extract plain text from HTML for meta description
 function getPlainText(html: string, maxLength: number = 160) {
-  const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  const decodedHtml = decodeHtmlEntities(html);
+  const text = decodedHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
 
 const metaDescription = post.excerpt?.rendered ? getPlainText(post.excerpt.rendered) : getPlainText(post.content.rendered);
 const categoryName = post.categories.length > 0 ? getCategoryName(post.categories[0]) : undefined;
+
+// Clean the post content for rendering
+const cleanedContent = cleanWordPressContent(post.content.rendered);
+const cleanedTitle = decodeHtmlEntities(post.title.rendered);
+const cleanedExcerpt = post.excerpt?.rendered ? decodeHtmlEntities(post.excerpt.rendered) : undefined;
 ---
 
 <BlogLayout 
-  title={post.title.rendered}
+  title={cleanedTitle}
   description={metaDescription}
 >
   <Fragment slot="head">
     <SEO
-      title={post.title.rendered}
+      title={cleanedTitle}
       description={metaDescription}
       type="article"
       publishedTime={post.date}
@@ -62,14 +68,14 @@ const categoryName = post.categories.length > 0 ? getCategoryName(post.categorie
   </Fragment>
 
   <PostHeader
-    title={post.title.rendered}
+    title={cleanedTitle}
     date={post.date}
     category={categoryName}
-    excerpt={post.excerpt?.rendered ? getPlainText(post.excerpt.rendered, 200) : undefined}
+    excerpt={cleanedExcerpt ? getPlainText(cleanedExcerpt, 200) : undefined}
   />
 
   <div class="prose prose-lg max-w-none">
-    <div set:html={post.content.rendered}></div>
+    <div set:html={cleanedContent}></div>
   </div>
 
   <div class="mt-12 pt-8 border-t border-gray-200">

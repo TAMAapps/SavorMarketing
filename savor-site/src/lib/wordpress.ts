@@ -3,6 +3,72 @@
 
 const API_BASE = import.meta.env.WORDPRESS_API || 'https://savorcms.wpcomstaging.com/wp-json/wp/v2';
 
+// Helper function to decode HTML entities
+export function decodeHtmlEntities(text: string): string {
+  const entities: { [key: string]: string } = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#039;': "'",
+    '&apos;': "'",
+    '&nbsp;': ' ',
+    '&8211;': '\u2013', // em-dash
+    '&8212;': '\u2014', // en-dash
+    '&8216;': '\u2018', // left single quote
+    '&8217;': '\u2019', // right single quote
+    '&8218;': '\u201A', // single low quote
+    '&8220;': '\u201C', // left double quote
+    '&8221;': '\u201D', // right double quote
+    '&8222;': '\u201E', // double low quote
+    '&8230;': '\u2026', // ellipsis
+    '&8242;': '\u2032', // prime
+    '&8243;': '\u2033', // double prime
+    '&8249;': '\u2039', // left angle quote
+    '&8250;': '\u203A', // right angle quote
+    '&8364;': '\u20AC', // euro
+    '&8482;': '\u2122', // trademark
+    '&8594;': '\u2192', // right arrow
+    '&8592;': '\u2190', // left arrow
+    '&8593;': '\u2191', // up arrow
+    '&8595;': '\u2193', // down arrow
+  };
+
+  let decodedText = text;
+  
+  // Replace numeric entities first
+  decodedText = decodedText.replace(/&#(\d+);/g, (match, dec) => {
+    return String.fromCharCode(dec);
+  });
+  
+  // Replace hex entities
+  decodedText = decodedText.replace(/&#x([0-9a-f]+);/gi, (match, hex) => {
+    return String.fromCharCode(parseInt(hex, 16));
+  });
+  
+  // Replace named entities
+  Object.keys(entities).forEach(entity => {
+    const regex = new RegExp(entity.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+    decodedText = decodedText.replace(regex, entities[entity]);
+  });
+  
+  return decodedText;
+}
+
+// Helper function to clean WordPress content
+export function cleanWordPressContent(content: string): string {
+  let cleaned = decodeHtmlEntities(content);
+  
+  // Remove WordPress-specific artifacts
+  cleaned = cleaned.replace(/\[caption[^\]]*\]/g, '');
+  cleaned = cleaned.replace(/\[\/caption\]/g, '');
+  
+  // Clean up extra whitespace
+  cleaned = cleaned.replace(/\s+/g, ' ').trim();
+  
+  return cleaned;
+}
+
 // TypeScript interfaces for WordPress API responses
 export interface WordPressPost {
   id: number;
