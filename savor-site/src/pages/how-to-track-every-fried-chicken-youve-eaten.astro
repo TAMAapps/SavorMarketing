@@ -1,0 +1,208 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import PostHeader from '../components/PostHeader.astro';
+
+const title = "How to Track Every Fried Chicken You've Ever Eaten Without a Spreadsheet";
+const description = "A step-by-step guide for food critics and casual foodies to catalog fried chicken experiences using Savor.";
+const pubDate = "2025-07-11";
+const tags = ["guide","fried chicken","food journaling"];
+---
+
+<BlogLayout title={title} description={description}>
+  <article class="prose prose-lg max-w-4xl mx-auto px-4 py-8">
+    <PostHeader 
+      title={title}
+      date={pubDate}
+      category="Food Guide"
+      tags={tags}
+    />
+    
+    <h2>Introduction</h2>
+    <p>Fried chicken is one of the planet's most loved and truly democratic dishes.  From a Seoul subway stall to a Michelin starred brasserie in Paris, someone is dropping poultry into hot oil and hoping for that perfect alchemy of crackling skin and juicy meat.  If you travel, or even if you just explore your own city, you can easily rack up dozens of versions a year.  After a while the flavours blur together and the memories fade.  Was it the shatteringly crisp karaage in Osaka that edged out Nashville's hot style, or was it the turmeric laced ayam goreng you devoured in Jakarta?  Without a system, without a comprehensive food list or database, your taste history dissolves into anecdotes. Much sad.</p>
+
+    <p>Professional critics keep notebooks for exactly this reason.  A structured log preserves detail, sharpens palate memory and, over time, reveals patterns that make you a wiser eater that others want to share dining experiences with.  This guide walks through a modern, Savor modern if we may say so, pragmatic approach to cataloguing every fried chicken you try without any spreadsheet wrangling.  We will cover methodology, tools, rating frameworks and ways to turn raw notes into forever memories and insights you can share.</p>
+
+    <h2>1  Why Build a Fried Chicken List?</h2>
+    <ol>
+      <li><strong>Palate calibration</strong> ‑ Side by side data helps you detect subtleties such as chicken skin texture, batter flavour, spice bloom, that would otherwise hide behind nostalgia.</li>
+      <li><strong>Travel planning</strong> ‑ With location tags you can see which neighbourhoods over perform and which famous spots coast on hype.</li>
+      <li><strong>Recipe R&D</strong> ‑ If you cook, the database becomes a living reference of brines and dredges that actually deliver.</li>
+      <li><strong>Credibility</strong> ‑ When you publish a "Top Ten" list you can show provenance rather than guesses.</li>
+    </ol>
+
+    <h2>2  Choosing the Right Tool</h2>
+    <p>Old school critics still swear by paper notebooks, they force you to observe, then transcribe later.  The downside is searchability.  Modern apps solve that, but many generic note platforms miss the culinary nuance.  Here is a comparison of some tools:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Strength</th>
+          <th>Limitation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paper notebook</td>
+          <td>Sensory focus, no battery</td>
+          <td>Tedious aggregation, no photos</td>
+        </tr>
+        <tr>
+          <td>Spreadsheet</td>
+          <td>Custom fields, easy filtering</td>
+          <td>Friction on mobile, ugly UI</td>
+        </tr>
+        <tr>
+          <td>Generic notes app</td>
+          <td>Quick capture, rich text</td>
+          <td>No structured fields, weak export</td>
+        </tr>
+        <tr>
+          <td><strong>Savor</strong></td>
+          <td>Dish recognition, 10-point scale, map filters</td>
+          <td>iOS only atm</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>This article assumes you use <strong>Savor</strong> because, well, you should be!  Savor removes data entry friction and standardises ratings, but the underlying principles apply anywhere.</p>
+
+    <h2>3  Designing a Consistent Rating Framework</h2>
+    <p>"Good" and "great" mean different things to different eaters.  A repeatable framework keeps scores honest.  Below is the system I have refined after tasting fried chicken on multiple continents.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Criterion</th>
+          <th style="text-align: right;">Weight</th>
+          <th>What to Observe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Skin integrity</td>
+          <td style="text-align: right;">20 %</td>
+          <td>Does the crust hold when bitten, or shear off?</td>
+        </tr>
+        <tr>
+          <td>Crunch longevity</td>
+          <td style="text-align: right;">15 %</td>
+          <td>Remains crisp three minutes in, or sags on steam?</td>
+        </tr>
+        <tr>
+          <td>Seasoning depth</td>
+          <td style="text-align: right;">15 %</td>
+          <td>Salt penetration, spice complexity, sweetness balance</td>
+        </tr>
+        <tr>
+          <td>Meat succulence</td>
+          <td style="text-align: right;">30 %</td>
+          <td>Juiciness without greasiness; even breast moisture</td>
+        </tr>
+        <tr>
+          <td>Distinctive signature</td>
+          <td style="text-align: right;">10 %</td>
+          <td>Something memorable: fermented chilli glaze, pandan aroma, sourdough batter</td>
+        </tr>
+        <tr>
+          <td>Value context</td>
+          <td style="text-align: right;">10 %</td>
+          <td>Price relative to quality and portion</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Weights sum to 100.  You might tweak them; southern purists may increase seasoning weight, for instance, but once you commit, do not change mid journey or your data will splinter.</p>
+
+    <h3>Translating to Savor's 10-Point Scale</h3>
+    <p>Savor captures a single overall score (read more about <a href="/how-our-10-point-scale-works">our 10 point scale</a>).  If you prefer speed, give an overall figure but add quick bullet comments so future you understands the rationale.</p>
+
+    <h2>4  Capturing a Dish in the Wild</h2>
+    <ol>
+      <li><strong>Photo first, bite later</strong> – Steam and glazes alter appearance within seconds.  Take the best pic you can as this will become a lasting memory, and potentially shared with your friends when they ask for your best of lists.</li>
+      <li><strong>Let the AI pre-fill</strong> – Savor's on device computer vision hits fried chicken categories with high confidence.  Just Verify the dish name and give it a score.</li>
+      <li><strong>Enter quick tags</strong><br>
+         Use Savor's tag field to add keywords like "korean", "spicy", "breakfast".  Tags make future filtering and custom list building painless.</li>
+      <li><strong>Add restaurant & score</strong><br>
+         Type the venue name, slide the score from 0-10, and (optionally) jot a note.</li>
+      <li><strong>Attach media</strong><br>
+         Upload extra photos or even a short video; the entry holds multiple files.</li>
+      <li><strong>Save</strong><br>
+         Country and city autofill.  The moment you tap save, the entry lives in your private database.</li>
+      <li><strong>Score immediately</strong> – Memory fades fast.  If colleagues are talking, let them; capture while flavours are vivid.</li>
+      <li><strong>Add texture note</strong> – One concise line - "Ridged crust, cayenne bloom, juice burst." Or you could just write. "epic".</li>
+    </ol>
+
+    <p>The flow takes only a few seconds. Getting into a habit of snapping at dinner before eating also teaches patience, plus ensures you never forget and only enter real time flavours, not having to guess weeks later.</p>
+
+    <h2>5  Maintaining the Savor food Database Over Time</h2>
+    <h3>Weekly Review Ritual</h3>
+    <p>Set a 15 minute block every Sunday night:</p>
+    <ul>
+      <li>Find any rogue food pics in your camera roll and add them to Savor.</li>
+      <li>Standardise spelling inconsistencies so you will always get the right results when you search your food memories</li>
+    </ul>
+
+    <p><strong>Fun Metrics</strong><br>
+    *Savor automatically tracks all the cities, the various restaurants, cuisines, countries you eat at as well as of course the scores of all the dishes you've tried.  It's always fun checking your profile to seeing the variety of places you have dined at, and then all the forgotten memories associated with various dishes around the world.  This is one of my personal favourite features.</p>
+
+    <h2>6  Turning Data into Story</h2>
+    <p>Numbers matter, but narrative persuades.  When you write that viral "Top 12 Burgers of 2025" list:</p>
+    <ul>
+      <li>Begin with a simple thesis, for example, <em>fermented heat eclipsed smoked paprika this year</em>.</li>
+      <li>Group winners by flavour profile rather than geography; readers appreciate the thematic path.</li>
+      <li>Link each entry to its Savor public page so sceptical readers can audit your log. Or just because it would be cool and we'd appreciate it!</li>
+    </ul>
+
+    <h2>7  How to Handle Combo Plates?</h2>
+    <h3>Multi Component Plates</h3>
+    <p>If chicken arrives atop waffles or rice, you can use multiple tags for the dish i.e. 'Waffles', 'fried chicken', 'korean'. Don't forget you can create your own tags and categories. This is your personal food database after all!</p>
+
+    <h3>Home Cooked Experiments</h3>
+    <p>Yes, include your own trials. Create a tag labelled "self" and assign it.  Over time you will see whether your brine tweaks inch you closer to the leading commercial versions.</p>
+
+    <h2>8  Case Studies</h2>
+    <h3>8.1  Nashville vs Seoul</h3>
+    <p>In 2024 I logged 29 plates in Nashville and 17 in Seoul.  Despite wildly different flavour philosophies, the two cities shared a surprising pattern, vendors who dry brined overnight scored higher on succulence regardless of spice route.  The dataset suggested brine time, not chilli oil, drove satisfaction.</p>
+
+    <h2>9  Common Pitfalls and How to Avoid Them</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pitfall</th>
+          <th>Prevention</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rating while hungry</td>
+          <td>Eat a bite of something neutral first, hunger warps perception</td>
+        </tr>
+        <tr>
+          <td>Comparing incomparable cuts</td>
+          <td>Filter by cut before analysis</td>
+        </tr>
+        <tr>
+          <td>Letting nostalgia bias scores</td>
+          <td>Re taste top entries annually to validate</td>
+        </tr>
+        <tr>
+          <td>Ignoring oil freshness indicator</td>
+          <td>Note oil hue or smell upon arrival</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>10  Frequently Asked Questions</h2>
+    <p><strong>Do I need to rate sides or sauces separately?</strong>  Only if you want to. There is no right or wrong, this is your personal food journey. Your food memories. Your meories. Mention them in notes or add them as their own indivdiual entries.</p>
+
+    <p><strong>What about fried chicken sandwiches?</strong>  Same principles, I have friends that log them as separate dish types, bun moisture affects crunch metrics.</p>
+
+    <p><strong>Can I bulk import past notes?</strong>  Not at the moment, but it's something we are looking into.</p>
+
+    <h2>Conclusion</h2>
+    <p>Precision record keeping transforms fried chicken appreciation from casual indulgence into culinary scholarship.  With a structured database you will remember the exact coriander cumin ratio that elevated a Kuala Lumpur ayam goreng, or the buttermilk acidity that kept a Brooklyn thigh juicy under double dredged armour.  More importantly, you will share recommendations that rest on evidence rather than nostalgia.  Whether you are a roaming critic or a home cook chasing the ultimate crunch, systematic tracking is the surest path to mastery.</p>
+
+    <p>Ready to begin?  The next plate you eat can be entry #1 of the best log you will ever build.  Make every bite count. #Savorit</p>
+  </article>
+</BlogLayout>
