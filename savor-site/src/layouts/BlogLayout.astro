@@ -1,0 +1,68 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "Savor - Track every dish you've ever eaten", image } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    {image && <meta property="twitter:image" content={image} />}
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+      <div class="max-w-4xl mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <a href="/" class="text-2xl font-bold text-brand-600 hover:text-brand-700 transition-colors">
+            Savor
+          </a>
+          <nav class="hidden md:flex space-x-6">
+            <a href="/blog" class="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+            <a href="/" class="btn-primary">Download App</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+      <div class="max-w-4xl mx-auto px-4 py-8">
+        <div class="text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Savor. Track every dish you've ever eaten.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html> 

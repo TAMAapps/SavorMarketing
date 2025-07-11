@@ -1,0 +1,87 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const { 
+  title, 
+  description = "Savor - Track every dish you've ever eaten", 
+  image,
+  type = 'website',
+  publishedTime,
+  modifiedTime
+} = Astro.props;
+
+// Ensure title includes site name
+const fullTitle = title.includes('Savor') ? title : `${title} | Savor`;
+
+// Default image
+const defaultImage = '/assets/images/savor-og-image.jpg';
+const ogImage = image || defaultImage;
+
+// Canonical URL
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+<meta property="og:site_name" content="Savor" />
+
+{type === 'article' && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{type === 'article' && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Structured Data for Articles -->
+{type === 'article' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": new URL(ogImage, Astro.site),
+    "author": {
+      "@type": "Organization",
+      "name": "Savor"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Savor",
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL('/assets/images/savor-logo.png', Astro.site)
+      }
+    },
+    "datePublished": publishedTime,
+    "dateModified": modifiedTime || publishedTime,
+    "url": canonicalURL
+  })} />
+)} 
