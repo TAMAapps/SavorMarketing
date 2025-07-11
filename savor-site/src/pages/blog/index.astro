@@ -1,70 +1,42 @@
 ---
 // Blog listing page - will be available at /blog/
-import { getPosts, getCategories, decodeHtmlEntities } from '../../lib/wordpress';
 import BlogLayout from '../../layouts/BlogLayout.astro';
-import BlogCard from '../../components/BlogCard.astro';
-
-// Fetch posts at build time
-let posts: any[] = [];
-let categories: any[] = [];
-let error: string | null = null;
-
-try {
-  posts = await getPosts('per_page=20');
-  categories = await getCategories();
-} catch (e: any) {
-  error = e.message || 'Unknown error';
-  console.error('Error fetching WordPress data:', e);
-}
-
-// Helper function to get category name
-function getCategoryName(categoryId: number) {
-  const category = categories.find(cat => cat.id === categoryId);
-  return category ? category.name : 'Uncategorized';
-}
-
-// Helper function to strip HTML from excerpt and decode entities
-function stripHtml(html: string) {
-  const decoded = decodeHtmlEntities(html);
-  return decoded.replace(/<[^>]*>/g, '').trim();
-}
+import HubCard from '../../components/HubCard.astro';
 ---
-
-<BlogLayout 
-  title="Savor Blog - Food Stories & Restaurant Reviews"
-  description="Discover food stories, restaurant reviews, cooking tips, and culinary adventures from around the world."
->
-  <div class="mb-8">
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Savor Blog</h1>
-    <p class="text-xl text-gray-600">Food Stories & Restaurant Reviews</p>
+ 
+ <BlogLayout 
+   title="Savor Guides & Resources"
+   description="Explore food locations, cuisines, and in-depth guides to understand how Savor works before you even sign up."
+ >
+  <div class="mb-12 text-center max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Savor Knowledge Hub</h1>
+    <p class="text-lg md:text-xl text-gray-600">Start with the three core pillars below to discover authentic food experiences even with <strong>zero user reviews</strong>.</p>
   </div>
-  
-  {error ? (
-    <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-      <h2 class="text-lg font-semibold text-red-800 mb-2">Error loading posts</h2>
-      <p class="text-red-600">{error}</p>
-    </div>
-  ) : posts.length === 0 ? (
-    <div class="text-center py-16">
-      <div class="max-w-md mx-auto">
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">No posts yet</h2>
-        <p class="text-gray-600">Check back soon for delicious content!</p>
-      </div>
-    </div>
-  ) : (
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
-        <BlogCard
-          title={decodeHtmlEntities(post.title.rendered)}
-          excerpt={stripHtml(post.excerpt.rendered)}
-          href={`/blog/${post.slug}`}
-          date={post.date}
-          category={post.categories.length > 0 ? getCategoryName(post.categories[0]) : undefined}
-          readTime="5 min read"
-          difficulty="Easy"
-          cuisine={post.categories.length > 0 ? getCategoryName(post.categories[0]) : "International"}
-        />
-      ))}
-    </div>
-  )}
-</BlogLayout>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <HubCard
+      title="Explore by Location"
+      description="City-level guides that surface the most authentic restaurants – starting with Hanoi, NYC & London."
+      href="/locations/"
+      gradientClass="from-green-500 to-emerald-600"
+    />
+
+    <HubCard
+      title="Explore by Cuisine"
+      description="Find the best Italian, Vietnamese and more in each city, filtered by real-world data."
+      href="/cuisines/"
+      gradientClass="from-yellow-500 to-orange-500"
+    />
+
+    <HubCard
+      title="Authority Guides"
+      description="Learn our rating philosophy, AI accuracy and pro tips in five in-depth articles."
+      href="/authority/"
+      gradientClass="from-purple-500 to-fuchsia-600"
+    />
+  </div>
+
+  <div class="mt-16 text-center">
+    <a href="/download" class="inline-block bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-orange-700 transition">📱 Download the Savor App</a>
+  </div>
+ </BlogLayout>
